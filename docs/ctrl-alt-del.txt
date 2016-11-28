@@ -1,0 +1,24 @@
+ctrl-alt-del.txt
+Created Fri Nov 11 10:18:28 AKST 2011
+by Raymond E. Marcil <marcilr@gmail.com>
+
+
+To sent ctrl-alt-del for login hit right ctrl-del.
+
+The Happy Hacker Lite 2 keyboard lacks a right ctrl key.
+There are two solutions:
+
+o At the machine window use:
+Machine > Insert Ctrl-Alt-Del
+
+o Configure another key as the the right ctrl for Happy Hacker Lite 2 keyboard use.
+
+In Oracle VM VirtualBox Manager:
+i. File > Perferences... > Input
+
+ii. Click on Host Key: Right Ctrl then click the key to use as the new break focus key.
+I used the right diamond key (right Winkey).
+
+click OK
+
+This maps ctrl-del to right diamond - fn -` (del)
