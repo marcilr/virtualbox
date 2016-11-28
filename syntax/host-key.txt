@@ -1,0 +1,53 @@
+host-key.txt
+Created Wed Feb 11 13:11:43 AKST 2015
+Copyright (C) 2015 by Raymond E. Marcil <marcilr@gmail.com>
+
+
+The HHK2 (Happy Hacker 2 keyboard) does not have a right ctrl key.  Hence
+having the host key set to the right ctrl key does not work.
+
+The virtualbox Globel Settings documentation describes how to change the
+host key to any desired key.
+
+On the GCI Network Services, OSS debian wheezy workstation I updated the
+rmarcil win 7 pro hostkey from right ctrl to right winkey. (Wed Geb 11, 2015)
+Very nice.
+
+
+Globel Settings
+===============
+The global settings dialog can be reached through the File menu (under Oracle
+VM VirtualBox Manager 4.3.36_Debian r105129), selecting:
+  File > Preferences... (ctrl+g) > Input (2nd item)
+
+It offers a selection of settings which apply to all virtual machines of the
+current user or in the case of Extensions to the entire system:
+...
+Input Enables the user to specify the Host Key.  It identifies the key that
+toggles whether the cursor is in the focus of the VM or the Host operating
+system windows (see Section 1.8.2, "Capturing and releasing keyboard and
+mouse")[2] and which is also used to trigger certain VM actions (see Section
+1.8.3, "Typing special characters")
+...
+
+Find "Host Key Combination" under Input > Virtual Machine (tab).
+
+I set the shutcut to Right WinKey (triangle) key
+
+Inserting Ctrl-Alt-Del is Host + Del, hence it is nowe Right WinKey + Del,
+i.e. Right WinKey + Fn + Del (far upper right key) on the HHK2 keyboard.
+
+
+Links
+=====
+[1] 1.15. Global Settings
+http://www.virtualbox.org/manual/ch01.html#globalsettings
+
+[2] Capturing and releasing keyboard and mouse
+http://www.virtualbox.org/manual/ch01.html#keyb_mouse_normal
+
+[3] Typing special characters
+http://www.virtualbox.org/manual/ch01.html#specialcharacters
+
+1.15. Global Settings
+http://www.virtualbox.org/manual/ch01.html#globalsettings
