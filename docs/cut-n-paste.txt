@@ -1,0 +1,132 @@
+cut-n-paste.txt
+Created Fri Jan  3 10:10:28 AKST 2014
+Copyright (C) 2014 by Raymond E. Marcil <marcilr@gmail.com>
+
+
+Should be able to cut-n-paste from virtualbox to debian wheezy 7.3 machine.
+
+A couple of items are required for this to work:
+1. VirtualBox Extension Pack installed:
+   Oracle_VM_VirtualBox_Extension_Pack-4.3.6-91406.vbox-extpack
+
+2. Install Oracle VM VirtualBox Additions in windows machine:
+   click Devices > Insert Guest Additions CD image...
+   double-click D:\VirtualBox Guest Additions
+
+
+Fri Jan  3 10:10:28 AKST 2014
+=============================
+o In running rmarcil1 machine:
+1. click Devices > Insert Guest Additions CD image...     Host+D
+2. double-click D:\VirtualBox Guest Additions
+3. At Do you want to allow the following program to make changes
+   to this computer?
+
+Program name:       Oracle VM VirtualBox Additions
+Verified publisher: Oracle Corporation
+File origin:        CD/DVD drive
+
+click Yes
+
+4. At Welcome to Oracle VM VirtualBox Guest Additions 4.3.6 Setup Wizard
+click Next
+
+5. At Choose Install Location accept default:
+
+Destination Folder: C:\Program Files\Oracle\VirtualBox Guest Additions
+
+Space required:  624.0 KB
+Space available: 220.7 GB
+
+click Next
+
+6. At Choose Components select:
+
+          x VirtualBox Guest Additions
+<unchecked> Direct3D Support (Experimental)
+
+click Install
+
+7. At Would you like to install this device software?
+x Always trust from "Oracle Corporation"
+
+click Install
+
+8. At Completing the Oracle VM VirtualBox Guest Additions 4.3.6 Setup Wizard
+select Reboot now: 
+
+          x Reboot now
+<unchecked> I want to manually reboot later
+
+click Finish
+
+Center-click paste from virtualbox to linux console works.
+Copy from gedit to virtualbox works.
+Highlight and paste to virtualbox does not work.
+
+
+o Found reference that the dkms package is required.
+virtualbox.org/viewtopic.php?f=8&t=37956
+
+Installed dkms package but still not cut'n'paste.
+
+o Enabled bidirectional shared clipboard and drag'n'frop in the 
+virtualbox manager:
+
+1. In virtualbox manager right-click rmarcil1 machine > Settings...
+2. Under General (on top left) click Advanced tab
+3. Configure birectional drag'n'drop:
+
+Shared Clipboard: Bidirectional
+Drag'n'Drop:      Bidirectional
+Removable Media:  x Remember Runtime Changes
+Mini Toolbar:     x Show in Fullscreen/Seamless
+                  x Show at Top of screen
+
+click OK
+
+NOTE: Set this under Machine > Settings... > Advanced and
+      rmarcilr1 > Settings... > Advanced in virtualbox manager.
+
+4. Restarted virtualbox manager and rmarcil1 machine.
+
+
+
+50-vmmouse.conf
+===============
+From googling found reference to /usr/share/X11/xorg.conf.d/50-vmmouse.conf
+to enable this:
+
+Section "InputClass"
+        Identifier      "vmmouse"
+        MatchIsPointer  "on"
+        MatchTag        "vmmouse"
+        Driver          "vmmouse"
+EndSection
+
+virtualbox.org/
+
+The 50-vmmouse.conf file does look a bit old:
+  covellite:/usr/share/X11/xorg.conf.d$ ls -l 50-vmmouse.conf 
+  -rw-r--r-- 1 root root 115 Jun 14  2012 50-vmmouse.conf
+  covellite:/usr/share/X11/xorg.conf.d$
+
+Also no vmmouse drive running:
+  covellite:~$ lsmod | grep vmmouse
+  covellite:~$
+
+
+Links
+=====
+Paste into Linux Console?
+Postby ichilton » 11. Jan 2011, 12:53
+dkms package required to paste into console.
+https://forums.virtualbox.org/viewtopic.php?f=8&t=37956
+
+Ticket #6638 (closed defect: invalid)
+Guest Additions don't work on guest Debian Squeeze
+https://www.virtualbox.org/ticket/6638
+
+Ticket #6638: 50-vboxmouse.conf
+File 50-vboxmouse.conf, 111 bytes (added by frank, 4 years ago)
+https://www.virtualbox.org/attachment/ticket/6638/50-vboxmouse.conf
