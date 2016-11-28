@@ -1,0 +1,286 @@
+ESXi-machine.txt
+Created Wed Jun 17 10:43:30 AKDT 2015
+Copyright (C) 2015 by Raymond E. Marcil <marcilr@gmail.com>
+
+
+Installed of ESXi machine to virtualbox
+
+
+Disable PAE/NX
+==============
+I managed to install ESXi disabling PAE / NX...
+https://vpourchet.wordpress.com/2011/02/28/installer-esxi-4-1-sous-oracle-vm-virtualbox/#comment-481
+
+Under dev >Settings > System > Processor
+Extended Features
+<uncheck> Enable PAE/NX
+click OK
+
+Disabling PAE/NX made no difference.
+
+
+
+Create machine on GCI Network Services, OSS covellite Debian jessie 8.0 amd64
+workstation for installation of VMware ESXi 5.1.  Need an installation to
+test p2v systems on.
+
+
+VirtualBox: VirtualBox 4.2.28 r100309
+Kernel:     3.16.0-4-amd64
+Guest:      ESXi 5.1 (VMware-VMvisor-Installer-5.1.0-799733.x86_64.iso)
+
+o In VirtualBox 4.3.28 r100309 verify vertualization turned on and display
+acceleration is disabled.
+dev > Settings... > System > Accelleration
+
+Hardware Virtualization:
+x Enable VT-x/AMD-V
+x Enable Nested Paging
+
+dev > Settings... > System > Display
+Extended Features:
+<unchecked> Enable 3D Acceleration
+<unchecked> Enable 2D Acceleration
+
+
+VirtualBox forum
+Try VMware forum?
+
+
+Thu Jun 18 08:26:49 AKDT 2015
+=============================
+Working on installing ESXi 4.3.28 r100309 to VirtualBox 4.2.28 r100309
+dev virtual machine.
+
+o in Virtualbox run dev machine pointing to  ESXi installer iso.
+Looks good until it hangs at popup:
+
+1. Start dev machine
+right-click dev > Start
+
+2. At ESXi-5.1.0-799733-standard Boot menu
+select ESXi=5.1.0-799733-standard installer
+       Boot from local disk
+
+3. Watch install load the hang at popup:
+Loading ESXi installer
+
+watch modules loaded
+
+VMware ESXi 5.1.0 (VMKernel Release Build 799733)
+Initializing timer...       <=== succeseful
+Initializing scheduler...
+
+
+
+Booting the ESXi host fails at Initializing scheduler (2077712)
+===============================================================
+Symptoms
+--------
+o The ESXi host fails at Initializing scheduler on booting.
+o Restarting the host fails at Initializing scheduler.
+
+Cause
+-----
+This issue occurs when the legacy USB setting is enabled in the system BIOS.
+
+http://kb.vmware.com/selfservice/microsites/search.do?language=en_US&cmd=displayKC&externalId=2077712
+
+
+Hangs with popup:
+  VirtualBox - Guru Meditation
+  A critical error has occurred while running the virtual machine and the
+  machine execution has been stopped.
+
+  For help, please see the Community section on https://www.virtualbox.org or
+  your support contract.  Please provide the contents of the log file VBox.log
+  and the image file VBox.png, which you can find in the
+  /home/marcilr/VirtualBox VMs/dev/Logs directory, as well as a description of
+  what you were doing when this error happened. Note that you can also access
+  the above files by selecting Show Log from the Machine menu of the main
+  VirtualBox window.
+
+  Press OK if you want to power off the machine or press Ignore if you want to
+  leave it as is for debugging.  Please note that debugging requires special
+  knowledge and tools, so it is recommended to press OK now.
+
+Click OK
+
+o In VirtualBox 4.3.28 r100309 verify vertualization turned on and display
+acceleration is disabled.
+dev > Settings... > System > Accelleration
+
+Hardware Virtualization:
+x Enable VT-x/AMD-V
+x Enable Nested Paging
+
+dev > Settings... > System > Display
+Extended Features:
+<unchecked> Enable 3D Acceleration
+<unchecked> Enable 2D Acceleration
+
+
+Wed Jun 17 16:01:57 AKDT 2015
+=============================
+Updated VirtualBox 4.3.6 r98988 to VirtualBox 4.3.28 r100309
+Updated Oracle VM VirtualBox Extension Pack from:
+  Oracle_VM_VirtualBox_Extension_Pack-4.3.26-98988.vbox-extpack
+to:
+  Oracle_VM_VirtualBox_Extension_Pack-4.3.28.vbox-extpack
+
+Unable to get VMware-VMvisor-Installer-5.1.0-799733.x86_64.iso
+to install under virtualbox.  The boot looks promising but craps out
+with:
+
+~/VirtualBox VMs/dev/Logsv/Logs/VBox.log
+...
+00:00:40.282484 !!
+00:00:40.282485 !! {gdtguest}
+00:00:40.282485 !!
+00:00:40.282492 Guest GDT (GCAddr=0000412200021000 limit=402f):
+00:00:40.282500 0000 - read error rc=VERR_PAGE_TABLE_NOT_PRESENT GCAddr=0000412200021000
+00:00:40.282505 0008 - read error rc=VERR_PAGE_TABLE_NOT_PRESENT GCAddr=0000412200021008
+00:00:40.282509 0010 - read error rc=VERR_PAGE_TABLE_NOT_PRESENT GCAddr=0000412200021010
+...
+00:00:40.291860 4028 - read error rc=VERR_PAGE_TABLE_NOT_PRESENT GCAddr=0000412200025028
+...
+
+Not certain this is related or what it means.
+
+Create machine in VirtualBox
+============================
+1. Create new machine
+click Machine > New...
+
+2. At Name of operating system
+Name:    dev
+Type:    Linux
+Version: Other Linux (64-bit)
+click Next
+
+3. At Memory Size give the vm 4096MB ram.
+click Next
+
+4. At Hard drive create a new virtual hard drive:
+  Do not add a virtual hard drive
+x Create a virtual hard drive now
+  Use an existing virtual hard drive file
+click Create
+
+5. Hard drive file type select VDI (the default):
+x VDI (VirtualBox Disk Image)
+  VMDK (Virtual Machine Disk)
+  VHD (Virtual Hard Disk)
+  HDD (Parallels Hard Disk)
+  QED (QEMU enhanced disk)
+  QCOW (QEMU Copy-On-Write)
+click Next
+
+6. At Storage of physical hard drive select dynamically allocated:
+x Dynamically allocated
+  Fixed size
+click Next
+
+7. At File location and size leave at default:
+location: ~/VirtualBox VMs/dev/
+size:     8.00GB
+click Create
+
+This will create the empty dev virtual machine in virtualbox.
+
+
+Install ESXi on new machine
+===========================
+1. Run virtualbox
+
+2. In virtual box select the new machine created in "Create machine in
+VirtualBox"
+click Settings
+
+3. At <machine name> - Settings popup
+click System, the the processor tab and provide 2 processors
+click the Extended Features checkbox:
+      Extended Features: x Enable PAE/NX
+click Storage
+click 'Empty'
+click the small CD icon next to the CD/DVD drive
+select "Choose a virtual CD/DVD disk file..."
+
+At "Please choose a virtual optical disk file" select
+the VMware file with ESXi 5.1 ISO image and VMware Tools:
+  VMware-VMvisor-Installer-5.1.0-799733.x86_64.iso
+
+click Open
+
+Information
+Type: Image
+Size:    300.58MB
+Location: /home/marcilr/VirtualBox\ VMs/dev/
+
+Your ESXi iunstall will start (use the right ctrl button to release the mouse
+from the console).
+
+NOTE: Release configured for right winkey on rmarcil machine.
+
+VMware ESCi 5.1.0 (VMKernel Release Build 799733)
+  Logs: /home/marcilr/VirtualBox\ Vm/dev/Logs/VBox.log
+
+Got boot error
+clock Ignore
+
+Initializing scheduler...
+
+Fails and get error in /home/marcilr/VirtualBox\ Vm/dev/Logs/VBox.log:
+
+00:00:41.925918 !!
+00:00:41.925918 !! {gdtguest}
+00:00:41.925919 !!
+00:00:41.925925 Guest GDT (GCAddr=0000412200021000 limit=402f):
+00:00:41.925933 0000 - read error rc=VERR_PAGE_TABLE_NOT_PRESENT GCAddr=0000412200021000
+00:00:41.925938 0008 - read error rc=VERR_PAGE_TABLE_NOT_PRESENT GCAddr=0000412200021008
+00:00:41.925943 0010 - read error rc=VERR_PAGE_TABLE_NOT_PRESENT GCAddr=0000412200021010
+00:00:41.925947 0018 - read error rc=VERR_PAGE_TABLE_NOT_PRESENT GCAddr=0000412200021018
+...
+00:00:41.935477 4028 - read error rc=VERR_PAGE_TABLE_NOT_PRESENT GCAddr=0000412200025028
+00:00:41.935482 !!
+00:00:41.935483 !! {guestprops}
+00:00:41.935483 !!
+00:00:41.935487 /VirtualBox/HostInfo/GUI/LanguageID: 'en_US', 1434576340830133000
+00:00:41.935493 /VirtualBox/HostInfo/VBoxVerExt: '4.3.26', 1434576340584780000 (TRANSIENT, RDONLYGUEST)
+...
+
+
+
+
+Filelist
+========
+VMware-VMvisor-Installer-5.1.0-799733.x86_64.iso (301MB)
+  Release Date: 2012-09-10
+  Build Number: 799733
+
+  ESXi 5.1 ISO image (Includes VMware Tools)
+  Boot your server with this image in order to install or upgrade to ESXi.
+  This ESXi image includes VMware Tools.  NOTE: ESXi requires 64-bit capable
+  servers.
+
+  MD5SUM: fda2bed9a305b868dcbdc15c6ab6c153 
+  SHA1SUM: 8c54a4390d98a94a7d759960dc605b41b49d5946
+
+  Downloaed June 16, 2015
+
+
+Links
+=====
+I have a 64bit host, but can't install 64bit guests
+You usually need to enable VT-x/AMD-v in the host PC BIOS.
+https://forums.virtualbox.org/viewtopic.php?f=1&t=62339
+
+Installing ESXi 5.1 & vCenter 5.1 on VirtualBox
+September 16, 2012 by Mahmoud Magdy
+Looks useful.
+http://www.sureskillz.com/2012/09/16/installing-esxi-5-1-vcenter-5-1-on-virtualbox/
+
+Openbsd 5.4 boot issue
+00:00:09.092326 0000 - read error rc=VERR_PAGE_TABLE_NOT_PRESENT GCAddr=0000000000040f30
+00:00:09.092327 0008 - read error rc=VERR_PAGE_TABLE_NOT_PRESENT GCAddr=0000000000040f38
+https://forums.virtualbox.org/viewtopic.php?f=4&t=58860
