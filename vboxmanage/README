@@ -1,0 +1,116 @@
+README
+Created Fri Jun  3 15:20:27 AKDT 2011
+by Raymond E. Marcil <marcilr@gmail.com>
+
+
+VBoxManage, a command-line utility that allows you to control all of VirtualBox's powerful
+features.  In essence, VBoxManage supports everything that our graphical user interface allows you
+to do with the click of a button. VBoxManage supports a lot more than that, however.  It exposes
+really all the features of the virtualization engine, even those that cannot (yet) be accessed
+from the GUI.
+
+There are two main things to keep in mind when using VBoxManage
+
+o First,VBoxManage must always be used with a specific "subcommand", such as "list vms" or
+  "createvm" or "startvm".
+
+o Second, most of these subcommands require that you specify a particular virtual machine after
+  the subcommand. There are two ways you can do this:
+
+You can specify the VM name, as it is shown in the VirtualBox GUI.  Note that if that name
+contains spaces, then you must enclose the entire name in double quotes (as it is always required
+with command line arguments that contain spaces).
+
+ubuntugeek.com/
+
+
+"As briefly mentioned in chapter 1.13, Alternative front-ends, page 28, VBoxManage is the
+command-line interface to VirtualBox.  With it, you can completely control VirtualBox from the
+command line of your host operating system. VBoxManage supports all the features that the
+graphical user interface gives you access to, but it supports a lot more than that.  It exposes
+really all the features of the virtualization engine, even those that cannot (yet) be accessed
+from the GUI."
+
+UserManual.pdf, p. 99
+
+Definately looks like vboxmanage could be used to generate a virtual machine via the command line
+for use with windows.
+ 
+
+Syntax
+======
+
+Change vm settings
+------------------
+marcilr@boothite:~$ vboxmanage | grep hd
+                            hostcpuids|hddbackends|hdds|dvds|floppies|
+                            [--audiocontroller ac97|hda|sb16]
+                            [--type dvddrive|hdd|fdd]
+VBoxManage showhdinfo       <uuid>|<filename>
+VBoxManage createhd         --filename <filename>
+VBoxManage modifyhd         <uuid>|<filename>
+VBoxManage clonehd          <uuid>|<filename> <outputfile>
+marcilr@boothite:~$
+
+
+Documentation
+=============
+$ vboxmanage -help 
+  or
+/usr/share/doc/virtualbox-4.1/UserManual.pdf
+  or
+/usr/local/src/00TARBALLS/virtualbox/UserManual.pdf
+
+
+
+Filelist
+========
+createhd.txt
+  This command creates a new virtual hard disk image.
+
+  The syntax is as follows:
+  VBoxManage createhd   --filename <filename>
+                        --size <megabytes>
+                        [--format VDI|VMDK|VHD] (default: VDI)
+                        [--variant Standard,Fixed,Split2G,Stream,ESX]
+
+controlvm.txt 
+  The controlvm subcommand allows you to change the state of a virtual machine that is currently
+  running.  This include pause, resume, and poweroff.
+
+hd.txt
+  vboxmanage commands to manipulation hard drive (hd).
+
+headless.txt
+  Headless virtual machine
+  Chapter 7. Remote virtual machines
+  https://www.virtualbox.org/manual/ch07.html
+
+help.txt
+  Created with "$ vboxmanage --help".
+
+list.txt
+  vboxmanage list vms - List all virtual machines.
+
+vboxmanage modifyvm
+
+modifyvm.txt
+  Modify VM settings. 
+
+showhdinfo.txt
+  VBoxManage showhdinfo
+  This command shows information about a virtual hard disk image, notably its size,
+  its size on disk, its type and the virtual machines which use it.
+
+showvminfo.txt
+  vboxmanage showvminfo <vm> - Display particular vm info.
+
+
+Links
+=====
+Chapter 8. VBoxManage
+Good summary of commands.
+http://www.virtualbox.org/manual/ch08.html
+
+How to control virtual machines (Virtualbox) using VBoxManage
+http://www.ubuntugeek.com/how-to-control-virtual-machines-virtualbox-using-vboxmanage.html#more-741
