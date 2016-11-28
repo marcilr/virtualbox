@@ -1,0 +1,170 @@
+template-win-7-pro.txt
+Created Sun Aug  5 09:06:08 AKDT 2012
+Copyright (C) 2012 by Raymond E. Marcil <marcilr@gmail.com>
+
+
+Creating a template-win-7-pro vm for easy creation of new win 7 pro virtual machines.
+
+
+1. Stop & save  ajoite-non-domain, Shena's win 7 pro vm, on malachite.
+$ vboxmanage controlvm ajoite-non-domain savestate
+0%...10%...20%...30%...40%...50%...60%...70%...80%...90%...100%
+$
+
+2. Create backup of ajoite-non-domain
+$ cd ~/home/marcilr/VirtualBox\ VMs/
+$ mkdir tmp-20120805
+$ rsync -va --stats --progress ajoite-non-domain tmp-20120805/
+...
+$ du -m tmp-20120805/
+1       tmp-20120805/ajoite-non-domain/Logs
+1580    tmp-20120805/ajoite-non-domain/Snapshots
+42424   tmp-20120805/ajoite-non-domain
+42424   tmp-20120805/
+$
+
+Wow, 42GB.
+
+3. Move ajoite-non-domain to temporay location.
+$ mkdir prior
+$ mv ajoite-non-domain/ prior/
+
+4. Expand ajoite-non-domain-20120731.tar.bz2 (22.8GB)
+   Latest backup of windows 7 pro machine after 57 updates.
+
+$ tar jxvpf 00BACKUPS/ajoite-non-domain-20120731.tar.bz2
+ajoite-non-domain/
+ajoite-non-domain/Logs/
+ajoite-non-domain/Logs/VBox.log.3
+ajoite-non-domain/Logs/VBox.log.2
+ajoite-non-domain/Logs/VBox.log.1
+ajoite-non-domain/Logs/VBox.log
+ajoite-non-domain/ajoite-non-domain.vbox-prev
+ajoite-non-domain/ajoite-non-domain-disk1.vdi
+ajoite-non-domain/ajoite-non-domain.vdi
+ajoite-non-domain/ajoite-non-domain-disk2.vdi
+ajoite-non-domain/ajoite-non-domain.vbox
+$
+
+$ du -m ajoite-non-domain/
+1       ajoite-non-domain/Logs
+38994   ajoite-non-domain/
+$
+
+Looks good.
+
+5. Rename ajoite-non-domain to template-win-7-pro.
+
+i. Run VirtualBox GUI
+Applications > System Tools > Oracle VM VirtuaBox
+
+ii. Access ajoite-non-domain settigns
+right-click ajoite-non-domain > Settings...
+
+iii. Update name from ajoite-non-domain to template-win-7-pro
+click OK
+
+This correctly updated directory name from ajoite-non-domain to template-win-7-pro
+
+6. Start template-win-7-pro and set ip address to 10.1.0.30 to alleviate any conflict 
+with Shena's ajoite-non-domain.
+
+i. Run VirtualBox GUI
+Applications > System Tools > Oracle VM VirtuaBox
+
+ii. Start template-win-7-pro
+right-click template-win-7-pro > Start
+
+iii. Login as marcilr/the usual.
+
+iv. Update ip address from dhcp to static ip:
+ip address:           10.1.0.30
+subnet mask:          255.255.255.0
+default gateway:      10.1.0.1
+preferred dns server: 209.165.131.12 
+Alternate dns server: 209.165.131.13
+
+7. Update from NAT to Bridged Adater for network connectivity.
+In VirtualBox GUI:
+
+right-click template-win-7-pro > Settings... > Network
+Attached to: NAT ===> Bridged Adapter
+click OK
+
+Access to internet in IE works.
+
+8. Check vrde (VirtualBox Remote Desktop Extension) settings.
+
+$ vboxmanage showvminfo template-win-7-pro
+Name:            template-win-7-pro
+Guest OS:        Windows 7 (64 bit)
+UUID:            a80f04fc-4ec5-49f6-8b08-607f000b13a7
+Config file:     /home/marcilr/VirtualBox VMs/template-win-7-pro/template-win-7-pro.vbox
+...
+VRDE:            enabled (Address 0.0.0.0, Ports 3389, MultiConn: off, ReuseSingleConn: off, \
+Authent             ication type: guest)
+VRDE port:       3389
+
+Looks like vrde (VirtualBox Remote Desktop Extension) is enabled and port 3389 is configured
+for RDP use.
+
+Do *not* need to do:
+  $ VBoxManage modifyvm template-win-7-pro --vrde on
+  $ VBoxManage modifyvm template-win-7-pro --natpf1 "guestrdp,tcp,,3389,,3389"
+
+9. In VirtualBox GUI shutdown machine.
+
+10. Start machine in headless mode.
+$ vboxheadless --startvm template-win-7-pro &
+(C) 2008-2012 Oracle Corporation
+All rights reserved.
+
+VRDE server is listening on port 3389.
+
+$
+
+9. Test access to machine with rdesktop:
+$ rdesktop -a 16 10.1.0.30:3389 &
+
+RDP to template-win-7-pro is not working...
+
+10. Launched template-win-7-pro in VirtualBox GUI.  Had to disable windows firewall.
+Control Panel > Windows Firewall > Turn Windows Firewall on or off
+
+Turned windows firewall off.
+
+11. Set Home network location.
+i. Open Network and Sharing Center
+Control Panel > Network and Sharing Center
+
+ii. Click Work network, Home network, or Public network, and then click the network
+location you want.
+
+clicked on Work network then selected Home network.
+click Close
+
+12. In windows shutdown template-win-7-pro.
+
+13. Start template-win-7-pro in headless mode.
+$ vboxheadless --startvm template-win-7-pro &
+[1] 21867
+marcilr@malachite:~/VirtualBox VMs$ Oracle VM VirtualBox Headless Interface 4.1.18
+(C) 2008-2012 Oracle Corporation
+All rights reserved.
+
+VRDE server is listening on port 3389.
+$
+
+14. Test access to machine with rdesktop:
+$ rdesktop -a 16 10.1.0.30:3389 &
+
+Yeh hah, this worked.
+
+15. Updated computer name from "ajoite" to "template".
+
+
+
+Links
+=====
+could not rename VM
+https://forums.virtualbox.org/viewtopic.php?f=6&t=32097
