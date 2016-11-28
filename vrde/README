@@ -1,0 +1,33 @@
+README
+Created Mon Nov 28 10:43:19 AKST 2016
+Copyright (C) 2016 by Raymond E. Marcil <marcilr@gmail.com>
+
+
+Filelist
+========
+rdp.txt
+  Remote Desktop Protocol (RDP) access to VMs 
+
+restart.txt
+  Windows command line restart
+
+start-headless.txt
+  Start VirtualBox VM headless 
+
+stop-headless.txt
+  Save state and stop virtual machine 
+
+vboxheadless.txt
+  VBoxHeadless
+  VirtualBox therefore comes with yet another front-end
+  called VBoxHeadless, which produces no visible output
+  on the host at all, but instead only delivers VRDP data.
+  This front-end has no dependencies on the X Window
+  system on Linux and Solaris hosts.[33]
+
+  vboxheadless --startvm <uuid|name> --vrde=config
+
+  --virtualbox.org/manual/ch07.html#vrde
+
+vrde.txt
+  vrde (VirtualBox Remote Desktop Extension)
