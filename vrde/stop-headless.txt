@@ -1,0 +1,14 @@
+stop-headless.txt
+Created Fri Aug  3 11:12:31 AKDT 2012
+Copyright (C) 2012 by Raymond E. Marcil <marcilr@gmail.com>
+
+
+To save state and stop virtual machine:
+
+$ vboxmanage controlvm ajoite-non-domain savestate
+0%...10%...20%...30%...40%...50%...60%...70%...80%...90%...VRDE server is inactive.
+100%
+$
+
+Use vboxheadless to start ajoite-non-domain vm again.
+$ vboxheadless --startvm ajoite-non-domain 
