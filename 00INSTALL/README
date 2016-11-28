@@ -33,3 +33,6 @@ INSTALL-4.0.8
 INSTALL-4.1.18
   Installation of VirtualBox 4.1.18 from virtualbox-4.1_4.1.18-78361~Debian~squeeze_amd64.deb
   on debian squeeze 6.0.5 malachite workstation
+
+svn_ext_val.txt 
+  List of repo hierarchical directories to checkout under 00INSTALL/
