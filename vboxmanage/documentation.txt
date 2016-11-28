@@ -1,0 +1,14 @@
+documentation.txt
+Created Mon Nov 28 10:32:59 AKST 2016
+Copyright (C) 2016 by Raymond E. Marcil <marcilr@gmail.com>
+
+
+Documentation
+
+
+$ vboxmanage -help 
+  or
+/usr/share/doc/virtualbox-4.1/UserManual.pdf
+  or
+/usr/local/src/00TARBALLS/virtualbox/UserManual.pdf
+
