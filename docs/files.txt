@@ -1,0 +1,62 @@
+files.txt
+Created Sat Aug  4 12:56:56 AKDT 2012
+Copyright (C) 2012 by Raymond E. Marcil <marcilr@gmail.com>
+
+
+Working on creating lvm on bornite for virtual machines.
+
+$HOME/.VirtualBox/               - VirtualBox global configuration data.[1]
+$HOME/.VirtualBox/VirtualBox.xml - VirtualBox global registry of machines virtual media.[1]
+
+Doesn't look like anything directly configurable in $HOME/.VirtualBox/ Files reference
+use of VBoxManage or the VirtualBox Manager GUI.
+
+
+VBoxManage setproperty
+======================
+This command is used to change global settings which affect the entire VirtualBox installation.
+Some of these correspond to the settings in the "Global settings" dialog in the graphical user
+interface. The following properties are available:
+
+machinefolder
+  This specifies the default folder in which virtual machine definitions are kept; see the section
+  called "Where VirtualBox stores its files"[1] for details.
+
+vrdeauthlibrary
+  This specifies which library to use when "external" authentication has been selected for a
+   particular virtual machine; see the section called "RDP authentication"[2] for details.
+
+websrvauthlibrary
+  This specifies which library the web service uses to authenticate users.  For details about the
+  VirtualBox web service, please refer to the separate VirtualBox SDK reference (see Chapter 11,
+  VirtualBox programming interfaces).[3]
+
+vrdelibrary
+  This specifies which library implements the VirtualBox Remote Desktop Extension.
+
+hwvirtexenabled
+  This selects whether or not hardware virtualization support is enabled by default.
+
+virtualbox.org/
+
+
+Links
+=====
+[1] Where VirtualBox stores its files
+Chapter 10. Technical background
+http://www.virtualbox.org/manual/ch10.html#vboxconfigdata
+
+[2] RDP authentication
+Remote display (VRDP support)
+Chapter 7. Remote virtual machines
+http://www.virtualbox.org/manual/ch07.html#vbox-auth
+
+[3] Chapter 11, VirtualBox programming interfaces
+http://www.virtualbox.org/manual/ch11.html
+
+VBoxManage setproperty
+This command is used to change global settings which affect the entire VirtualBox installation.
+Some of these correspond to the settings in the "Global settings" dialog in the graphical user
+interface.
+Chapter 8. VBoxManage
+http://www.virtualbox.org/manual/ch08.html#vboxmanage-setproperty
