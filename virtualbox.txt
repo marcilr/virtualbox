@@ -1,0 +1,738 @@
+README
+Created Wed May 25 11:37:18 AKDT 2011
+by Raymond E. Marcil <marcilr@gmail.com>
+
+
+VirtualBox is a powerful x86 and AMD64/Intel64 virtualization 
+product for enterprise as well as home use.  Not only is VirtualBox 
+an extremely feature rich, high performance product for enterprise 
+customers, it is also the only professional solution that is freely 
+available as Open Source Software under the terms of the GNU General 
+Public License (GPL) version 2. See "About VirtualBox" for an 
+introduction.
+
+virtualbox.org/
+
+
+"Oracle VM VirtualBox is an x86 virtualization software package, 
+originally created by software company innotek GmbH, purchased by 
+Sun Microsystems, and now developed by Oracle Corporation as part 
+of its family of virtualization products. It is installed on an 
+existing host operating system; within this application, additional 
+guest operating systems, each known as a Guest OS, can be loaded 
+and run, each with its own virtual environment."
+
+"According to 2010 surveys by LinuxJournal.com [5] and LifeHacker.com [6], 
+VirtualBox was the most popular virtualization product with over 50% of 
+the vote."
+
+wikipedia.org/
+
+
+
+Starting
+========
+o In GNOME, go to: GNOME menu > Applications > System tools > VirtualBox OSE
+
+This worked under debian squeeze installation.
+
+o From an X terminal:
+$ virtualbox
+  or
+$ VirtualBox
+
+Server - You can start VirtualBox in Headless mode using VBoxHeadless 
+like this:
+$ VBoxHeadless -startvm "VMName"
+
+debian.org/
+
+
+Thu May 26 11:01:33 AKDT 2016
+=============================
+o Updated automatedly to VirtualBox 5.0.20 r106931.
+o Installed VBoxGuestAdditions_5.0.20.iso
+$ cd ~/VirtualBox\ VMs
+$ wget http://download.virtualbox.org/virtualbox/5.0.20/VBoxGuestAdditions_5.0.20.iso
+
+Then in Oracle VM VirtualBox Manager:
+Machine > Settings > VBoxGuestAddtions...
+  under Attributes click cdrom
+  select Choose a virtual CD/DVD disk file....
+  select VBoxGuestAdditions_5.0.20.iso
+  click Open
+  click OK
+
+$ rm VBoxGuestAdditions_5.0.14.iso
+
+Index of /virtualbox/5.0.20
+http://download.virtualbox.org/virtualbox/5.0.20/
+
+
+Wed Dec 30 09:49:54 AKST 2015
+=============================
+Updated from debian's VirtualBox 4.3.34 r104062 to downloaded 5.0.12 r104815
+on GCI Network Services, OSS covellite workstation:
+
+1. Shutdown machine:
+cmd
+C:\Users\rmarcil.GCI> shutdown /s
+Windows will shut down in less than a minute.
+
+2. Ran standard update:
+# aptitude update
+# aptitude upgrade
+
+3. Remove old virtualbox:
+# aptitude remove virtualbox-4.3
+The following packages will be REMOVED:  
+  virtualbox-4.3 
+...
+Removing virtualbox-4.3 (4.3.34-104062~Ubuntu~raring) ...
+...
+#
+
+4. Install virtualbox 5.0.12 r104815:
+# dpkg -i virtualbox-5.0_5.0.12-104815~Debian~jessie_amd64.deb
+Selecting previously unselected package virtualbox-5.0.
+(Reading database ... 284193 files and directories currently installed.)
+Preparing to unpack virtualbox-5.0_5.0.12-104815~Debian~jessie_amd64.deb ...
+Unpacking virtualbox-5.0 (5.0.12-104815~Debian~jessie) ...
+...
+Starting VirtualBox kernel modules ...done.
+ln: target "setup" is not a directory
+Processing triggers for systemd (215-17+deb8u2) ...
+Processing triggers for hicolor-icon-theme (0.13-1) ...
+Processing triggers for shared-mime-info (1.3-1) ...
+Processing triggers for desktop-file-utils (0.22-1) ...
+Processing triggers for gnome-menus (3.13.3-6) ...
+Processing triggers for mime-support (3.58) ...
+#
+
+5. Install extension pack via command line:
+# VirtualBox ./Oracle_VM_VirtualBox_Extension_Pack-5.0.12-104815.vbox-extpack
+
+6. Updated from VBoxGuestAdditions_4.3.32.iso to freshly downloaded
+VBoxGuestAdditions_5.0.12.iso Think this comes in the main virtualbox
+binary but I'll be darned if I know how to install from it.
+
+Hence downloaded VBoxGuestAdditions_5.0.12.iso:
+$ cd ~/VirtualBox\ VMs
+$ wget http://download.virtualbox.org/virtualbox/5.0.12/VBoxGuestAdditions_5.0.12.iso
+
+In VirtualBox Manager:
+  click Settings > Storage
+
+Under Controller IDE:
+  click VBoxGuestAdditions.iso 
+  click cdrom (upper left) > Remove Disk from Virtual Drive
+  This will change VBoxGuestAdditions.iso to Empty.
+
+Add new VBoxGuestAdditions:
+  click cdrom > Choose Virtual Optical Disk File...
+  select ~/VirtualBox\ VMs/VBoxGuestAdditions_5.0.12.iso
+  click OK
+
+  In VirtualBox Manager under Stroage now see:
+  Controller IDE:
+    IDE Primary Storage: [Optical Drive] VBoxGuestAdditions_5.0.12.iso (36.75MB)
+  Controller: SATA
+    SATA Port 0:         rmarcil1.vdi (Normal, 250.00 GB)
+
+7. Looks good.  Fire up rmarcil1 machine tp test 5.0.12 r104815.
+
+
+Wed Jun 17 14:58:47 AKDT 2015
+=============================
+Updated from debian's VirtualBox 4.3.26 r98988 to VirtualBox 4.3.28 r100309 
+on GCI Network Services, OSS covellite workstation:
+
+1. Created /etc/apt/sources.list.d/virtualbox.list
+
+Ran standard update:
+# aptitude update
+# aptitude upgrade
+
+This updated from VirtualBox 4.3.6 r98988 to VirtualBox 4.3.28 r100309
+
+3. Still ran through old procedure to make sure everythign was right
+
+4. Remove old virtualbox:
+# aptitude remove virtualbox-4.3
+
+Package got in a bad state so used:
+# dpkg --remove --force-remove-reinstreq virtualbox-4.3
+
+How to fix "Package is in a very bad inconsistent state" error?
+http://askubuntu.com/questions/148715/how-to-fix-package-is-in-a-very-bad-inconsistent-state-error
+
+5. Install virtualbox 4.3.28 r100309:
+# dpkg -i virtualbox-4.3_4.3.28-100309-Debian-wheezy_amd64.deb
+
+6. Install extension pack via command line from old version 3.2.6 to version 4.3.28.
+Download extension pack from:
+  $ wget http://dlc-cdn.sun.com/virtualbox/4.3.28/Oracle_VM_VirtualBox_Extension_Pack-4.3.28.vbox-extpack
+
+Install extension pack via command line:
+  # VirtualBox ./Oracle_VM_VirtualBox_Extension_Pack-4.3.28.vbox-extpack
+
+7. Updated from VBoxGuestAdditions_4.3.26.iso to freshly downloaded
+VBoxGuestAdditions_4.3.28.iso Think this comes in the main virtualbox
+binary but I'll be darned if I know how to install from it.
+
+Hence downloaded VBoxGuestAdditions_4.3.28.iso:
+$ cd ~/VirtualBox\ VMs
+$ wget http://dlc-cdn.sun.com/virtualbox/4.3.28/VBoxGuestAdditions_4.3.28.iso
+
+Then in Oracle VM VirtualBox Manager:
+Machine > Settings > VBoxGuestAddtions...
+  under Attributes click cdrom
+  select Choose a virtual CD/DVD disk file....
+  select VBoxGuestAdditions_4.3.28.iso
+  click Open
+  click OK
+
+In Oracle VM VirtualBox Manager should now see VBoxGuestAdditions_4.3.28 
+(55.54 MB) Under Storage on main page.
+
+
+Mon Apr  6 08:19:37 AKDT 2015
+=============================
+Updated from debian's VirtualBox 4.3.20 r96996 to VirtualBox 4.3.26 r98988
+on GCI Network Services, OSS covellite workstation:
+
+1. Remove old virtualbox:
+# aptitude remove virtualbox-4.3
+
+2. Install virtualbox 4.3.26 r98988:
+# dpkg -i virtualbox-4.3_4.3.26-98988~Debian~wheezy_amd64.deb 
+
+3. Install extension pack via command line:
+# VirtualBox ./Oracle_VM_VirtualBox_Extension_Pack-4.3.26-98988.vbox-extpack
+
+4. Updated from VBoxGuestAdditions_4.3.16.iso to freshly downloaded 
+VBoxGuestAdditions_4.3.26.iso Think this comes in the main virtualbox
+binary but I'll be darned if I know how to install from it.
+
+Hence downloaded VBoxGuestAdditions_4.3.26.iso:
+$ cd ~/VirtualBox\ VMs
+$ wget http://dlc-cdn.sun.com/virtualbox/4.3.26/VBoxGuestAdditions_4.3.26.iso
+
+Then in Oracle VM VirtualBox Manager:
+Machine > Settings > VBoxGuestAddtions...
+  under Attributes click cdrom
+  select Choose a virtual CD/DVD disk file....
+  select VBoxGuestAdditions_4.3.26.iso
+  click Open
+  click OK
+
+In Oracle VM VirtualBox Manager should now see VBoxGuestAdditions_4.3.26 
+(55.43 MB) Under Storage on main page.
+
+
+Mon Feb  9 15:20:44 AKST 2015
+=============================
+Updated from debian's VirtualBox 4.1.18_Debian r78361 to Virtualbox 4.3.20
+(https://www.virtualbox.org/wiki/Downloads) to alleviate 'NS_ERROR_FAILURE
+(0x80004005)' error I was getting for vagrant up on deb/wheezy-amd64 box.
+
+NOTE: Could not get Devices > Install Guest Additions to work,
+      Successfully reused the previous VBoxGuestAdditions_4.3.16.iso 
+
+Installed VBoxGuestAdditions.iso
+  Look under Devices
+  Postby Paul Abrahams > 5. Jun 2008, 18:44
+
+  The guest additions are actually included (invisibly) in the binary package.
+  You get at them by choosing Install Guest Additions from the Devices menu.
+  You then install them by mounting the Guest Additions iso file, which will
+  show up in the list of available images.  As far as I know, the Guest
+  Additions aren't available separately and don't need to be. 
+
+  I had the very same question that you did, and I'll bet many others do also.
+
+  VBoxGuestAdditions.iso
+  Postby vic > 5. Jun 2008, 17:21
+  https://forums.virtualbox.org/viewtopic.php?t=7007
+
+Installed Virtualbox 4.1.20 extension pack:
+
+  #  vboxmanage extpack install \
+  Oracle_VM_VirtualBox_Extension_Pack-4.3.20-96996.vbox-extpack
+  0%...10%...20%...30%...40%...50%...60%...70%...80%...90%...100%
+  Successfully installed "Oracle VM VirtualBox Extension Pack".
+  #
+
+Installed Virtualbox 4.1.20:
+  dpkg -i virtualbox-4.3_4.3.20-96996~Debian~wheezy_amd64.deb
+
+Used aptitude to remove virtualbox 4.1.8:
+  virtualbox
+  virtualbox-guest-additions   4.1.18-1
+    transitional package for virtualbox-guest-additions-iso
+  virtualbox-guest-additions-iso   4.1.18-1
+    guest additions iso image for VirtualBox
+
+
+Mon Sep 29 08:19:43 AKDT 2014
+=============================
+Updated from virtualbox-4.3.14-95030 to virtualbox-4.3_4.3.16-95972
+
+1. Too backup of virtualbox-4.3.14-95030 to:
+~/VirtualBox VMs/00BACKUPS/rmarcil1-20140926.tar.bz2
+
+2. Remove old virtualbox:
+# aptitude remove virtualbox-4.3
+
+Remove stray rc file:
+rc  virtualbox-4.3   4.3.14-95030~Debian~wheezy   amd64   Oracle VM VirtualBox
+
+# purge
+
+3. Install virtualbox virtualbox-4.3_4.3.16-95972
+$ cd /usr/local/debs/virtualbox/virtualbox-4.3_4.3.16-95972
+# dpkg -i virtualbox-4.3_4.3.16-95972~Debian~wheezy_amd64.deb
+
+Install extension pack via command line:
+# VirtualBox ./Oracle_VM_VirtualBox_Extension_Pack-4.3.16-95972.vbox-extpack
+
+At Oracle VirtualBox Manager, VirtualBox - Question
+
+You are about to install a VirtualBox extension pack.  Extension packs
+complement the functionality of VirtualBox and can contain system level
+software that could be potentially harmful to your system.  Please review the
+description below and only proceed if you have obtained the extension pack
+from a trusted source.
+
+Name:        Oracle VM VirtualBox Extension Pack
+Version:     4.3.16r95972
+Description: USB 2.0 Host Controller, Host Webcam, VirtualBox RDP,
+             PXE ROM with E1000 support
+
+click INSTALL
+
+4. At VirtualBox License
+click I Agree
+
+5. At VirtualBox Information popup:
+
+The extension pack Oracle VM VirtualBox Extension Pack
+was installed successfully.
+click OK
+
+6. Update from VBoxGuestAdditions_4.3.14.iso to
+VBoxGuestAdditions_4.3.16.iso (55.54MB).
+
+i. Copy VBoxGuestAdditions_4.3.16.iso to ~/VirtualBox\ VMs/ directory:
+$ cd /usr/local/debs/virtualbox/virtualbox-4.3_4.3.16-95972
+$ cp VBoxGuestAdditions_4.3.16.iso ~/VirtualBox\ VMs
+$ ls ~/VirtualBox\ VMs
+00BACKUPS        lost+found  share  VBoxGuestAdditions_4.3.16.iso  wheezy-ge
+backup-machines  rmarcil1    tmp    wheezy                         wheezy-vnc
+$
+
+Looks good.
+
+ii. In VirtualBox Manager update from VBoxGuestAdditions_4.3.14.iso
+to VBoxGuestAdditions_4.3.16.iso:
+click Storage
+
+iii. Under Storage Tree
+  right-click VBoxGuestAdditions select Remove Attachment
+
+At VirtualBox - Information popup:
+  Are you sure you want to delete the CD/DVD device?
+  You will not be able to insert any CDs or ISO images or install
+  Guest Additions without it!
+
+click Remove
+
+iv. Under Storage Tree:
+click Add CD/DVD Device icon
+
+At VirtualBox - Question popup:
+  You are about to add a new CD/DVD drive to controller IDE.
+  Would you like to choose a virtual CD/DVD disk to put in the drive or
+  to leave it empty for now?
+
+click Choose disk
+
+v. At Please choose a virtual optical disk file select
+/home/marcilr/VirtualBox\ VMs/VBoxGuestAdditions_4.3.16.iso
+
+click Open
+
+vi. Back at marcilr1 - Settings:
+
+click OK
+
+vii. Observe that Storage section has been updated to:
+
+Storage
+Controller: IDE
+  IDE Primary Master: [CD/DVD] VBoxGuestAdditions_4.3.14.iso
+Controller: SATA
+  SATA Port 0: rmarcil1.vdi (Normal, 250.00 GB)
+
+Looks good.
+
+
+Mon Aug 18 10:42:58 AKDT 2014
+=============================
+Updated from virtualbox 4.3_4.3.12-93733 to virtualbox-4.3.14-95030.
+
+1. Remove old virtualbox:
+# aptitude remove virtualbox-4.3
+
+Remove stray rc file:
+rc  virtualbox-4.3   4.3.12-93733~Debian~wheezy   amd64   Oracle VM VirtualBox
+
+# purge
+
+2. Install virtualbox virtualbox-4.3.14-95030
+$ cd /usr/local/debs/virtualbox/virtualbox-4.3.14-95030
+# dpkg -i virtualbox-4.3_4.3.14-95030~Debian~wheezy_amd64.deb
+
+Install extension pack via command line:
+# VirtualBox ./Oracle_VM_VirtualBox_Extension_Pack-4.3.14-95030.vbox-extpack
+
+At Oracle VirtualBox Manager, VirtualBox - Question
+
+You are about to install a VirtualBox extension pack.  Extension packs
+complement the functionality of VirtualBox and can contain system level
+software that could be potentially harmful to your system.  Please review the
+description below and only proceed if you have obtained the extension pack
+from a trusted source.
+
+Name:        Oracle VM VirtualBox Extension Pack
+Version:     4.3.14r95030
+Description: USB 2.0 Host Controller, Host Webcam, VirtualBox RDP,
+             PXE ROM with E1000 support
+
+click INSTALL
+
+3. At VirtualBox License
+click I Agree
+
+4. At VirtualBox Information popup:
+
+The extension pack Oracle VM VirtualBox Extension Pack
+was installed successfully.
+click OK
+
+5. Update from VBoxGuestAdditions_4.3.10.iso (61.65MB) to
+VBoxGuestAdditions_4.3.12.iso
+
+i. Copy VBoxGuestAdditions_4.3.12.iso to ~/VirtualBox\ VMs/ directory:
+$ cd /usr/local/debs/virtualbox/virtualbox-4.3_4.3.12-93733
+$ cp VBoxGuestAdditions_4.3.12.iso ~/VirtualBox\ VMs
+$ ls ~/VirtualBox\ VMs
+00BACKUPS        lost+found  share
+backup-machines  rmarcil1    VBoxGuestAdditions_4.3.12.iso
+$
+
+Looks good.
+
+ii. In VirtualBox Manager update from VBoxGuestAdditions_4.3.12.iso
+to VBoxGuestAdditions_4.3.14.iso:
+click Storage
+
+iii. Under Storage Tree
+  right-click VBoxGuestAdditions select Remove Attachment
+
+At VirtualBox - Information popup:
+  Are you sure you want to delete the CD/DVD device?
+  You will not be able to insert any CDs or ISO images or install
+  Guest Additions without it!
+
+click Remove
+
+iv. Under Storage Tree:
+click Add CD/DVD Device icon
+
+At VirtualBox - Question popup:
+  You are about to add a new CD/DVD drive to controller IDE.
+  Would you like to choose a virtual CD/DVD disk to put in the drive or
+  to leave it empty for now?
+
+click Choose disk
+
+v. At Please choose a virtual optical disk file select
+/home/marcilr/VirtualBox\ VMs/VBoxGuestAdditions_4.3.14.iso
+
+click Open
+
+vi. Back at marcilr1 - Settings:
+
+click OK
+
+vii. Observe that Storage section has been updated to:
+
+Storage
+Controller: IDE
+  IDE Primary Master: [CD/DVD] VBoxGuestAdditions_4.3.14.iso
+Controller: SATA
+  SATA Port 0: rmarcil1.vdi (Normal, 250.00 GB)
+
+Looks good.
+
+
+7. Unable to install latest VBoxGuestAdditions_4.3.14.iso using
+Host+D (Right Winkey + D) in machine.
+
+Appear to be mapped under storage in virtualbox manager.
+
+
+Starting up the rmarcil1 win 7 pro virtual machine.
+
+
+Tue Jul  8 08:33:32 AKDT 2014
+=============================
+Updated from virtualbox 4.3.10-93012 to 4.3.12-93733.
+
+1. Remove old virtualbox:
+# aptitude remove virtualbox-4.3
+
+Remove stray rc file:
+rc  virtualbox-4.3   4.3.10-93012~Debian~wheezy   amd64 Oracle VM VirtualBox
+
+# purge
+
+2. Install virtualbox 4.3.12-93733:
+$ cd /usr/local/debs/virtualbox/virtualbox-4.3_4.3.12-93733
+# dpkg -i virtualbox-4.3_4.3.12-93733~Debian~wheezy_amd64.deb
+
+Install extension pack via command line:
+# VirtualBox ./Oracle_VM_VirtualBox_Extension_Pack-4.3.12-93733.vbox-extpack
+
+At Oracle VirtualBox Manager, VirtualBox - Question
+
+You are about to install a VirtualBox extension pack.  Extension packs
+complement the functionality of VirtualBox and can contain system level
+software that could be potentially harmful to your system.  Please review the
+description below and only proceed if you have obtained the extension pack
+from a trusted source.
+
+Name:        Oracle VM VirtualBox Extension Pack
+Version:     4.3.12r93733
+Description: USB 2.0 Host Controller, Host Webcam, VirtualBox RDP,
+             PXE ROM with E1000 support
+
+click INSTALL
+
+3. At VirtualBox License
+click I Agree
+
+4. At Enter the administrative password popup:
+
+Password <the usual>
+x Remember Password
+    Save for this session
+  x Save in keyring
+
+click OK
+
+5. At Choose password for keyring popup:
+Password: <the usual>
+Confirm:  <the usal>
+click Continue
+
+6. At VirtualBox Information popup:
+
+The extension pack Oracle VM VirtualBox Extension Pack
+was installed successfully.
+click OK
+
+6. Update from VBoxGuestAdditions_4.3.10.iso (61.65MB) to
+VBoxGuestAdditions_4.3.12.iso
+
+i. Copy VBoxGuestAdditions_4.3.12.iso to ~/VirtualBox\ VMs/ directory:
+$ cd /usr/local/debs/virtualbox/virtualbox-4.3_4.3.12-93733
+$ cp VBoxGuestAdditions_4.3.12.iso ~/VirtualBox\ VMs
+$ ls ~/VirtualBox\ VMs
+00BACKUPS        lost+found  share
+backup-machines  rmarcil1    VBoxGuestAdditions_4.3.12.iso
+$
+
+Looks good.
+
+ii. In VirtualBox Manager update from VBoxGuestAdditions_4.3.10.iso (61.65MB)
+to VBoxGuestAdditions_4.3.12.iso:
+click Storage
+
+iii. Under Storage Tree
+  right-click VBoxGuestAdditions select Remove Attachment
+
+At VirtualBox - Information popup:
+  Are you sure you want to delete the CD/DVD device?
+  You will not be able to insert any CDs or ISO images or install
+  Guest Additions without it!
+
+click Remove
+
+iv. Under Storage Tree:
+click Add CD/DVD Device icon
+
+At VirtualBox - Question popup:
+  You are about to add a new CD/DVD drive to controller IDE.
+  Would you like to choose a virtual CD/DVD disk to put in the drive or
+  to leave it empty for now?
+
+click Choose disk
+
+v. At Please choose a virtual optical disk file select
+/home/marcilr/VirtualBox\ VMs/VBoxGuestAdditions_4.3.12.iso
+
+click Open
+
+vi. Back at marcilr1 - Settings:
+
+click OK
+
+vii. Observe that Storage section has been updated to:
+
+Storage
+Controller: IDE
+  IDE Primary Master: [CD/DVD] VBoxGuestAdditions_4.3.12.iso (61.77 MB)
+Controller: SATA
+  SATA Port 0: rmarcil1.vdi (Normal, 250.00 GB)
+
+Looks good.
+
+
+7. Unable to insalled latest VBoxGuestAdditions_4.3.12.iso using 
+Host+D (Right Winkey + D) in machine.
+
+Appear to be mapped under storage in virtualbox manager.
+
+
+Starting up the rmarcil1 win 7 pro virtual machine.
+
+
+Tue May  6 15:01:54 AKDT 2014
+=============================
+Added VBoxGuestAdditions_4.3.10.iso via VirtualBox manager application
+to VirtualBox 4.3_4.3.10-93012.
+
+Reinstalled Oracle_VM_VirtualBox_Extension_Pack-4.3.10-93012.vbox-extpack
+
+
+Fri Mar 28 08:49:46 AKDT 2014
+=============================
+Updated GCI covellite debian wheezy 7.3 amd64 from virtualbox 4.3_4.3.8-92456
+to 4.3_4.3.10-93012.
+
+Update 4.3_4.3.8-92456 to 4.3_4.3.10-93012:
+# aptitude remove virtualbox-4.3
+# dpkg -i virtualbox-4.3_4.3.10-93012~Debian~wheezy_amd64.deb
+$ dpkg -l | grep virtualbox
+ii  virtualbox-4.3   4.3.10-93012~Debian~wheezy   amd64   Oracle VM VirtualBox
+$
+
+Install extension pack via command line:
+# VirtualBox Oracle_VM_VirtualBox_Extension_Pack-4.3.10-93012.vbox-extpack
+
+Attempted to install VirtualBox guest additons to rmarcil1 machine.
+However, running Devices > Insert Guest Additions CD Image...,
+from the rmarcil1 machine toolbar does nothing.  Must not want to
+updated existing guest additions that were installed previously.
+
+
+Wed Feb 26 08:41:25 AKST 2014
+=============================
+Updated GCI covellite debian wheezy 7.3 amd64 from virtualbox 4.3_4.3.6-91406
+to 4.3_4.3.8-92456.
+
+$ dpkg -l | grep virtualbox
+ii  virtualbox-4.3   4.3.6-91406~Debian~wheezy   amd64   Oracle VM VirtualBox
+$
+
+# aptitude remove virtualbox-4.3
+# dpkg -i virtualbox-4.3_4.3.8-92456~Debian~wheezy_amd64.deb
+
+$ dpkg -l | grep virtualbox
+ii  virtualbox-4.3   4.3.8-92456~Debian~wheezy   amd64   Oracle VM VirtualBox
+
+Install Oracle VM VirtualBox Extension Pack:
+# VirtualBox Oracle_VM_VirtualBox_Extension_Pack-4.3.8-92456.vbox-extpack
+
+This upgraded the extension pack from 4.3_4.3.6-91406 to 4.3_4.3.8-92456.
+
+
+Tue Jan  7 16:14:32 AKST 2014
+=============================
+Window resizing for rmarcil1 in virtualbox started to work.  Think this is
+due to:
+
+Installation of Guest Additions to machine.  In machine window:
+  Devices > Insert Guest Additions CD Image...
+
+"If you have the Guest Additions installed and they support automatic resizing,
+the Guest Additions will automatically adjust the screen resolution of the guest
+operating system.  For example, if you are running a Windows guest with a
+resolution of 1024x768 pixels and you then resize the VM window to make it 100
+pixels wider, the Guest Additions will change the Windows display resolution to
+1124x768."   <=== Sweet!
+
+https://www.virtualbox.org/manual/ch01.html
+
+
+Tue Aug 28 10:34:39 AKDT 2012
+=============================
+From slash vmware thread:
+
+This is why I use VirtualBox... (3)
+by RocketRabbit (830691) on Tuesday August 28, @01:59PM (#41152571)
+
+VirtualBox costs a very reasonable $50 if you want to deploy it commercially.  It competes well
+with VMware on features and speed, and is user-friendly enough to recommend to small businesses.
+
+VMware is expensive, the licenses are confusing, and overall it's just become a gigantic pain in
+the ass.
+
+slashdot.org/story/12/08/28/169218/vmware-back-pedals-on-vram-scheme-back-to-per-socket-pricing
+
+
+Tue Jul 19 15:06:10 AKDT 2011
+=============================
+On UAA ITS boothite debian squeeze 6.0.2 x64 workstation removed virtualbox v4.0.8.
+Installed latest virtualbox v4.1.0.
+
+boothite:~# aptitude remove virtualbox-4.0
+boothite:/usr/local/src# dpkg -i  ./virtualbox-4.1_4.1.0-73009~Debian~squeeze_amd64.deb 
+
+
+Filelist
+========
+/usr/share/doc/virtualbox-4.1/UserManual.pdf
+  The user manual.
+  vboxmanage, p. 104
+    createhd, p. 128
+
+Links
+=====
+Virtual Box
+http://www.virtualbox.org/
+
+VirtualBox
+https://en.wikipedia.org/wiki/VirtualBox
+
+VirtualBox
+Install & docs.
+VirtualBox OSE 3.2.10 is packaged for Squeeze. 
+http://wiki.debian.org/VirtualBox
+
+VirtualBox
+http://www.ubuntugeek.com/create-and-manage-virtual-machines-using-virtualbox.html
+
+VirtualBox
+Plenty of good tricks here.
+https://wiki.archlinux.org/index.php/VirtualBox
+
+VMware Back-Pedals On vRAM Scheme, Back To Per-Socket Pricing
+Posted by timothy on Tuesday August 28, @12:31PM
+from the old-ways-is-best-ways dept.
+"VMware is back to more straightforwardly charging per physical processor."
+"But I think they mean per socket. (or maybe per physical processor, but not per core)"
+http://it.slashdot.org/story/12/08/28/169218/vmware-back-pedals-on-vram-scheme-back-to-per-socket-pricing
+
