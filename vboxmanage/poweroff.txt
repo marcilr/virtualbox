@@ -1,0 +1,33 @@
+poweroff.txt
+Created Fri Feb 13 11:52:29 AKST 2015
+Copyright (C) 2015 by Raymond E. Marcil <marcilr@gmail.com>
+
+
+Safely poweroff machine
+
+
+To safe shutdown vm use this command:
+  $ vboxmanage controlvm Ubuntu poweroff soft
+
+covellite:~$ vboxmanage controlvm rmarcil1 poweroff soft
+0%...10%...20%...30%...40%...50%...60%...70%...80%...90%...100%
+covellite:~$
+
+This appears to do a save and stop.
+
+askubuntu.com/questions/42482/
+
+Need to test this one:
+  $ vboxmanage controlvm Ubuntu acpipowerbutton
+
+askubuntu.com/questions/42482/
+
+Pull the plug (hard shutdown):
+  $ vboxmanage controlvm Ubuntu poweroff
+
+
+
+Links
+=====
+How to safely shutdown Guest OS in VirtualBox using command line
+http://askubuntu.com/questions/42482/how-to-safely-shutdown-guest-os-in-virtualbox-using-command-line/42487#42487
