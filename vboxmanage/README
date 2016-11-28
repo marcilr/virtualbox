@@ -50,13 +50,17 @@ headless.txt
 help.txt
   Created with "$ vboxmanage --help"
 
-list.txt
-  vboxmanage list vms - List all virtual machines.
+links.txt
+  VboxManage related links
 
-vboxmanage modifyvm
+list.txt
+  vboxmanage list vms - List all virtual machines
 
 modifyvm.txt
   Modify VM settings. 
+
+poweroff.txt
+  Safely poweroff machine
 
 showhdinfo.txt
   VBoxManage showhdinfo
@@ -65,7 +69,7 @@ showhdinfo.txt
   the virtual machines which use it.
 
 showvminfo.txt
-  vboxmanage showvminfo <vm> - Display particular vm info.
+  vboxmanage showvminfo <vm> - Display particular vm info
 
 syntax.txt
   Syntax for vboxmanage
