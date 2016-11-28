@@ -1,0 +1,176 @@
+vrde.txt
+Created Tue Jul 31 17:29:06 AKDT 2012
+Copyright (C) 2012 by Raymond E. Marcil <marcilr@gmail.com>
+
+
+Working on connecting to ajoite-non-domain, win 7 pro machine, using rdp.
+This entails configuring vrde (VirtualBox Remote Desktop Extension) for the machine.
+
+
+Configuration
+=============
+o Configure machine for Bridged adaptor (in machine window).
+  Required for RDP to access machine.
+
+Machine > Settings... > Network
+  Attached to: Not attached
+               NAT
+               Bridged adapter    <== Selected (Aug 1, 2012)
+               Internal Network
+               Host-adapter only
+               Generic Driver
+
+o Disable windows firewall in machine (enables pinging machine).
+control panel > network and sharing center > windows firewall
+
+o Modify your virtual machine to accept remote desktop connections:
+$ vboxmanage modifyvm ajoite-non-domain --vrde on
+
+o Forward rdp port traffic comming on on tcp 3389 tp 3389 on machine.
+$ vboxmanage modifyvm ajoite-non-domain --natpf1 "guestrdp,tcp,,3389,,3389"
+
+NOTE: Turning windows firewall off under:
+        control panels > network and sharing center > windows firewall
+      Enabled ping to 10.1.0.15
+
+
+
+
+Start machine headless
+======================
+$ VBoxHeadless --startvm "ajoite-non-domain" &
+[1] 5169
+marcilr@malachite:~/VirtualBox VMs$ Oracle VM VirtualBox Headless Interface 4.1.18
+(C) 2008-2012 Oracle Corporation
+All rights reserved.
+
+VRDE server is listening on port 3389.
+
+$
+
+
+rdesktop 
+========
+Connect to machine:
+$ rdesktop -a 16 10.1.0.15:3389
+
+
+Wed Aug  1 14:01:33 AKDT 2012
+=============================
+Started ajoite-non-domain machine headless with:
+$ VBoxHeadless --startvm "ajoite-non-domain"
+Oracle VM VirtualBox Headless Interface 4.1.18
+(C) 2008-2012 Oracle Corporation
+All rights reserved.
+
+VRDE server is listening on port 3389.
+
+Should have run with ampersand...
+
+$ ps ax | grep -ni virtualbox
+128: 2304 pts/0    Sl+    0:56 /usr/lib/virtualbox/VBoxHeadless --startvm ajoite-non-domain
+129: 2317 ?        S      0:00 /usr/lib/virtualbox/VBoxXPCOMIPCD
+130: 2322 ?        Sl     0:00 /usr/lib/virtualbox/VBoxSVC --auto-shutdown
+136: 2413 pts/2    S+     0:00 grep -ni virtualbox
+$
+
+
+windows: mstsc 1.2.3.4[:3389]
+unix:    rdesktop -a 16 -N 1.2.3.4:3389
+         The -a 16 option requests a color depth of 16 bits per pixel, which we recommend
+         The -N option enables use of the NumPad keys.
+
+i.e. Using: rdesktop -a 16 10.1.0.55
+
+
+Tue Jul 31 17:29:30 AKDT 2012
+=============================
+Configure Remote Desktop Protocol (RDP) ports for ajoite-non-domain machine:
+
+
+Test
+----
+windows: mstsc 1.2.3.4[:3389]
+unix:    rdesktop -a 16 -N 1.2.3.4:3389
+         The -a 16 option requests a color depth of 16 bits per pixel, which we recommend
+         The -N option enables use of the NumPad keys.
+
+i.e. Using: rdesktop -a 16 10.1.0.55
+
+Not working.
+
+In ajoite-non-domain window:
+Machine > Settings... > Display > Remote Display 
+  Server Port: 3389
+  Authentication Method: Null       <== Default
+                         External
+                         Guest      <== Set this (Jul 31, 2012)
+  Authentication Timeout: 5000
+
+Machine > Settings... > Network > Network
+  Updated:
+  Attached to:      NAT
+                      ==> Bridged Adapter (does not work)
+                      
+  Promiscuous Mode: Deny ==> Allow All
+
+  Test
+
+Configure VRDP
+--------------
+VRDP server is disabled by default.  Enable with:
+$ VBoxManage modifyvm "ajoite-non-domain" --vrde on
+$
+
+Configure ports for RDP use:
+$ VBoxManage modifyvm "ajoite-non-domain" --vrdeport 5000,5010-5012 <=== For multiple VMs.
+$ VBoxManage modifyvm "ajoite-non-domain" --vrdeport 3389           <=== Default is '3389'
+
+Check RDP port being used:
+$ VBoxManage showvminfo ajoite-non-domain
+Name:            ajoite-non-domain
+Guest OS:        Windows 7 (64 bit)
+UUID:            a80f04fc-4ec5-49f6-8b08-607f000b13a7
+...
+VRDE:            enabled (Address 0.0.0.0, Ports 3389, MultiConn: \
+off, ReuseSingleConn: off, Authentication type: null)
+...
+$
+
+
+
+Links
+=====
+Lack of RDP Server in VirtualBox OSE (VBoxHeadless): Alternatives?
+$ VBoxManage modifyvm "ajoite-non-domain" --natpf1 "guestrdp,tcp,,3389,,3389"
+http://forums.freebsd.org/showthread.php?t=13499
+
+Configuring port forwarding with NAT
+As the virtual machine is connected to a private network internal to VirtualBox and invisible to
+the host, network services on the guest are not accessible to the host machine or to other
+computers on the same network.  However, like a physical router, VirtualBox can make selected
+services available to the world outside the guest through port forwarding.  This means that
+VirtualBox listens to certain ports on the host and resends all packets which arrive there to the
+guest, on the same or a different port.
+http://www.virtualbox.org/manual/ch06.html#natforward
+
+VBoxHeadless - Running Virtual Machines With VirtualBox 4.0 On A Headless Debian Squeeze Server
+http://www.howtoforge.com/vboxheadless-running-virtual-machines-with-virtualbox-4.0-on-a-headless-debian-squeeze-server
+
+Remote display (VRDP support)
+Chapter 7. Remote virtual machines
+http://www.virtualbox.org/manual/ch07.html#vrde
+
+Installing VirtualBox and extension packs
+http://www.virtualbox.org/manual/ch01.html#intro-installing
+
+Remote display (VRDP support)
+http://www.virtualbox.org/manual/ch07.html#vrde
+
+Auto-Start / Stop Headless VirtualBox (VBox) VM's 
+http://www.pclinuxos.com/forum/index.php?topic=103651.0
+
+Setting Up a Headless VirtualBox VM in Ubuntu Server
+Tags: Desktop, Mac, Oracle, OS, RDC, Remote, Virtual, VirtualBox, VM, VRDE, Windows, X
+Posted under General, Technology, Tutorial by Zebedee Pedersen on January 2nd, 2011
+http://www.zebpedersen.co.uk/?p=173
