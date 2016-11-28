@@ -36,6 +36,9 @@ documentation.txt
     or
   /usr/local/src/00TARBALLS/virtualbox/UserManual.pdf
 
+examples.txt
+  Useful vboxmanage examples
+
 hd.txt
   vboxmanage commands to manipulation hard drive (hd).
 
