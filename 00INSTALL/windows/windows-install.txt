@@ -1,0 +1,135 @@
+windows-install.txt
+Created Wed May 25 14:00:50 AKDT 2011
+by Raymond E. Marcil <marcilr@gmail.com>
+
+
+Working on installing windows 7 x64 from:
+  SW_DVD5_Win_Pro_7_64BIT_English_Full_MLF_X15-71037.ISO
+
+Installer says:
+  Windows cannot be installed to this disk.  This computer's hardware may not
+  support booting to this disk.  Ensure that the disk's controller is enabled 
+  in the computer's BIOS menu.
+
+With AHCI:
+  Setup was unable to create a new system partition or locate an existing 
+  system partition.  See the Setup log for more information.
+
+
+google: installing windows 7 on virtualbox
+
+
+Install Windows 7
+=================
+Following youtube Installing Windows 7 on VirtualBox.
+
+1. Run VirtualBox
+Applications > System Tools > VirtualBox OSE (3.2.10_OSE r66523 on squeeze amd64).
+
+2. VirtualBox OSE
+click New
+
+3. Create New Virtual Machine
+Welcome to the New Virtual Machine Wizard!
+
+click Next
+
+4. VM Name and OS Type
+Name: kobellite2-win7-x64
+
+OS Type
+  Operating System: Microsoft Windows
+           Version: Windows 7 (64-bit)
+
+
+click Next
+
+5. Memory
+The recommended base memory is 512MB.
+
+Base Memory Size: 512MB
+
+click Next
+
+6. Virtual Hard Disk
+x Boot Hard Disk
+  x Create new hard disk
+    Use existing hard disk
+  
+
+click Next
+
+7. Welcome to the Create New Virtual Disk Wizard!
+click Next
+
+8. Hard Disk Storage Type
+Storage Type
+x Dyncamically expanding storage
+  Fixed-size storage
+
+click Next
+
+9. Virtual Disk Location and Size
+Location: kobellite2-win2-x64    <== Accepted default did not change.
+    Size: 16GB                   <== Change default of 20GB to match youtube video.
+
+NOTE: In prior round of value I had changed path to /virtual_machines/
+      and size to 40GB.
+
+click Next
+
+10. Summary
+You are going to create a new virtual hard disk with the following parameters:
+
+      Type: Dynamically expanding storage
+  Location: /home/marcilr/.VirtualBox/hardDisks/kobellite2-win7-x64
+      Size: 16.00GB (17179869184 B)
+
+If the above settings are correct, press the Finish button.  Once you press it, 
+a new hard disk will be created.
+
+click Finish
+
+
+11. Summary
+Your are going to create a new virtual machine with the following parameters:
+
+          Name: kobellite2-win7-x64
+       OS Type: Windows 7 (64 bit)
+   Base Memory: 512MB
+Boot Hard Disk: kobellite2-win7-x64.vdi (Normal, 16.00GB)
+
+click Finish
+
+The kobellite2-win7-x64 machine will be created in VirtualBox OSE.
+
+12. Right-click kobellite2-win7-x64 select Settings... > 
+
+FIXME: Different than youtube video...
+
+
+Links
+=====
+Installing Windows 7 on VirtualBox
+This shows Windows 7 Beta being installed 
+successfully under virtualbox.
+http://www.ioncannon.net/system-administration/82/installing-windows-7-on-virtualbox/
+
+Installing Windows 7 on VirtualBox
+http://www.youtube.com/watch?v=HoSebbqBQQo
+
+Taming Windows 7 in a VirtualBox VM Using Raw Disk Access
+http://www.rajatarya.com/website/taming-windows-virtualbox-vm
+
+Oracle VM VirtualBox
+User Manual
+Oracle Corporation
+http://www.virtualbox.org/manual/UserManual.html#rawdisk
+
+Installing and Maintaining Guest Additions
+"Guest Additions are available for virtual machines running Windows, 
+Linux, Solaris or OS/2.  The following sections describe the specifics 
+of each variant in detail."
+Might get windows 7 install from this.
+http://www.virtualbox.org/manual/ch04.html#additions-windows
+
