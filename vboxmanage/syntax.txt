@@ -1,0 +1,20 @@
+syntax.txt
+Created Mon Nov 28 10:27:28 AKST 2016
+Copyright (C) 2016 by Raymond E. Marcil <marcilr@gmail.com>
+
+
+Syntax for vboxmanage
+
+
+Change vm settings
+------------------
+marcilr@boothite:~$ vboxmanage | grep hd
+                            hostcpuids|hddbackends|hdds|dvds|floppies|
+                            [--audiocontroller ac97|hda|sb16]
+                            [--type dvddrive|hdd|fdd]
+VBoxManage showhdinfo       <uuid>|<filename>
+VBoxManage createhd         --filename <filename>
+VBoxManage modifyhd         <uuid>|<filename>
+VBoxManage clonehd          <uuid>|<filename> <outputfile>
+marcilr@boothite:~$
+
