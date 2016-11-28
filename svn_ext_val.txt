@@ -1,0 +1,28 @@
+#
+# svn_ext_val.txt
+# Created Thu Aug  2 10:18:05 AKDT 2012
+# by Raymond E. Marcil <marcilr@gmail.com>
+#
+
+#
+# List of repo hierarchical directories to checkout under virtualbox/
+#
+# 00INSTALL/    VirtualBox installation.
+# docs/         Documentation.
+# pdf/          Portable Document Format files
+#
+# syntax/       Syntax
+#
+# vboxmanage/   VBoxManage command-line interface to VirtualBox.
+#               Chapter 8. VBoxManage
+#               http://www.virtualbox.org/manual/ch08.html
+#
+# vrde/         VirtualBox Remote Desktop Extension
+#               Used for connection via RDP (port 3389) to windows machines.
+#
+../../virtualbox/00INSTALL/00INSTALL     ./00INSTALL
+../../virtualbox/docs/docs               ./docs
+../../virtualbox/pdf/pdf                 ./pdf
+../../virtualbox/syntax/syntax           ./syntax
+../../virtualbox/vboxmanage/vboxmanage   ./vboxmanage
+../../virtualbox/vrde/vrde               ./vrde
