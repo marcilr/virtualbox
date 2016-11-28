@@ -29,6 +29,14 @@ controlvm.txt
   of a virtual machine that is currently running.  This
   include pause, resume, and poweroff.
 
+documentation.txt
+  Documentation
+  $ vboxmanage -help
+    or
+  /usr/share/doc/virtualbox-4.1/UserManual.pdf
+    or
+  /usr/local/src/00TARBALLS/virtualbox/UserManual.pdf
+
 hd.txt
   vboxmanage commands to manipulation hard drive (hd).
 
