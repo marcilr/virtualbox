@@ -1,0 +1,21 @@
+hd.txt
+Created Thu Aug  2 11:17:34 AKDT 2012
+Copyright (C) 2012 by Raymond E. Marcil <marcilr@gmail.com>
+
+
+vboxmanage commands to manipulation hard drive (hd).
+
+The storageattach (UserManual.pdf, p. 119) and storagectl (UserManual.pdf, p. 121) look like
+promising commands to modify the disk infrastructure for compatibility with windows 7.
+
+
+marcilr@boothite:~$ vboxmanage | grep hd
+                            hostcpuids|hddbackends|hdds|dvds|floppies|
+                            [--audiocontroller ac97|hda|sb16]
+                            [--type dvddrive|hdd|fdd]
+VBoxManage showhdinfo       <uuid>|<filename>
+VBoxManage createhd         --filename <filename>
+VBoxManage modifyhd         <uuid>|<filename>
+VBoxManage clonehd          <uuid>|<filename> <outputfile>
+marcilr@boothite:~$
+
