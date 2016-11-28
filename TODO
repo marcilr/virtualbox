@@ -1,0 +1,87 @@
+TODO
+Created Fri May 27 15:26:49 AKDT 2011
+by Raymond E. Marcil <marcilr@gmail.com>
+
+
++++ Tue Aug 26 13:20:30 AKDT 2014 - Procedure to stop, backup, and restart
+virtual machine?
+
+1. Get list of running vms.
+  vboxmanage list runningvms
+
+List all vms:
+covellite:~$ vboxmanage list vms
+"rmarcil1" {eccb14e1-cb5f-47d3-a96a-2f30c8f9edd0}
+"wheezy" {ead2ecd5-78b2-43a1-b897-ae0f517e9549}
+"wheezy-vnc" {da0dd8a3-8e89-4364-a56c-b01111e90edc}
+"wheezy-ge" {d324684b-997f-45f3-8665-352859b91ad0}
+$
+
+covellite:~$ vboxmanage list runningvms
+
+vboxmanage list runningvms does not list anything
+Ticket #6808 (reopened defect)
+https://www.virtualbox.org/ticket/6808
+
+
+2. Stop virtual machines:
+  VBoxManage controlvm <vm> savestate
+
+  8.13. VBoxManage controlvm
+  VBoxManage controlvm <vm> savestate will save the current state of the VM
+  to  disk and then stop the VM.  (This is equivalent to selecting the
+  "Close" item in the "Machine" menu of the GUI or pressing the window's
+  close button, and  then selecting "Save the machine state" in the dialog.)
+
+  After this, the VM's state will be "Saved". From there, it can be started 
+  again; see Section 8.12, "VBoxManage startvm.
+  https://www.virtualbox.org/manual/ch08.html#vboxmanage-controlvm
+
+3. Backup ~/VirtualBox\ VMs/ using tar or whatever.
+
+4. Start virtual machines:
+  VBoxManage startvm "Windows XP"
+
+  8.12. VBoxManage startvm
+
+  The following values are allowed:
+  o gui - Starts a VM showing a GUI window. This is the default.
+  o headless - Starts a VM without a window for remote display only.
+  o sdl - Starts a VM with a minimal GUI and limited features.
+  
+  8.13. VBoxManage controlvm
+  https://www.virtualbox.org/manual/ch08.html#vboxmanage-startvm
+
++++ Wed Aug 29 14:19:30 AKDT 2012 - Create virtualbox user & group service
+account on bornite for virtual machines.
+
++++ Wed Aug 29 14:19:30 AKDT 2012 - Create backup script of bornite for
+/data/virtualbox virtual machines.  Bind to cron job to drive it.
+
++++ Fri May 27 15:27:10 AKDT 2011 - Determine means to make windows 7
+installer see the drive under virtualbox for installation.
+
+Think this is possible via "VirtualBox Extension Pack"
+
+wikipedia.org/
+
+
+Links
+=====
+VirtualBox
+From Wikipedia, the free encyclopedia
+http://en.wikipedia.org/wiki/VirtualBox
+
+VirtualBox Downloads
+http://www.virtualbox.org/wiki/Downloads
+
+Oracle VM VirtualBox
+User Manual
+Oracle Corporation
+http://www.virtualbox.org/manual/
+
+Chapter 2. Installation details
+http://www.virtualbox.org/manual/ch02.html
+
+Installing VirtualBox and extension packs
+http://www.virtualbox.org/manual/ch01.html#intro-installing
