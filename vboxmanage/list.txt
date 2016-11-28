@@ -1,0 +1,107 @@
+list.txt
+Created Thu Aug  2 11:07:38 AKDT 2012
+Copyright (C) 2012 by Raymond E. Marcil <marcilr@gmail.com>
+
+
+List all virtual machines:
+  $ vboxmanage list vms
+
+List running virtual machines:
+  $ vboxmanage list runningvms
+
+List machine state:
+  $ vboxmanage list vms -l | grep -e ^Name: -e ^State | sed s/\ \ //g
+
+List machine state - a bit prettier:
+  $ vboxmanage list vms -l | grep -e ^Name: -e ^State  | \
+  sed "s/Name:[ ]*\(.*\)/\1 \//;s/State:[\ ]*//" | paste -d " " - -
+
+blog.sleeplessbeastie.eu/2013/07/23/virtualbox-how-to-control-virtual-machine-using-command-line/
+
+
+Thu Aug  2 11:08:35 AKDT 2012
+=============================
+List all VMs on malachite.
+
+$ vboxmanage list vms
+"ajoite-non-domain" {a80f04fc-4ec5-49f6-8b08-607f000b13a7}
+"gilalite" {029152f5-d5d7-439c-b71e-53646a60fb9f}
+$
+
+
+VBoxManage list
+===============
+The list command gives relevant information about your system and information about VirtualBox's
+current settings.
+
+The following subcommands are available with VBoxManage list:
+
+o vms lists all virtual machines currently registered with VirtualBox.  By default this displays a
+  compact list with each VM's name and UUID; if you also specify --long or -l, this will be a
+  detailed list as with the showvminfo command (see below).
+
+o runningvms lists all currently running virtual machines by their unique identifiers (UUIDs) in
+  the same format as with vms.
+
+o ostypes lists all guest operating systems presently known to VirtualBox, along with the
+  identifiers used to refer to them with the modifyvm command.
+
+o hostdvds, hostfloppies, respectively, list DVD, floppy, bridged networking and host-only
+  networking interfaces on the host, along with the name used to access them from within
+  VirtualBox.
+
+o bridgedifs, hostonlyifs and dhcpservers, respectively, list bridged network interfaces,
+  host-only network interfaces and DHCP servers currently available on the host.  Please see
+  Chapter 6, Virtual networking[1] for details on these.
+
+o hostinfo displays information about the host system, such as CPUs, memory size and operating
+  system version.
+
+o hostcpuids dumps the CPUID parameters for the host CPUs. This can be used for a more fine
+  grained analyis of the host's virtualization capabilities.
+
+o hddbackends lists all known virtual disk back-ends of VirtualBox.  For each such format (such as
+  VDI, VMDK or RAW), this lists the back-end's capabilities and configuration.
+
+o hdds, dvds and floppies all give you information about virtual disk images currently in use by
+  VirtualBox, including all their settings, the unique identifiers (UUIDs) associated with them by
+  VirtualBox and all files associated with them.  This is the command-line equivalent of the
+  Virtual Media Manager; see the section called "The Virtual Media Manager".[2]        
+
+o usbhost supplies information about USB devices attached to the host, notably information useful
+  for constructing USB filters and whether they are currently in use by the host.
+
+o usbfilters lists all global USB filters registered with VirtualBox -- that is, filters for
+  devices which are accessible to all virtual machines -- and displays the filter parameters.
+
+o systemproperties displays some global VirtualBox settings, such as minimum and maximum guest
+  RAM and virtual hard disk size, folder settings and the current authentication library in use.
+
+o extpacks displays all VirtualBox extension packs currently installed; see the section called
+  "Installing VirtualBox and extension packs"[3] and the section called "VBoxManage extpack"[4]
+  for more information.
+
+virtualbox.org/manual/ch08.html#vboxmanage-list
+
+
+Links
+=====
+[1] Chapter 6, Virtual networking
+http://www.virtualbox.org/manual/ch06.html
+
+[2] The Virtual Media Manager   
+http://www.virtualbox.org/manual/ch05.html#vdis
+
+[3] Installing VirtualBox and extension packs
+http://www.virtualbox.org/manual/ch01.html#intro-installing
+
+[4] VBoxManage extpack
+http://www.virtualbox.org/manual/ch08.html#vboxmanage-extpack
+
+VBoxManage list
+Chapter 8. VBoxManage
+http://www.virtualbox.org/manual/ch08.html#vboxmanage-list
+
+VirtualBox - How to control virtual machine using shell
+July, 23 2013
+https://blog.sleeplessbeastie.eu/2013/07/23/virtualbox-how-to-control-virtual-machine-using-command-line/
