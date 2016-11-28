@@ -1,0 +1,52 @@
+vboxmanage.txt
+Created Tue Aug 28 15:44:39 AKDT 2012
+Copyright (C) 2012 by Raymond E. Marcil <marcilr@gmail.com>
+
+
+VBoxManage
+
+
+VBoxManage is the command-line interface to VirtualBox.  With it, you can
+completely control VirtualBox from the command line of your host operating
+system.  VBoxManage supports all the features that the graphical user
+interface gives you access to, but it supports a lot more than that.  It
+exposes really all the features of the virtualization engine, even those that
+cannot (yet) be accessed from the GUI.
+
+There are two main things to keep in mind when using VBoxManage
+
+o First,VBoxManage must always be used with a specific "subcommand",
+such as "list vms" or "createvm" or "startvm".
+
+o Second, most of these subcommands require that you specify a
+particular virtual machine after the subcommand. There are two
+ways you can do this:
+
+You can specify the VM name, as it is shown in the VirtualBox GUI.
+Note that if that name contains spaces, then you must enclose the
+entire name in double quotes (as it is always required with
+command line arguments that contain spaces).
+
+ubuntugeek.com/
+
+
+"As briefly mentioned in chapter 1.13, Alternative front-ends,
+page 28, VBoxManage is the command-line interface to VirtualBox.
+With it, you can completely control VirtualBox from the command
+line of your host operating system. VBoxManage supports all the
+features that the graphical user interface gives you access to,
+but it supports a lot more than that.  It exposes really all the
+features of the virtualization engine, even those that cannot
+(yet) be accessed from the GUI."
+
+UserManual.pdf, p. 99
+
+
+Definately looks like vboxmanage could be used to generate a
+virtual machine via the command line for use with windows.
+
+
+Links
+=====
+Chapter 8. VBoxManage
+http://www.virtualbox.org/manual/ch08.html
