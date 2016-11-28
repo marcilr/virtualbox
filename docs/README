@@ -46,6 +46,9 @@ host-key.txt
   o Configure another key as the the right ctrl
     for Happy Hacker Lite 2 keyboard use
 
+migrate-machine.txt
+  Migrate VM from Linux to Windows
+
 networking-modes.txt
   Networking modes available in virtualbox
 
