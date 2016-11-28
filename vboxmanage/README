@@ -11,6 +11,14 @@ bridge.txt
   eight virtual network cards NIC1 to NIC8 that can
   be bridged to physical host interfaces.
 
+commands.txt
+  VBoxManage Commands overview
+
+controlvm.txt
+  The controlvm subcommand allows you to change the state
+  of a virtual machine that is currently running.  This
+  include pause, resume, and poweroff.
+
 createhd.txt
   This command creates a new virtual hard disk image.
 
@@ -19,11 +27,6 @@ createhd.txt
                         --size <megabytes>
                         [--format VDI|VMDK|VHD] (default: VDI)
                         [--variant Standard,Fixed,Split2G,Stream,ESX]
-
-controlvm.txt 
-  The controlvm subcommand allows you to change the state
-  of a virtual machine that is currently running.  This
-  include pause, resume, and poweroff.
 
 documentation.txt
   Documentation
