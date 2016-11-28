@@ -1,0 +1,43 @@
+vboxheadless.txt
+Created Thu Aug  2 11:37:18 AKDT 2012
+Copyright (C) 2012 by Raymond E. Marcil <marcilr@gmail.com>
+
+
+VBoxHeadless
+
+
+VirtualBox therefore comes with yet another front-end called VBoxHeadless, which produces no
+visible output on the host at all, but instead only delivers VRDP data.  This front-end has no
+dependencies on the X Window system on Linux and Solaris hosts.[33]
+
+To start a virtual machine with VBoxHeadless, you have two options:
+
+o You can use
+    vboxmanage startvm "VM name" --type headless
+
+The extra --type option causes VirtualBox to use VBoxHeadless as the front-end to the internal
+virtualization engine instead of the Qt front-end.
+
+o The alternative is to use VBoxHeadless directly, as follows:
+    vboxheadless --startvm <uuid|name>   <=== Preferred
+
+i.e. use:
+    vboxheadless --startvm ajoite-non-domain &   (no spaces so no quotes needed)
+
+This way of starting the VM is preferred because you can see more detailed error messages,
+especially for early failures before the VM execution is started. If you have trouble with
+VBoxManage startvm, it can help greatly to start VBoxHeadless directly to diagnose the problem
+cause.
+
+Note that when you use VBoxHeadless to start a VM, since the headless server has no other means of
+output, the VRDP server will always be enabled, regardless of whether you had enabled the VRDP
+server in the VM's settings.  If this is undesirable (for example because you want to access the
+VM via ssh only), start the VM like this:
+  vboxheadless --startvm <uuid|name> --vrde=off
+
+To have the VRDP server enabled depending on the VM configuration, as the other front-ends would,
+use this:
+
+  vboxheadless --startvm <uuid|name> --vrde=config
+
+virtualbox.org/manual/ch07.html#vrde
