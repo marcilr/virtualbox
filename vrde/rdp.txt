@@ -1,0 +1,28 @@
+rdp.txt
+Created Thu Aug  2 11:28:46 AKDT 2012
+Copyright (C) 2012 by Raymond E. Marcil <marcilr@gmail.com>
+
+
+Remote Desktop Protocol (RDP) access to VMs.
+
+To remote desktop to the win 7 pro ajoite-non-domain vm:
+
+Connect to machine:
+$ rdesktop -a 16 10.1.0.15:3389 &
+
+
+Configuration
+=============
+Modify your virtual machine to accept remote desktop connections:
+$ vboxmanage modifyvm ajoite-non-domain --vrde on
+
+Forward rdp port traffic coming on tcp 3389 tp 3389 on machine.
+$ vboxmanage modifyvm ajoite-non-domain --natpf1 "guestrdp,tcp,,3389,,3389"
+
+
+
+Links
+=====
+Remote Desktop Protocol
+From Wikipedia, the free encyclopedia
+http://en.wikipedia.org/wiki/Remote_Desktop_Protocol
