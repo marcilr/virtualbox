@@ -1,0 +1,48 @@
+createhd.txt
+Created Wed Nov  9 16:59:47 AKST 2011
+by Raymond E. Marcil <marcilr@gmail.com>
+
+
+8.21 VBoxManage createhd
+========================
+This command creates a new virtual hard disk image. The syntax is as follows:
+VBoxManage createhd          --filename <filename>
+                             --size <megabytes>
+                             [--format VDI|VMDK|VHD] (default: VDI)
+                             [--variant Standard,Fixed,Split2G,Stream,ESX]
+  where the parameters mean:
+
+filename Allows to choose a file name. Mandatory.
+size     Allows to define the image capacity, in 1 MiB units. Mandatory.
+format   Allows to choose a file format for the output file different from the file
+         format of the input file.
+variant  Allows to choose a file format variant for the output file.  It is a comma-separated
+         list of variant flags. Not all combinations are supported, and specifying inconsistent 
+         flags will result in an error message.
+
+/usr/share/doc/virtualbox-4.1/UserManual.pdf, p. 128
+
+
+Example
+=======
+marcilr@boothite:~/VirtualBox VMs/ajoite$ vboxmanage createhd \
+--filename apps.vdi \
+--size 102400 \     <== 1024 x 100 = 102400
+--format VDI \
+--variant Standard
+0%...10%...20%...30%...40%...50%...60%...70%...80%...90%...100%
+Disk image created. UUID: fe26fafc-5317-43d8-9c75-485810c0a87a
+marcilr@boothite:~/VirtualBox VMs/ajoite$ 
+
+Add disk to machine:
+i. In windows shutdown machine.
+ii. In Oracle VM VirtualBox Manager:
+right-click keyite > Settings... > Storage
+
+right-click SATA Controller > Add Hard Disk > Choose existing disk
+(This had Cancel, Choose existing disk, or Create new disk)
+
+select marcilr/VirtualBox VMs/ajoite/apps.vdi
+click Open
+click OK
+
