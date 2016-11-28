@@ -1,0 +1,7 @@
+syntax.txt
+Created Wed May 25 13:56:51 AKDT 2011
+by Raymond E. Marcil <marcilr@gmail.com>
+
+
+host         - right ctrl key
+exit machine - ctrl-f
