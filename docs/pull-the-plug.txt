@@ -1,0 +1,30 @@
+pull-the-plug.txt
+Created Tue Jan  1 15:36:20 AKST 2013
+Copyright (C) 2013 by Raymond E. Marcil <marcilr@gmail.com>
+
+
+Pulling the plug on a VirtualBox machine via command line.
+
+
+$ ps ax | grep vir
+ 2369 ?        S     10:59 /usr/lib/virtualbox/VBoxXPCOMIPCD
+ 2374 ?        Sl    22:01 /usr/lib/virtualbox/VBoxSVC --auto-shutdown
+ 2385 ?        SLl  4058:01 /usr/lib/virtualbox/VBoxHeadless --startvm ajoite-non-domain
+ 8484 pts/0    S+     0:00 grep vir
+
+$ VBoxManage controlvm ajoite-non-domain poweroff
+0%...10%...20%...30%...40%...50%...60%...70%...80%...90%...100%
+$
+
+$ ps ax | grep vir
+ 8506 pts/0    S+     0:00 grep vir
+$
+
+Is equivalent to pulling the power plug on a real computer. You don't want to do this!
+
+
+
+Links
+=====
+How to safely shutdown Guest OS in VirtualBox using command line
+http://askubuntu.com/questions/42482/how-to-safely-shutdown-guest-os-in-virtualbox-using-command-line
