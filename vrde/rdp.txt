@@ -3,7 +3,7 @@ Created Thu Aug  2 11:28:46 AKDT 2012
 Copyright (C) 2012 by Raymond E. Marcil <marcilr@gmail.com>
 
 
-Remote Desktop Protocol (RDP) access to VMs.
+Remote Desktop Protocol (RDP) access to VMs
 
 To remote desktop to the win 7 pro ajoite-non-domain vm:
 
