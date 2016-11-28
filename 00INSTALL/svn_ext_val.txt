@@ -1,0 +1,13 @@
+#
+# svn_ext_val.txt
+# Created Thu Aug  2 10:41:13 AKDT 2012
+# by Raymond E. Marcil <marcilr@gmail.com>
+#
+
+#
+# List of repo hierarchical directories to checkout under 00INSTALL/
+#
+# windows/   Installation under windows.
+#
+../../00INSTALL/windows/windows   ./windows
+
