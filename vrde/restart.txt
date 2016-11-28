@@ -1,0 +1,41 @@
+restart.txt
+Created Thu Aug  2 11:25:03 AKDT 2012
+Copyright (C) 2012 by Raymond E. Marcil <marcilr@gmail.com>
+
+
+Windows command line restart
+
+
+The RDP session to the win 7 pro ajoite-non-domain machine does not have restart on
+the task bar.
+
+Had to use the command line:
+
+Comand line restart:
+  shutdown -r -t 01
+
+Command line shutdown:
+  shutdown -s -t 01
+
+
+Create shortcuts
+================
+To create command line shortcuts to shutdown or restart.
+
+1. Right click on an empty space on the desktop to open the context menu
+2. Select New
+3. Select Shortcut with a left-click
+4. In the location box type cmd /k plus whatever command you want.
+
+For example, if you want a shortcut to restart, your location box would contain:
+
+cmd /k shutdown -r -t 01
+
+
+Links
+=====
+Restart or Shutdown Windows (XP, 2000 and Vista) from Command Line or One-Click Shortcut
+ww.mydigitallife.info/restart-or-shutdown-windows-xp-2000-and-vista-from-command-line-or-one-click-shortcut/
+
+CMD: Create Shortcut To Command Line/Dos Programs
+http://www.tech-recipes.com/rx/257/cmd-create-shortcut-to-command-linedos-programs/
