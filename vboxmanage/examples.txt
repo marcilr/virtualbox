@@ -1,0 +1,177 @@
+examples.txt
+Created Wed Aug 29 10:36:09 AKDT 2012
+Copyright (C) 2012 by Raymond E. Marcil <marcilr@gmail.com>
+
+
+Useful vboxmanage examples
+
+$ type vboxmanage
+vboxmanage is /usr/bin/vboxmanage
+
+
+Sections
+========
+o Register/Unregister machine
+o Start virtual machine
+o Stop virtual machine
+o Set default machine folder
+o Set memory allocation
+
+
+Register/Unregister machine
+===========================
+The registervm command allows you to import a virtual machine definition in an XML file into
+VirtualBox.  The machine must not conflict with one already registered in VirtualBox and it may
+not have any hard or removable disks attached.  It is advisable to place the definition file in
+the machines folder before registering it.
+
+Note: When creating a new virtual machine with VBoxManage createvm you can directly specify the
+      --register option to avoid having to register it separately.
+
+
+The unregistervm command unregisters a virtual machine.  If --delete is also specified, the
+following files will automatically be deleted as well:
+
+1. all hard disk image files, including differencing files, which are used by the machine and not
+   shared with other machines;
+
+2. saved state files that the machine created, if any (one if the machine was in "saved" state and
+   one for each online snapshot);
+
+3. the machine XML file and its backups;
+
+4. the machine log files, if any;
+
+5. the machine directory, if it is empty after having deleted all the above.
+
+virtualbox.org/manual/ch08.html#vboxmanage-registervm
+
+commands.txt
+28:VBoxManage registervm       <filename>
+30:VBoxManage unregistervm     <uuid>|<name> [--delete]
+
+Register vm on bornite under marcilr account:
+$ vboxmanage registervm /data/virtualbox/ajoite-non-domain/ajoite-non-domain.vbox
+
+This updated the /home/marcilr/.VirtualBox/VirtualBox.xml machine registry:
+
+/home/marcilr/.VirtualBox/VirtualBox.xml:
+<MachineRegistry>
+  <MachineEntry uuid="{a80f04fc-4ec5-49f6-8b08-607f000b13a7}" \
+src="/data/virtualbox/ajoite-non-domain/ajoite-non-domain.vbox"/>
+</MachineRegistry>
+
+
+
+
+Start virtual machine
+=====================
+You can specify the VM name, as it is shown in the VirtualBox GUI. Note that if that name contains
+spaces, then you must enclose the entire name in double quotes (as it is always required with
+command line arguments that contain spaces).
+
+$ vboxmanage startvm "Windows XP"
+$ vboxmanage startvm mohite
+
+You can specify the UUID, which is the internal unique identifier that VirtualBox uses to refer to
+the virtual machine.  Assuming that the aforementioned VM called "Windows XP" has the UUID shown
+below, the following command has the same effect as the previous:
+
+$ vboxmanage startvm 670e746d-abea-4ba6-ad02-2a3b043810a5
+
+ubuntugeek.com/
+
+
+Use vboxheadless to start ajoite-non-domain vm again.
+$ vboxheadless --startvm ajoite-non-domain &
+[1] 8519
+marcilr@malachite:~/VirtualBox VMs$ Oracle VM VirtualBox Headless Interface 4.1.18
+(C) 2008-2012 Oracle Corporation
+All rights reserved.
+
+VRDE server is listening on port 3389.
+
+$
+
+
+
+Stop virtual machine
+====================
+Stop virtual machine and save state
+
+Save state, without logging out:
+$ vboxmanage controlvm ajoite-non-domain savestate
+0%...10%...20%...30%...40%...50%...60%...70%...80%...90%...VRDE server is inactive.
+100%
+$
+
+
+
+Set default machine folder
+==========================
+You can change the default machine folder by selecting "Preferences" from the "File" menu in the
+VirtualBox main window.  Then, in the window that pops up, click on the "General" tab.
+Alternatively, use VBoxManage setproperty machinefolder; see the section called
+"VBoxManage setproperty".
+
+Configuration of machine folder on bornite:
+$ vboxmanange setproperty machinefolder "data/virtualbox"
+
+virtualbox.org/manual/ch08.html#vboxmanage-setproperty
+
+
+Set memory allocation
+=====================
+Memory allocation per machine can be configured.
+
+Configured ajoite-non-domain machine on bornite for 2GB:
+$ vboxmanage modifyvm ajoite-non-domain --memory 2048
+
+NOTE: The online example I found, in Chapter 8. VBoxManage, is incorrect:
+
+  VBoxManage modifyvm "Windows XP" --memory "512MB"
+
+The "MB" in "512MB" generates an error:
+
+$ vboxmanage modifyvm ajoite-non-domain --memory "2048MB"
+Oracle VM VirtualBox Command Line Management Interface Version 4.1.20
+(C) 2005-2012 Oracle Corporation
+All rights reserved.
+
+Usage:
+
+VBoxManage modifyvm         <uuid|name>
+                            [--name <name>]
+                            [--ostype <ostype>]
+                            [--memory <memorysize in MB>]
+                            ...
+                            [--usbcardreader on|off]
+
+VBoxManage: error: --memory: RTGetOpt: Command line option has argument with bad format.
+$ 
+
+virtualbox.org/manual/ch08.html#vboxmanage-modifyvm
+
+
+
+
+Links
+=====
+How to control virtual machines (Virtualbox) using VBoxManage
+http://www.ubuntugeek.com/how-to-control-virtual-machines-virtualbox-using-vboxmanage.html
+
+VBoxManage modifyvm
+--memory <memorysize>: This sets the amount of RAM, in MB, that the virtual machine should 
+allocate for itself from the host. 
+http://www.virtualbox.org/manual/ch08.html#vboxmanage-modifyvm
+
+VBoxManage registervm / unregistervm
+http://www.virtualbox.org/manual/ch08.html#vboxmanage-registervm
+
+VBoxManage setproperty
+Chapter 8. VBoxManage
+http://www.virtualbox.org/manual/ch08.html#vboxmanage-setproperty
+
+Where VirtualBox stores its files
+Chapter 10. Technical background
+http://www.virtualbox.org/manual/ch10.html#vboxconfigdata
