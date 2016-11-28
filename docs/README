@@ -31,6 +31,9 @@ exit.txt
   Mapped to right windows key for HHK
   see: ctrl-alt-del.txt
 
+files.txt
+  Working on creating lvm on bornite for virtual machines 
+
 host-key.txt
   Virtual box uses the right ctrl key as the host key to exit VMs.
   Since the Happy Hacker Lite 2 keyboard lacks a  right-ctrl key
