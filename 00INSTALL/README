@@ -8,6 +8,9 @@ Filelist
 build-notes.txt
   VirtualBox build notes
 
+dependencies.txt
+  VirtualBox dependencies
+
 extension-pack.txt
   Installed extension pack Oracle_VM_VirtualBox_Extension_Pack-4.1.8-75467.vbox-extpack
     Support for USB 2.0 devices, VirtualBox RDP and PXE boot for Intel cards.
@@ -21,7 +24,7 @@ extension-pack.txt
     http://download.virtualbox.org/virtualbox/4.1.8/Oracle_VM_VirtualBox_Extension_Pack-4.1.8-75467.vbox-extpack
 
 INSTALL-3.2.10
-  VirtualBox 3.2.10 installation from debian virtualbox-ose package.
+  VirtualBox 3.2.10 installation from debian virtualbox-ose package
 
 INSTALL-4.0.8
   Installed of virtualbox-4.0_4.0.8-71778-Debian-squeeze_amd64.deb on UAA ITS Debian Squeeze
