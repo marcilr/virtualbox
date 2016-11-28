@@ -1,0 +1,20 @@
+build-notes.txt
+Created Tue Apr  3 11:26:09 AKDT 2012
+Copyright (C) 2012 by Raymond E. Marcil <marcilr@gmail.com>
+
+
+
+Tue Apr  3 11:26:09 AKDT 2012
+=============================
+Updated UAA ITS boothite debian squeeze 6.0.4 amd64 workstation from 
+virtualbox-4.1_4.1.10-76795~Debian~squeeze_amd64.deb to
+virtualbox-4.1_4.1.12-77245~Debian~squeeze_amd64.deb
+
+1. Remove virtualbox-4.1_4.1.10-76795~Debian~squeeze_amd64.deb
+# aptitude remove virtualbox-4.1
+
+2. Install virtualbox-4.1_4.1.12-77245~Debian~squeeze_amd64.deb
+# dpkg -i virtualbox-4.1_4.1.12-77245~Debian~squeeze_amd64.deb
+
+3. The virtualbox 4.1.12 detected the prior 4.1.10 extension pack and 
+automatically installed the 4.1.12 extension pack.
