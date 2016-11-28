@@ -1,0 +1,15 @@
+modifyvm.txt
+Created Thu Aug  2 11:15:14 AKDT 2012
+Copyright (C) 2012 by Raymond E. Marcil <marcilr@gmail.com>
+
+
+vboxmanage modifyvm
+
+
+Modify VM settings.
+
+
+Example
+=======
+$ vboxmanage modifyvm "Windows XP" --memory "512MB"  <== Have not tested this.
+
