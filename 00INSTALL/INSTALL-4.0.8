@@ -1,0 +1,96 @@
+INSTALL-4.0.8
+Created Tue May 31 16:09:59 AKDT 2011
+by Raymond E. Marcil <marcilr@gmail.com>
+
+
+Unable to get stock devian squeeze amd64 virtualbox 3.2.10-dfsg-1,
+on UAA ITS WebApps debian squeeze amd64 boothite workstation, to 
+accept a windows 7 x64 install.  Punching up to virtualbox 4.0.8
+from virtualbox.org/
+
+
+1. Downloaded virtualbox-4.0_4.0.8-71778-Debian-squeeze_amd64.deb
+from virtualbox.org/
+
+2. Uninstalled virtual box 3.2.10-dfsg-1:
+# aptitude remove virtualbox-ose virtualbox-ose-dkms virtualbox-ose-qt 
+The following packages will be REMOVED:  
+  dkms{u} libcurl3{u} libssh2-1{u} libvncserver0{u} virtualbox-ose \
+virtualbox-ose-dkms virtualbox-ose-qt 
+0 packages upgraded, 0 newly installed, 7 to remove and 0 not upgraded.
+Need to get 0 B of archives. After unpacking 53.7 MB will be freed.
+Do you want to continue? [Y/n/?]
+
+Used dpkg instead to not remove dependencies:
+
+boothite:~# dpkg --remove virtualbox-ose-qt
+(Reading database ... 208315 files and directories currently installed.)
+Removing virtualbox-ose-qt ...
+Processing triggers for desktop-file-utils ...
+Processing triggers for gnome-menus ...
+Processing triggers for menu ...
+Processing triggers for man-db ...
+boothite:~#
+
+boothite:~# dpkg --remove virtualbox-ose
+(Reading database ... 208231 files and directories currently installed.)
+Removing virtualbox-ose ...
+Stopping VirtualBox kernel modules.
+Processing triggers for man-db ...
+boothite:~# 
+
+
+boothite:~# dpkg --remove virtualbox-ose-dkms
+Removing virtualbox-ose-dkms ...
+
+-------- Uninstall Beginning --------
+Module:  virtualbox-ose
+Version: 3.2.10
+Kernel:  2.6.32-5-amd64 (x86_64)
+-------------------------------------
+...
+DKMS: uninstall Completed.
+
+------------------------------
+Deleting module version: 3.2.10
+completely from the DKMS tree.
+------------------------------
+Done.
+boothite:~#
+
+
+
+3. Check uninstall:
+
+marcilr@boothite:~$ dpkg -l | grep virtualbox
+rc  virtualbox-ose      3.2.10-dfsg-1   x86 virtualization solution - base binaries
+rc  virtualbox-ose-qt   3.2.10-dfsg-1   x86 virtualization solution - Qt based user 
+                                        interface
+
+Run /root/bin/purge to clear out rc turds:
+boothite:~# purge
+
+Looks good:
+marcilr@boothite:~$ dpkg -l | grep virtualbox
+marcilr@boothite:~$
+
+
+4. Install virtualbox 4.0.8:
+boothite:~# dpkg --install virtualbox-4.0_4.0.8-71778-Debian-squeeze_amd64.deb
+
+marcilr@boothite:~$ dpkg -l | grep virtualbox
+ii  virtualbox-4.0                        4.0.8-71778~Debian~squeeze        Oracle VM VirtualBox
+
+Installed VirtualBox v4.0.8 r71778
+
+In gnome now have:
+  Applications > System Tools > Oracle VM VirtualBox
+
+
+
+
+Links
+=====
+VirtualBox 4.0.8 for Linux
+Download VirtualBox for Linux Hosts
+http://www.virtualbox.org/wiki/Linux_Downloads
