@@ -1,0 +1,6 @@
+exit.txt
+Created Wed Nov  9 15:32:33 AKST 2011
+by Raymond E. Marcil <marcilr@gmail.com>
+
+
+To exit virtualbox hit the host key (Right Ctrl is default).
