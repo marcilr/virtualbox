@@ -1,0 +1,27 @@
+virtual-display-bind.txt
+Created Tue Nov  3 13:25:29 AKST 2015
+Copyright (C) 2015 by Raymond E. Marcil <marcilr@gmail.com>
+
+
+Bind virtualbox to virtual display
+  Right WinKey Fn left arroy (HOME) > Devices > View > Video Screen 1 \
+  > Use Host Screen 1
+    Use Host Screen 2
+    Use Host Screen 3
+
+To map virtualbox to a virtual display bring of hidden menu with
+HostKey + Home on GCI Network Services, covellite the HostKey is mapping
+to Right WinKey so the hidden menu is available
+via Right WinKey Fn left-arrow (Home) > View > Video Screen 1 \
+  > Use Host Screen 1
+    Use Host Screen 2
+    Use Host Screen 3
+
+on the HHK keyboard.
+
+
+Links
+=====
+Is there a way to make VirtualBox use a
+specific monitor when going full-screen?
+http://superuser.com/questions/355331/is-there-a-way-to-make-virtualbox-use-a-specific-monitor-when-going-full-screen
