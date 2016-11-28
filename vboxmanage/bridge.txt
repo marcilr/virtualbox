@@ -1,0 +1,54 @@
+bridge.txt
+Created Wed Aug 29 12:48:56 AKDT 2012
+Copyright (C) 2012 by Raymond E. Marcil <marcilr@gmail.com>
+
+
+Bridge virtual network cards to host interface in virtual machine using vboxmanage.
+Each vm has eight virtual network cards NIC1 to NIC8 that can be bridged to physical
+host interfaces.
+
+ing a vm from one of the eight VirtualBox virtual network cards to host interface can be 
+accomplished with vboxmanager.
+
+1. Configure virtual nic 1 to 8 for bridged mode.
+
+1. Enable bridged network for virtual network card eth0:
+$ vboxmanage modifyvm ajoite-non-domain --nic1 bridged
+
+NOTE: Virtual network card eth0 binds to nic1 *not* nic0.
+
+2. Bind virtual network card eth0 to host interface  eth6:
+$ vboxmanage modifyvm ajoite-non-domain --bridgeadapter1 eth6
+
+That will do it!
+
+
+--nic<1-N> none|null|nat|bridged|intnet|hostonly|generic : With this, you can set, for each of the VM's
+  virtual network cards, what type of networking should be available.  They can be not present (none), not
+  connected to the host (null), use network address translation (nat), bridged networking (bridged) or
+  communicate with other virtual machines using internal networking (intnet), host-only networking
+  (hostonly), or access rarely used sub-modes (generic).  These options correspond to the modes which are
+  described in detail in the section called "Introduction to networking modes".[1]
+
+--bridgeadapter<1-N> none|<devicename>: If bridged networking has been enabled for a virtual network card 
+  (see the --nic option above; otherwise this setting has no effect), use this option to specify which host
+  interface the given virtual network interface will use. For details, please see the section called
+  "Bridged networking".[2]
+
+
+Links
+=====
+[1] Introduction to networking modes
+http://www.virtualbox.org/manual/ch06.html#networkingmodes
+
+[2] Bridged networking    
+http://www.virtualbox.org/manual/ch06.html#network_bridged
+
+Networking settings
+Chapter 8. VBoxManage
+http://www.virtualbox.org/manual/ch08.html#idp19566336
+
+VBoxManage modifyvm
+Chapter 8. VBoxManage
+http://www.virtualbox.org/manual/ch08.html#vboxmanage-modifyvm
+
