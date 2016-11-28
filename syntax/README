@@ -1,0 +1,31 @@
+README
+Created Fri Feb  6 08:52:37 AKST 2015
+Copyright (C) 2015 by Raymond E. Marcil <marcilr@gmail.com>
+
+
+Filelist
+========
+full-screen-escape.txt
+  Full-screen escape - HostKey + F (Right WinKey + F)
+
+host-key.txt 
+  The HHK2 (Happy Hacker 2 keyboard) does not have a right ctrl key.
+  Hence having the host key set to the right ctrl key does not work.
+
+  The virtualbox Globel Settings documentation describes how to change the
+  host key to any desired key.
+  http://www.virtualbox.org/manual/ch01.html#globalsettings
+
+share-folder.txt
+  How to mount a VirtualBox shared folder?
+  http://serverfault.com/questions/674974/how-to-mount-a-virtualbox-shared-folder
+
+syntax.txt
+  Syntax for VirtualBox
+
+virtual-display-bind.txt
+  Bind virtualbox to virtual display
+    Right WinKey Fn left arroy (HOME) > Devices > View > Video Screen 1 \
+    > Use Host Screen 1
+      Use Host Screen 2
+      Use Host Screen 3
