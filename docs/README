@@ -55,10 +55,18 @@ networking-modes.txt
 pull-the-plug.txt
   Pulling the plug on a VirtualBox machine via command line
 
+shared-folders.txt
+  Shared Folders
+  These provide an easy way to exchange files between the host and the guest.
+  Much like ordinary Windows network shares, you can tell VirtualBox to treat
+  a certain host directory as a shared folder, and VirtualBox will make it
+  available to the guest operating system as a network share, irrespective of
+  whether guest actually has a network.
+  virtualbox.org/manual/ch04.html
+
 syntax.txt
   VirtualBox syntax
 
 template-win-7-pro.txt
   Creation of template-win-7-pro machine from ajoite-non-domain-20120731.tar.bz2
   The latest backup of windows 7 pro machine after 57 updates
-
