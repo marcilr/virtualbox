@@ -60,13 +60,12 @@ showvminfo.txt
 syntax.txt
   Syntax for vboxmanage
 
-
-
-Links
-=====
-Chapter 8. VBoxManage
-Good summary of commands.
-http://www.virtualbox.org/manual/ch08.html
-
-How to control virtual machines (Virtualbox) using VBoxManage
-http://www.ubuntugeek.com/how-to-control-virtual-machines-virtualbox-using-vboxmanage.html#more-741
+vboxmanage.txt
+  VBoxManage is the command-line interface to VirtualBox.  With it, you can
+  completely control VirtualBox from the command line of your host operating
+  system.  VBoxManage supports all the features that the graphical user
+  interface gives you access to, but it supports a lot more than that.  It
+  exposes really all the features of the virtualization engine, even those that
+  cannot (yet) be accessed from the GUI.
+  How to control virtual machines (Virtualbox) using VBoxManage
+  http://www.ubuntugeek.com/how-to-control-virtual-machines-virtualbox-using-vboxmanage.html#more-741
