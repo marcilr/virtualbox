@@ -3,7 +3,7 @@ Created Thu Aug  2 11:35:36 AKDT 2012
 Copyright (C) 2012 by Raymond E. Marcil <marcilr@gmail.com>
 
 
-Start VirtualBox VM headless.
+Start VirtualBox VM headless
 
 
 Start machine:
