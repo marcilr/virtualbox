@@ -17,6 +17,10 @@ create-machine.txt
 crtl-alt-delete.txt
   Senting ctrl-del on Happy Hacker Lite 2 keyboard
 
+cut-n-paste.txt
+  Should be able to cut-n-paste from virtualbox
+  to debian wheezy 7.3 machine
+
 ESXi-machine.txt
   Create machine on GCI Network Services, OSS covellite Debian jessie 8.0
   amd64 workstation for installation of VMware ESXi 5.1.  Need an installation
