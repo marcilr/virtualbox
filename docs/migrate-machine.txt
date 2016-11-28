@@ -1,0 +1,89 @@
+migrate-machine.txt
+Created Thu Feb 14 13:11:22 AKST 2013
+Copyright (C) 2013 by Raymond E. Marcil <marcilr@gmail.com>
+
+
+Migrate VM from Linux to Windows
+
+
+Shena had asked me to copy the FET (Future Energy Technologies) machine off home bornite 
+server to a new Toshiba Cavio 3 USB 3.0 portable hard drive.
+
+
+Migrated from Linux to Windows
+==============================
+From googling the strategy is to create a new machine under windows then attach the drives,
+*.vdi files, from the linux machine.
+
+
+1. Copied borite's ajoite-non-domain FET (Future Energy Technologies) machine, and associated
+files, from bornite's /data/virtualbox/ to the Toshiba Cavio 3 USB 3.0 (backward USB 2.0
+compatible) 1TB portable hard drive:
+
+00TARBALLS/
+  docs
+    README.txt
+    UserManual.pdf
+    virtualbox        <=== Checkout of 00VIRTUALIZATION/virtualbox repo
+  etc
+  README.txt
+  virtualbox-4.1.20
+  virtualbox-4.2.6
+ajoite-non-domain
+ajoite-non-domain-20130109-ORIG
+README.txt
+
+2. Installed virtualbox windows software on Shena's laptop.
+
+Under debian 6.0.6 amd64 the virtualbox version, that the ajoite-non-domain VM was created
+under, was 4.1.20-80170:
+
+$ dpkg -l | grep virtualbox
+ii  virtualbox-4.1     4.1.20-80170~Debian~squeeze     Oracle VM VirtualBox
+
+Downloaded the same virtualbox version for x86/amd64 with matching extension pack:
+  VirtualBox-4.1.20-80170-Win.exe
+  Oracle_VM_VirtualBox_Extension_Pack-4.1.20-80170.vbox-extpack
+
+Installed VirtualBox-4.1.20-80170-Win.exe (91MB) on windows 7 home premium sp1 laptop
+under C:\Program Files\Oracle\VirtualBox.  Opted for C:\ drive rather than the Toshiba
+1TB as the USB 3.0 (USB 2.0 on laptop) is a very slow interface.
+
+3. Under F:\virtualbox/00TARBALLS/virtualbox-4.1.20/ double-clicked:
+  Oracle_VM_VirtualBox_Extension_Pack-4.1.20-80170.vbox-extpack
+
+to install virtualbox extensions.
+
+4. I was able to successfully open the ajoite-non-domain VM under VirtualBox 4.1.20-80170
+then VirtualBox 4.2.6-82870.  Did have to reduce machines memory from 2048MB to 1024MB and
+a few repairs for windows to adapt to new cpu and usb chipset.  Pretty smooth sailing.
+
+Trying to attach the copied *.vdi drives to a new machine failed.  Would not boot.
+
+Links
+=====
+Clone and move virtual machines in VirtualBox
+Jack Wallen describes cloning and moving virtual machines in VirtualBox.
+He tested this process going from Linux to Linux, Linux to Windows, and Windows to Linux hosts.
+Step 4: Create a new virtual machine
+The process of creating the new virtual machine will be the same as if you were creating a
+standard virtual machine until you get to the Virtual Hard Disk creation screen (Figure C).
+You will select Use Existing Hard Disk, click the folder icon, navigate to the newly copied
+.vdi file, select the file in question, and then click Next.
+Once the new virtual machine is created, that virtual machine should fire up as expected and
+regardless of platform (I have tested this going from Linux to Linux, Linux to Windows, and
+Windows to Linux hosts).
+http://www.techrepublic.com/blog/itdojo/clone-and-move-virtual-machines-in-virtualbox/3305
+
+Moving virtual machines between platforms / machines
+by phoenixbbs - 29. Apr 2008, 14:24 
+All I do is create new VM, but instead of creating a new hard disk, I copy the hard disk image
+from the other machine to the new machine and add it.  Make sure you set it with the same
+configuration as the first machine, and you're good to go.
+https://forums.virtualbox.org/viewtopic.php?p=21501
+
+
+Links
+=====
+VirtualBox Downloads (Old Builds): VirtualBox 4.1
+https://www.virtualbox.org/wiki/Download_Old_Builds_4_1
