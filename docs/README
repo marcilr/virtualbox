@@ -8,6 +8,9 @@ Filelist
 clone.txt
   Details on cloning a machine or snapshot
 
+configuration.txt
+  VirtualBox user configuration is under ${HOME}/.VirtualBox
+
 create-machine.txt
   Creating a new machine
 
