@@ -20,7 +20,7 @@ controlvm.txt
   include pause, resume, and poweroff.
 
 createhd.txt
-  This command creates a new virtual hard disk image.
+  This command creates a new virtual hard disk image
 
   The syntax is as follows:
   VBoxManage createhd   --filename <filename>
@@ -40,7 +40,7 @@ examples.txt
   Useful vboxmanage examples
 
 hd.txt
-  vboxmanage commands to manipulation hard drive (hd).
+  vboxmanage commands to manipulation hard drive (hd)
 
 headless.txt
   Headless virtual machine
@@ -48,7 +48,7 @@ headless.txt
   https://www.virtualbox.org/manual/ch07.html
 
 help.txt
-  Created with "$ vboxmanage --help".
+  Created with "$ vboxmanage --help"
 
 list.txt
   vboxmanage list vms - List all virtual machines.
