@@ -23,6 +23,9 @@ share-folder.txt
 syntax.txt
   Syntax for VirtualBox
 
+usb-key-access.txt
+  usb key access
+
 virtual-display-bind.txt
   Bind virtualbox to virtual display
     Right WinKey Fn left arroy (HOME) > Devices > View > Video Screen 1 \
