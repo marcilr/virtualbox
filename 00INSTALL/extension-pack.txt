@@ -1,0 +1,127 @@
+extension-pack.txt
+Created Tue Mar 13 10:22:59 AKDT 2012
+by Raymond E. Marcil <marcilr@gmail.com>
+
+
+Installing VirtualBox and extension packs
+
+VirtualBox comes in many different packages, and installation depends on your
+host operating system.  If you have installed software before, installation
+should be straightforward: on each host platform, VirtualBox uses the
+installation method that is most common and easy to use. If you run into
+trouble or have special requirements, please refer to Chapter 2, Installation
+details[1] for details about the various installation methods.
+
+Starting with version 4.0, VirtualBox is split into several components.
+1. The base package consists of all open-source components and is licensed
+   under the GNU General Public License V2.
+
+2. Additional extension packs can be downloaded which extend the functionality
+   of the VirtualBox base package.  Currently, Oracle provides the one
+   extension pack, which can be found at
+   http://www.virtualbox.org[2] and provides the following added functionality:
+
+   a. The virtual USB 2.0 (EHCI) device; see the section called "USB
+      settings".[3]  
+   b. VirtualBox Remote Desktop Protocol (VRDP) support; see the section called
+      "Remote display (VRDP support).[4]
+   c. Intel PXE boot ROM with support for the E1000 network card.
+   d. Experimental support for PCI passthrough on Linux hosts; see the section
+      called "PCI passthrough".[5]
+
+VirtualBox extension packages have a .vbox-extpack file name extension.  To
+install an extension, simply double-click on the package file, and the
+VirtualBox Manager will guide you through the required steps.
+
+To view the extension packs that are currently installed, please start the
+VirtualBox Manager (see the next section).  From the "File" menu, please
+select "Preferences".  In the window that shows up, go to the "Extensions"
+category which shows you the extensions which are currently installed and
+allows you to remove a package or add a new one.
+
+Alternatively you can use VBoxManage on the command line: see the section
+called "VBoxManage extpack" [6] for details.
+
+
+
+Installation
+============
+Under Oracle VM VirtualBox Manager version 4.1.8 r75467 installed the
+Oracle_VM_VirtualBox_Extension_Pack-4.1.8-75467.vbox-extpack for use of USB 2.0
+for the Microsoft livecam being used in the ajoite windows 7 x64 machine.
+
+Installation was a bit tricky as root was required.  Had to install via
+the command line using:
+
+# VirtualBox  Oracle_VM_VirtualBox_Extension_Pack-4.1.8-75467.vbox-extpack 
+
+This lanched the Oracle VM VirtualBox Manager (as superuser) and I was
+able to accept the license and run the Extension Pack installer.
+
+Ultimately:
+
+  The extension pack
+  Oracle VM VirtualBox Extension Pack 
+  was installed successfully.
+
+
+Install Extension Pack from cli
+===============================
+You can install the Extension Pack from the command line using VBoxManage.
+
+VBoxManage extpack install <tarball> |
+  uninstall [--force] <name> |
+  cleanup
+
+Example (UAA ITS Debian squeeze 6.04 amd64 boothite):
+# vboxmanage extpack install Oracle_VM_VirtualBox_Extension_Pack-4.1.10-76795.vbox-extpack
+0%...10%...20%...30%...40%...50%...60%...70%...80%...90%...100%
+Successfully installed "Oracle VM VirtualBox Extension Pack".
+#
+
+Sweet!
+
+
+
+Filelist
+========
+Installing VirtualBox and extension packs
+https://www.virtualbox.org/manual/ch01.html#intro-installing
+
+Oracle_VM_VirtualBox_Extension_Pack-4.1.8-75467.vbox-extpack
+  Support for USB 2.0 devices, VirtualBox RDP and PXE boot for Intel cards.
+  See this chapter from the User Manual for an introduction to this Extension
+  Pack. The Extension Pack binaries are released under the VirtualBox Personal
+  Use and Evaluation License (PUEL).
+  name:        Oracle VM VirtualBox Exension Pack
+  version:     4.1.8r75467
+  description: USB 2.0 Host Controller, VirtualBoz RDP, PXE ROM with E1000
+  support.
+  https://www.virtualbox.org/wiki/Downloads
+  http://download.virtualbox.org/virtualbox/4.1.8/Oracle_VM_VirtualBox_Extension_Pack-4.1.8-75467.vbox-extpack
+
+[1] Chapter 2, Installation details
+https://www.virtualbox.org/manual/ch02.html
+
+[2] VirtualBox
+http://www.virtualbox.org 
+
+[3] USB settings
+Chapter 3. Configuring virtual machines     
+https://www.virtualbox.org/manual/ch03.html#settings-usb
+
+[4] Remote display (VRDP support)
+Chapter 7. Remote virtual machines  
+https://www.virtualbox.org/manual/ch07.html#vrde
+
+[5] PCI passthrough
+Chapter 9. Advanced topics
+https://www.virtualbox.org/manual/ch09.html#pcipassthrough
+
+[6] VBoxManage extpack
+Chapter 8. VBoxManage
+https://www.virtualbox.org/manual/ch08.html#vboxmanage-extpack
+
+Install Extension packs for Version 4.0.0
+Has "VBoxManage extpack install..." syntax.
+https://forums.virtualbox.org/viewtopic.php?f=24&t=36752#
