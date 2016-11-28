@@ -1,0 +1,11 @@
+clone.txt
+Created Thu Nov 10 16:30:42 AKST 2011
+by Raymond E. Marcil <marcilr@gmail.com>
+
+
+To clone a machine in virtualbox the machine powered down:
+
+1. Click Snaphots button in the upper right for list of snapshots.
+2. right-click desired snapshot and select "Clone..."
+3. Follow procedure from there.
+
