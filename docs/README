@@ -6,13 +6,13 @@ Copyright (C) 2012 by Raymond E. Marcil <marcilr@gmail.com>
 Filelist
 ========
 clone.txt
-  Details on cloning a machine or snapshot.
+  Details on cloning a machine or snapshot
 
 create-machine.txt
-  Creating a new machine.
+  Creating a new machine
 
 crtl-alt-delete.txt
-  Senting ctrl-del on Happy Hacker Lite 2 keyboard.
+  Senting ctrl-del on Happy Hacker Lite 2 keyboard
 
 ESXi-machine.txt
   Create machine on GCI Network Services, OSS covellite Debian jessie 8.0
@@ -21,30 +21,31 @@ ESXi-machine.txt
 
 exit.txt
   To exit virtualbox hit the host key (Right Ctrl is default).
-  Mapped to right windows key for HHK.
+  Mapped to right windows key for HHK
   see: ctrl-alt-del.txt
 
 host-key.txt
   Virtual box uses the right ctrl key as the host key to exit VMs.
-  Since the Happy Hacker Lite 2 keyboard lacks a  right-ctrl key. 
+  Since the Happy Hacker Lite 2 keyboard lacks a  right-ctrl key
 
   There are two solutions:
 
   o At the machine window use:
   Machine > Insert Ctrl-Alt-Del
 
-  o Configure another key as the the right ctrl for Happy Hacker Lite 2 keyboard use.
+  o Configure another key as the the right ctrl
+    for Happy Hacker Lite 2 keyboard use
 
 networking-modes.txt
-  Networking modes available in virtualbox.
+  Networking modes available in virtualbox
 
 pull-the-plug.txt
-  Pulling the plug on a VirtualBox machine via command line.
+  Pulling the plug on a VirtualBox machine via command line
 
 syntax.txt
-  VirtualBox syntax.
+  VirtualBox syntax
 
 template-win-7-pro.txt
   Creation of template-win-7-pro machine from ajoite-non-domain-20120731.tar.bz2
-  The latest backup of windows 7 pro machine after 57 updates.
+  The latest backup of windows 7 pro machine after 57 updates
 
