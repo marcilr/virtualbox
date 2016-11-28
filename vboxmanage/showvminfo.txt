@@ -1,0 +1,32 @@
+showvminfo.txt
+Created Thu Aug  2 11:11:44 AKDT 2012
+Copyright (C) 2012 by Raymond E. Marcil <marcilr@gmail.com>
+
+
+vboxmanage showvminfo <vm>
+
+Display particular vm info.
+
+
+Examples
+========
+$ vboxmanage showvminfo ajoite-non-domain
+Name:            ajoite-non-domain
+Guest OS:        Windows 7 (64 bit)
+UUID:            a80f04fc-4ec5-49f6-8b08-607f000b13a7
+Config file:     /home/marcilr/VirtualBox VMs/ajoite-non-domain/ajoite-non-domain.vbox
+Snapshot folder: /home/marcilr/VirtualBox VMs/ajoite-non-domain/Snapshots
+Log folder:      /home/marcilr/VirtualBox VMs/ajoite-non-domain/Logs
+Hardware UUID:   a80f04fc-4ec5-49f6-8b08-607f000b13a7
+Memory size:     4096MB
+...
+$
+
+marcilr@boothite:~$ vboxmanage showvminfo "windows 7"
+Name:            windows 7
+Guest OS:        Windows 7
+UUID:            3b3399a9-08e8-4a61-9363-97282b8e0669
+Config file:     /home/marcilr/VirtualBox VMs/windows 7/windows 7.vbox
+...
+$
+
