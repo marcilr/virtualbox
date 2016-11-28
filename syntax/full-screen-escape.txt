@@ -1,0 +1,12 @@
+full-screen-escape.txt
+Created Tue Nov  3 13:14:32 AKST 2015
+Copyright (C) 2015 by Raymond E. Marcil <marcilr@gmail.com>
+
+
+Full-screen escape - HostKey + F (Right WinKey + F)
+
+To escape full-screeen mode in virtualbox hit HostKey + F.
+On GCI Network Services, OSS virtualbox installation the HostKey
+is mapped to the Right WinKey by mapping Host Key Combination 
+to Right WinKey in Oracle VM VirtualBox Manager under:
+  File > Preferences > Input > Virtual Machine
