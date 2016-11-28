@@ -3,18 +3,14 @@ Created Fri Jun  3 15:20:27 AKDT 2011
 by Raymond E. Marcil <marcilr@gmail.com>
 
 
-Documentation
-=============
-$ vboxmanage -help 
-  or
-/usr/share/doc/virtualbox-4.1/UserManual.pdf
-  or
-/usr/local/src/00TARBALLS/virtualbox/UserManual.pdf
-
-
-
 Filelist
 ========
+bridge.txt
+  Bridge virtual network cards to host interface
+  in virtual machine using vboxmanage.  Each vm has
+  eight virtual network cards NIC1 to NIC8 that can
+  be bridged to physical host interfaces.
+
 createhd.txt
   This command creates a new virtual hard disk image.
 
