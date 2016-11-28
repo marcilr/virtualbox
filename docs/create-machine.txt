@@ -1,0 +1,86 @@
+create-machine.txt
+Created Wed May 25 11:57:53 AKDT 2011
+by Raymond E. Marcil <marcilr@gmail.com>
+
+
+Under debian squeeze amd64
+
+
+Create New Virtual Machine
+==========================
+1. In GNOME, go to: GNOME menu > Applications > System tools > VirtualBox OSE
+click New
+
+2. At Welcome to the New Virtual Machine Wizard!
+click Next
+
+3. At VM Name and OS Type
+Name: kobellite-win7-x64
+
+OS Type
+  Operating System: Microsoft Windows
+           Version: Windows 7 (64 bit)
+
+click Next
+
+4. Memory
+Base Memory Size: 1024MB
+
+click Next
+
+5. Virtual Hard Disk
+x Boot Hard Disk
+x Create new hard disk
+  Use existing hard disk
+
+click Next
+
+6. Welcome to the Create New Virtual Disk Wizard!
+
+click Next
+
+7. Hard Disk Storage Type
+Select the type of virtual hard disk you want to create.
+A dynamically expanding storage initially occupies a very small 
+amount of space on your physical hard disk. It will grow dynamically 
+(up to the size specified) as the Guest OS claims disk space.
+
+A fixed-size storage does not grow. It is stored in a file of 
+approximately the same size as the size of the virtual hard disk. 
+The creation of a fixed-size storage may take a long time depending 
+on the storage size and the write performance of your harddisk.
+
+Storage Type
+x Dynamically expanding storage
+  Fixed-size storage
+
+click Next
+
+8. Virtual Disk Location and Size
+
+Location:
+  /virtual_machines/virtualbox/kobellite-win7-x64.vdi
+
+Size: 40GB
+
+9. Summary
+
+Type:     Dynamically expanding storage
+Location: /virtual_machines/virtualbox/kobellite-win7-x64.vdi
+Size:     40.00 GB (42949672960 B)
+
+click Finish
+
+10. Summary
+
+You are going to create a new virtual machine with the following parameters:
+Name:           kobellite-win7-x64
+OS Type:        Windows 7 (64-bit)
+Base Memory:    1024MB
+Boot Hard Disk: kobellite-win7-x64.vdi (Normal, 40.00 GB)
+
+click Finish
+
+11. Virtual OSE
+Got kobellite-win7-x64 machine.
+
