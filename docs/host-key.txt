@@ -1,0 +1,44 @@
+host-key.txt
+Created Sun Jul 22 21:58:10 AKDT 2012
+Copyright (C) 2012 by Raymond E. Marcil <marcilr@gmail.com>
+
+
+Virtual box uses the right ctrl key as the host key to exit VMs.  Since the Happy Hacker Lite 2 
+keyboard lacks a  right-ctrl key. 
+
+There are two solutions:
+
+o At the machine window use:
+Machine > Insert Ctrl-Alt-Del
+
+o Configure another key as the the right ctrl for Happy Hacker Lite 2 keyboard use.
+
+In Oracle VM VirtualBox Manager:
+i. File > Perferences... > Input
+
+ii. Click on Host Key: Right Ctrl then click the key to use as the new break focus key.
+I used the right diamonda key (right Winkey).
+
+Now displays:
+  Host Key: Right WinKey
+
+click OK
+
+This maps ctrl-del to right diamond - fn -` (del)
+
+Happy Hacking Keyboard Lite 2 keyboard does not have a right ctrl key.  VirtualBox uses 
+right-ctrl-del to send a ctrl-alt-del to a VM.  
+
+How is this accomplished with no right-ctrl key?
+
+geekhack.org/
+
+
+
+Links
+=====
+Thread: HHKB and VirtualBox
+VirtualBox lets you redefine the break focus key. I personally use the right-side 
+Windows key (I never use it otherwise). 
+http://geekhack.org/showthread.php?5721-HHKB-and-VirtualBox
+
