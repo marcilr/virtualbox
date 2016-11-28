@@ -1,0 +1,34 @@
+showhdinfo.txt
+Created Wed Nov  9 17:04:18 AKST 2011
+by Raymond E. Marcil <marcilr@gmail.com>
+
+
+8.20 VBoxManage showhdinfo
+==========================
+This command shows information about a virtual hard disk image, notably its size, its size on
+disk, its type and the virtual machines which use it.
+
+Note: For compatibility with earlier versions of VirtualBox, the "showvdiinfo" 
+      command is also supported and mapped internally to the "showhdinfo" command.
+
+The disk image must be specified either by its UUID (if the medium is registered) or by its
+filename. Registered images can be listed by VBoxManage list hdds (see chapter 8.3, VBox-
+Manage list, page 111 for more information). A filename must be specified as valid path, either
+as an absolute path or as a relative path starting from the current directory.
+
+/usr/share/doc/virtualbox-4.1/UserManual.pdf, p. 128
+
+
+Example
+=======
+marcilr@boothite:~/VirtualBox VMs/ajoite$ vboxmanage showhdinfo ajoite.vdi 
+UUID:                 c58f9428-8caa-4244-b266-cc50cc206063
+Accessible:           yes
+Logical size:         61440 MBytes
+Current size on disk: 0 MBytes
+Type:                 normal (base)
+Storage format:       VDI
+Format variant:       dynamic default
+In use by VMs:        ajoite (UUID: a857e08b-7046-43b2-a6ea-f1a04bd3ecc1)
+Location:             /home/marcilr/VirtualBox VMs/ajoite/ajoite.vdi
+marcilr@boothite:~/VirtualBox VMs/ajoite$
