@@ -1,0 +1,105 @@
+dependencies.txt
+Created Sat Aug  4 22:41:08 AKDT 2012
+Copyright (C) 2012 by Raymond E. Marcil <marcilr@gmail.com>
+
+
+VirtualBox dependencies
+
+
+Whilst installing virtualbox-4.1_4.1.8-75467~Debian~squeeze_amd64.deb on bornite's debian
+squeeze 6.0.5 amd64, without gnome, discovered a number of dependencies to resolve:
+
+aptitude install libcurl3-gnutls
+
+aptitude install libgl1-mesa-glx
+  The following NEW packages will be installed:
+    libdrm-intel1{a}
+    libdrm-radeon1{a}
+    libdrm2{a}
+    libgl1-mesa-dri{a}
+    libgl1-mesa-glx
+    libxxf86vm1{a}
+
+aptitude install libgl1 <== Think this was covered by libgl1-mesa-dri & libgl1-mesa-glx above.
+
+aptitude install libpython2.6
+
+aptitude install libqt4-network
+  The following NEW packages will be installed:
+    libqt4-network libqtcore4{a}
+
+aptitude install libqt4-opengl
+  The following NEW packages will be installed:
+      libaudio2{a}
+      liblcms1{a}
+      libmng1{a}
+      libqt4-dbus{a}
+      libqt4-designer{a}
+      libqt4-opengl
+      libqt4-qt3support{a}
+      libqt4-script{a}
+      libqt4-sql{a}
+      libqt4-sql-mysql{a}
+      libqt4-xml{a}
+      libqtgui4{a}
+      libxt6{a}
+      qt4-qtconfig{a}
+
+aptitude install libqtcore4 <== Was installed previous by libqt4-network.
+
+aptitude install libqtgui4 <== Was installed previous by libqt4-opengl
+
+aptitude install libsdl1.2debian
+  The following NEW packages will be installed:
+    libasound2{a}
+    libdirectfb-1.2-9{a}
+    libsdl1.2debian
+    libsdl1.2debian-alsa{a}
+    libsvga1{a}
+    libsysfs2{a}
+    libts-0.0-0{a}
+    libx86-1{a}
+    tsconf{a}
+
+aptitude install libxmu6
+
+aptitude install libxt6 <== Installed previously by libqt4-opengl.
+
+
+Attempted virtualbox-4.1_4.1.8-75467~Debian~squeeze_amd64.deb installation showing dependencies.
+
+# dpkg -i virtualbox-4.1_4.1.8-75467~Debian~squeeze_amd64.deb
+
+Selecting previously deselected package virtualbox-4.1.
+(Reading database ... 32612 files and directories currently installed.)
+Unpacking virtualbox-4.1 (from virtualbox-4.1_4.1.8-75467~Debian~squeeze_amd64.deb) ...
+dpkg: dependency problems prevent configuration of virtualbox-4.1:
+x virtualbox-4.1 depends on libcurl3-gnutls (>= 7.16.2-1); however:
+x  Package libcurl3-gnutls is not installed.
+x virtualbox-4.1 depends on libgl1-mesa-glx | libgl1; however:
+x  Package libgl1-mesa-glx is not installed.
+x  Package libgl1 is not installed.
+x virtualbox-4.1 depends on libpython2.6 (>= 2.6); however:
+x  Package libpython2.6 is not installed.
+x virtualbox-4.1 depends on libqt4-network (>= 4:4.5.3); however:
+x  Package libqt4-network is not installed.
+x virtualbox-4.1 depends on libqt4-opengl (>= 4:4.5.3); however:
+x  Package libqt4-opengl is not installed.
+x virtualbox-4.1 depends on libqtcore4 (>= 4:4.6.1); however:
+x  Package libqtcore4 is not installed.
+x virtualbox-4.1 depends on libqtgui4 (>= 4:4.6.1); however:
+x  Package libqtgui4 is not installed.
+x virtualbox-4.1 depends on libsdl1.2debian (>= 1.2.10-1); however:
+x  Package libsdl1.2debian is not installed.
+x virtualbox-4.1 depends on libxmu6; however:
+x  Package libxmu6 is not installed.
+x virtualbox-4.1 depends on libxt6; however:
+x  Package libxt6 is not installed.
+dpkg: error processing virtualbox-4.1 (--install):
+ dependency problems - leaving unconfigured
+Processing triggers for shared-mime-info ...
+Processing triggers for hicolor-icon-theme ...
+Errors were encountered while processing:
+ virtualbox-4.1
+#
+
