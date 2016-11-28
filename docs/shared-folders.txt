@@ -1,0 +1,288 @@
+shared-folders.txt
+Created Fri Jan  3 11:16:24 AKST 2014
+Copyright (C) 2014 by Raymond E. Marcil <marcilr@gmail.com>
+
+
+Shared Folders
+
+These provide an easy way to exchange files between the host and the guest.
+Much like ordinary Windows network shares, you can tell VirtualBox to treat
+a certain host directory as a shared folder, and VirtualBox will make it
+available to the guest operating system as a network share, irrespective of
+whether guest actually has a network.
+
+virtualbox.org/manual/ch04.html
+
+
+Wed Feb  5 09:37:30 AKST 2014
+=============================
+o Configured /media/covellite, which has previously been mounted to 
+/dev/sdb1, for shared linux directory in windows machine:
+
+1. In open windows machine window open Share Folders:
+Devices > Shared Folders Settings...
+
+2. This opens up a rmarcil1 - Settings window with:
+
+Shared Folders
+  Machine Folders
+  Transient Folders
+
+"transient VM shares, which can be added and removed at runtime and do not
+persist after a VM has stopped"
+
+UserManual.pdf, 4.3 Shared folders, p. 71
+
+3. Click the "+" folder icon, in the upper right, to create a new
+Machine Folder.
+
+4. Add Add Share popup select linux folder to access:
+
+Folder Path: /media/covellite
+Folder Name: covellite
+<unchecked> Read-only
+          x Auto-mount
+          x Make Permanent
+
+click OK
+
+5. The 00TARBALLS share is now available under
+START > Computer > Network > VBOXSVR > \\VBOXSVR\covellite
+
+6. covellite can be mapped as a network drive with:
+START > right-click Computer > Map network drive...
+
+Drive:    Y:                      <=== Or whatever is desired
+Folder:   \\VBOXSVR\covellite   <=== Can click browse and select.
+                                       Granted in mixed case.
+
+           x Reconnect at login
+ <unchecked> Connect using different credentials
+
+click Finish
+
+7. Will now get covellite (\\VBOXSVR)(Y:) under computer.
+
+8. Create a symlink to /usr/local/src/00TARBALLS/ for easy access
+to home network share.  Performed some test create/copies.  Worked just fine.
+
+9. Created shortcut on desktop to covellite (\\VBOXSVR)(Y:)
+
+Yeh hah!   Got this knocked.
+
+Restarted rmarcil1 machine to verify functionality.
+
+
+
+4.3. Shared folders
+===================
+With the "shared folders" feature of VirtualBox, you can access files of your
+host system from within the guest system.  This is similar how you would use
+network shares in Windows networks -- except that shared folders do not need
+require networking, only the Guest Additions.  Shared Folders are supported
+with Windows (2000 or newer), Linux and Solaris guests.
+
+Shared folders must physically reside on the host and are then shared with the
+guest, which uses a special file system driver in the Guest Addition to talk
+to the host.  For Windows guests, shared folders are implemented as a
+pseudo-network redirector; for Linux and Solaris guests, the Guest Additions
+provide a virtual file system.
+
+To share a host folder with a virtual machine in VirtualBox, you must specify
+the path of that folder and choose for it a "share name" that the guest can
+use to access it.  Hence, first create the shared folder on the host; then,
+within the guest, connect to it.
+
+There are several ways in which shared folders can be set up for a particular
+virtual machine:
+
+o In the window of a running VM, you can select "Shared folders" from the
+  "Devices" menu, or click on the folder icon on the status bar in the bottom
+  right corner.
+
+o If a VM is not currently running, you can configure shared folders in each
+  virtual machine's "Settings" dialog.
+
+o From the command line, you can create shared folders using VBoxManage, as
+  follows:
+
+  VBoxManage sharedfolder add "VM name" --name "sharename" --hostpath "C:\test"
+
+  See Section 8.29, "VBoxManage sharedfolder add/remove" for details.
+  [https://www.virtualbox.org/manual/ch08.html#vboxmanage-sharedfolder]
+
+There are two types of shares:
+
+1. VM shares which are only available to the VM for which they have been
+   defined;
+
+2. transient VM shares, which can be added and removed at runtime and do not
+   persist after a VM has stopped; for these, add the --transient option to
+   the above command line.
+
+Shared folders have read/write access to the files at the host path by default.
+To restrict the guest to have read-only access, create a read-only shared
+folder.  This can either be achieved using the GUI or by appending the
+parameter --readonly when creating the shared folder with VBoxManage.
+
+Starting with version 4.0, VirtualBox shared folders also support symbolic
+links (symlinks), under the following conditions:
+
+1. The host operating system must support symlinks (i.e. a Mac, Linux or
+    Solaris host is required).
+
+2. Currently only Linux and Solaris Guest Additions support symlinks.
+
+4.3.1. Manual mounting
+----------------------
+You can mount the shared folder from inside a VM the same way as you would
+mount an ordinary network share:
+
+o In a Windows guest, shared folders are browseable and therefore visible in
+  Windows Explorer.  So, to attach the host's shared folder to your Windows
+  guest, open Windows Explorer and look for it under
+  "My Networking Places" -> "Entire Network" -> "VirtualBox Shared Folders".
+  By right-clicking on a shared folder and selecting "Map network drive" from
+  the menu that pops up, you can assign a drive letter to that shared folder.
+
+  Alternatively, on the Windows command line, use the following:
+
+  net use x: \\vboxsvr\sharename
+
+  While vboxsvr is a fixed name (note that vboxsrv would also work), replace
+  "x:" with the drive letter that you want to use for the share, and sharename
+  with the share name specified with VBoxManage.
+
+o In a Linux guest, use the following command:
+
+  mount -t vboxsf [-o OPTIONS] sharename mountpoint
+
+  To mount a shared folder during boot, add the following entry to /etc/fstab:
+
+  sharename   mountpoint   vboxsf   defaults  0   0
+
+o In a Solaris guest, use the following command:
+
+  mount -F vboxfs [-o OPTIONS] sharename mountpoint
+
+  Replace sharename (use lowercase) with the share name specified with
+  VBoxManage or the GUI, and mountpoint with the path where you want the share
+  to be mounted on the guest (e.g. /mnt/share).  The usual mount rules apply,
+  that is, create this directory first if it does not exist yet.
+
+  Here is an example of mounting the shared folder for the user "jack" on
+  Solaris:
+
+  $ id
+  uid=5000(jack) gid=1(other)
+  $ mkdir /export/home/jack/mount
+  $ pfexec mount -F vboxfs -o uid=5000,gid=1 jackshare /export/home/jack/mount
+  $ cd ~/mount
+  $ ls
+  sharedfile1.mp3 sharedfile2.txt
+  $
+
+  Beyond the standard options supplied by the mount command, the following are
+  available:
+
+  iocharset CHARSET
+
+  to set the character set used for I/O operations. Note that on Linux guests,
+  if the "iocharset" option is not specified then the Guest Additions driver
+  will attempt to use the character set specified by the CONFIG_NLS_DEFAULT
+  kernel option.  If this option is not set either then UTF-8 will be used.
+  Also,
+
+  convertcp CHARSET
+
+  is available in order to specify the character set used for the shared
+  folder name (utf8 by default).
+
+  The generic mount options (documented in the mount manual page) apply also.
+  Especially useful are the options uid, gid and mode, as they allow access by
+  normal users (in read/write mode, depending on the settings) even if root
+  has mounted the filesystem.
+
+
+4.3.2. Automatic mounting
+-------------------------
+Starting with version 4.0, VirtualBox can mount shared folders automatically,
+at your option.  If automatic mounting is enabled for a specific shared folder,
+the Guest Additions will automatically mount that folder as soon as a user
+logs into the guest OS. The details depend on the guest OS type:
+
+o With Windows guests, any auto-mounted shared folder will receive its own
+  drive letter (e.g. E:) depending on the free drive letters remaining in the
+  guest.
+
+  If there no free drive letters left, auto-mounting will fail; as a result,
+  the number of auto-mounted shared folders is typically limited to 22 or less
+  with Windows guests.
+
+o With Linux guests, auto-mounted shared folders are mounted into the /media
+  directory, along with the prefix sf_. For example, the shared folder myfiles
+  would be mounted to /media/sf_myfiles on Linux and /mnt/sf_myfiles on Solaris.
+
+  The guest property /VirtualBox/GuestAdd/SharedFolders/MountPrefix determines
+  the prefix that is used.  Change that guest operty to a value other than
+  "sf" to change that prefix; see Section 4.6, "Guest properties" for details.
+  [https://www.virtualbox.org/manual/ch04.html#guestadd-guestprops]
+
+  Note
+  Access to auto-mounted shared folders is only granted to the user group
+  vboxsf, which is created by the VirtualBox Guest Additions installer.  Hence
+  guest users have to be member of that group to have read/write access or to
+  have read-only access in case the folder is not mapped writable.
+
+To change the mount directory to something other than /media, you can set the
+guest property /VirtualBox/GuestAdd/SharedFolders/MountDir.
+
+o Solaris guests behave like Linux guests except that /mnt is used as the
+  default mount directory instead of /media.
+
+To have any changes to auto-mounted shared folders applied while a VM is
+running, the guest OS needs to be rebooted.  (This applies only to
+auto-mounted shared folders, not the ones which are mounted manually.)
+
+
+Windows share
+=============
+The simplist method, not elegant, is to create a network share on the windows
+machine. This is then mounted by the linux host:
+
+On rmarcil1 windows machine C:\share shared as \\RMARCIL1\share
+On covellite debian wheezy 7.3 host the \\RMARCIL1\share is mounted in 
+/etc/fstab using:
+
+//192.168.92.52/share   /media/share     cifs   \
+credentials=/home/marcilr/.smbcredentials,uid=marcilr,gid=marcilr   0   0
+
+NOTE: 192.168.92.52 is the rmarcil1 win 7 pro machine ip address.
+
+
+Filelist
+========
+UserManual.pdf
+  VirtualBox User Manual
+  4.3 Shared folders, p. 70-71
+  4.3.1 Manual mounting, p. 71-72
+  4.3.2 Automatic mounting, p. 72
+  https://www.virtualbox.org/manual/UserManual.html
+  http://download.virtualbox.org/virtualbox/UserManual.pdf
+
+
+Links
+=====
+4.1. Introduction
+Chapter 4. Guest Additions
+https://www.virtualbox.org/manual/ch04.html
+
+4.3. Shared folders
+Chapter 4. Guest Additions
+https://www.virtualbox.org/manual/ch04.html#sharedfolders
+
+4.6. Guest properties
+https://www.virtualbox.org/manual/ch04.html#guestadd-guestprops
+
+Section 8.29. VBoxManage sharedfolder add/remove
+https://www.virtualbox.org/manual/ch08.html#vboxmanage-sharedfolder
