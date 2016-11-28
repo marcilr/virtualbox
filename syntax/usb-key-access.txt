@@ -1,0 +1,21 @@
+usb-key-access.txt
+Created Wed Nov  4 15:24:14 AKST 2015
+Copyright (C) 2015 by Raymond E. Marcil <marcilr@gmail.com>
+
+
+usb key access
+
+1. Insert usb key on covellite workstation
+
+2. List usb keys that are available:
+covellite:~$ VBoxManage list usbhost
+Host USB Devices:
+
+<none>
+
+covellite:~$
+
+3. Add marcilr account, running virtualbox to vboxusers group.
+covellite:~$ grep -ni vboxusers /etc/group
+62:vboxusers:x:124:marcilr
+covellite:~$ 
