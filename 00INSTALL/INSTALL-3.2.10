@@ -1,0 +1,21 @@
+INSTALL
+Created Wed May 25 11:55:29 AKDT 2011
+by Raymond E. Marcil <marcile@gmail.com>
+
+
+Tried install on UAA ITS debian squeeze amd64 workstation.
+
+INSTALL
+=======
+Install the relevant linux-headers and virtualbox-ose packages: 
+
+# aptitude install linux-headers-2.6-$(uname -r|sed 's,[^-]*-[^-]*-,,') \
+virtualbox-ose
+
+On UAA ITS WebApps debian squeeze amd64 boothite workstation this installed:
+marcilr@boothite:~$ dpkg -l | grep virtualbox
+ii  virtualbox-ose        3.2.10-dfsg-1   x86 virtualization solution - base binaries
+ii  virtualbox-ose-dkms   3.2.10-dfsg-1   x86 virtualization solution - kernel 
+                                          module sources for dkms
+ii  virtualbox-ose-qt     3.2.10-dfsg-1   x86 virtualization solution - Qt based 
+                                          user interface
