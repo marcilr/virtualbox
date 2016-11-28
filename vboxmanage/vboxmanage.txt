@@ -50,3 +50,6 @@ Links
 =====
 Chapter 8. VBoxManage
 http://www.virtualbox.org/manual/ch08.html
+
+How to control virtual machines (Virtualbox) using VBoxManage
+http://www.ubuntugeek.com/how-to-control-virtual-machines-virtualbox-using-vboxmanage.html#more-741
