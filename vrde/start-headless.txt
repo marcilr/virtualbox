@@ -1,0 +1,18 @@
+start-headless.txt
+Created Thu Aug  2 11:35:36 AKDT 2012
+Copyright (C) 2012 by Raymond E. Marcil <marcilr@gmail.com>
+
+
+Start VirtualBox VM headless.
+
+
+Start machine:
+$ vboxheadless --startvm ajoite-non-domain &     <== Preferred.
+[1] 5169
+marcilr@malachite:~/VirtualBox VMs$ Oracle VM VirtualBox Headless Interface 4.1.18
+(C) 2008-2012 Oracle Corporation
+All rights reserved.
+
+VRDE server is listening on port 3389.
+
+$
