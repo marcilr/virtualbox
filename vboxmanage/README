@@ -3,38 +3,43 @@ Created Fri Jun  3 15:20:27 AKDT 2011
 by Raymond E. Marcil <marcilr@gmail.com>
 
 
-VBoxManage, a command-line utility that allows you to control all of VirtualBox's powerful
-features.  In essence, VBoxManage supports everything that our graphical user interface allows you
-to do with the click of a button. VBoxManage supports a lot more than that, however.  It exposes
-really all the features of the virtualization engine, even those that cannot (yet) be accessed
-from the GUI.
+VBoxManage, a command-line utility that allows you to control all
+of VirtualBox's powerful features.  In essence, VBoxManage supports
+everything that our graphical user interface allows you to do with
+the click of a button. VBoxManage supports a lot more than that,
+however.  It exposes really all the features of the virtualization
+engine, even those that cannot (yet) be accessed from the GUI.
 
 There are two main things to keep in mind when using VBoxManage
 
-o First,VBoxManage must always be used with a specific "subcommand", such as "list vms" or
-  "createvm" or "startvm".
+o First,VBoxManage must always be used with a specific "subcommand",
+such as "list vms" or "createvm" or "startvm".
 
-o Second, most of these subcommands require that you specify a particular virtual machine after
-  the subcommand. There are two ways you can do this:
+o Second, most of these subcommands require that you specify a
+particular virtual machine after the subcommand. There are two
+ways you can do this:
 
-You can specify the VM name, as it is shown in the VirtualBox GUI.  Note that if that name
-contains spaces, then you must enclose the entire name in double quotes (as it is always required
-with command line arguments that contain spaces).
+You can specify the VM name, as it is shown in the VirtualBox GUI.
+Note that if that name contains spaces, then you must enclose the
+entire name in double quotes (as it is always required with
+command line arguments that contain spaces).
 
 ubuntugeek.com/
 
 
-"As briefly mentioned in chapter 1.13, Alternative front-ends, page 28, VBoxManage is the
-command-line interface to VirtualBox.  With it, you can completely control VirtualBox from the
-command line of your host operating system. VBoxManage supports all the features that the
-graphical user interface gives you access to, but it supports a lot more than that.  It exposes
-really all the features of the virtualization engine, even those that cannot (yet) be accessed
-from the GUI."
+"As briefly mentioned in chapter 1.13, Alternative front-ends,
+page 28, VBoxManage is the command-line interface to VirtualBox.
+With it, you can completely control VirtualBox from the command
+line of your host operating system. VBoxManage supports all the
+features that the graphical user interface gives you access to,
+but it supports a lot more than that.  It exposes really all the
+features of the virtualization engine, even those that cannot
+(yet) be accessed from the GUI."
 
 UserManual.pdf, p. 99
 
-Definately looks like vboxmanage could be used to generate a virtual machine via the command line
-for use with windows.
+Definately looks like vboxmanage could be used to generate a
+virtual machine via the command line for use with windows.
  
 
 Syntax
@@ -75,8 +80,9 @@ createhd.txt
                         [--variant Standard,Fixed,Split2G,Stream,ESX]
 
 controlvm.txt 
-  The controlvm subcommand allows you to change the state of a virtual machine that is currently
-  running.  This include pause, resume, and poweroff.
+  The controlvm subcommand allows you to change the state
+  of a virtual machine that is currently running.  This
+  include pause, resume, and poweroff.
 
 hd.txt
   vboxmanage commands to manipulation hard drive (hd).
@@ -99,8 +105,9 @@ modifyvm.txt
 
 showhdinfo.txt
   VBoxManage showhdinfo
-  This command shows information about a virtual hard disk image, notably its size,
-  its size on disk, its type and the virtual machines which use it.
+  This command shows information about a virtual hard disk
+  image, notably its size, its size on disk, its type and
+  the virtual machines which use it.
 
 showvminfo.txt
   vboxmanage showvminfo <vm> - Display particular vm info.
