@@ -1,0 +1,50 @@
+networking-modes.txt
+Created Wed Aug  1 15:07:45 AKDT 2012
+Copyright (C) 2012 by Raymond E. Marcil <marcilr@gmail.com>
+
+
+Networking modes available in virtualbox.
+
+
+Bridged networking with port forwarding back to the machine, for things like 3389 (windows rdp),
+is the way to go.
+
+Not attached
+  In this mode, VirtualBox reports to the guest that a network card is present, but that there is
+  no connection -- as if no Ethernet cable was plugged into the card.  This way it is possible to
+  "pull" the virtual Ethernet cable and disrupt the connection, which can be useful to inform a
+  guest operating system that no network connection is available and enforce a reconfiguration.
+
+Network Address Translation (NAT)
+  If all you want is to browse the Web, download files and view e-mail inside the guest, then this
+  default mode should be sufficient for you, and you can safely skip the rest of this section.
+  Please note that there are certain limitations when using Windows file sharing (see the section
+  called "NAT limitations" for details).
+
+Bridged networking
+  This is for more advanced networking needs such as network simulations and running servers in a
+  guest.  When enabled, VirtualBox connects to one of your installed network cards and exchanges
+  network packets directly, circumventing your host operating system's network stack.
+
+Internal networking
+  This can be used to create a different kind of software-based network which is visible to
+  selected virtual machines, but not to applications running on the host or to the outside world.
+
+Host-only networking
+  This can be used to create a network containing the host and a set of virtual machines, without
+  the need for the host's physical network interface.  Instead, a virtual network interface
+  (similar to a loopback interface) is created on the host, providing connectivity among virtual
+  machines and the host.
+
+Generic networking
+  Rarely used modes share the same generic network interface, by allowing the user to select a
+  driver which can be included with VirtualBox or be distributed in an extension pack.
+
+virtualbox.org/
+
+
+Links
+=====
+Introduction to networking modes
+Has list of 6 network modes.
+Chapter 6. Virtual networking
