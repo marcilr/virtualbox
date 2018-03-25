@@ -6,8 +6,9 @@ Copyright (C) 2012 by Raymond E. Marcil <marcilr@gmail.com>
 VirtualBox dependencies
 
 
-Whilst installing virtualbox-4.1_4.1.8-75467~Debian~squeeze_amd64.deb on bornite's debian
-squeeze 6.0.5 amd64, without gnome, discovered a number of dependencies to resolve:
+Whilst installing virtualbox-4.1_4.1.8-75467~Debian~squeeze_amd64.deb
+on bornite's debian squeeze 6.0.5 amd64, without gnome, discovered a
+number of dependencies to resolve:
 
 aptitude install libcurl3-gnutls
 
@@ -20,7 +21,8 @@ aptitude install libgl1-mesa-glx
     libgl1-mesa-glx
     libxxf86vm1{a}
 
-aptitude install libgl1 <== Think this was covered by libgl1-mesa-dri & libgl1-mesa-glx above.
+aptitude install libgl1 <== Think this was covered by
+                            libgl1-mesa-dri & libgl1-mesa-glx above.
 
 aptitude install libpython2.6
 
@@ -66,7 +68,8 @@ aptitude install libxmu6
 aptitude install libxt6 <== Installed previously by libqt4-opengl.
 
 
-Attempted virtualbox-4.1_4.1.8-75467~Debian~squeeze_amd64.deb installation showing dependencies.
+Attempted virtualbox-4.1_4.1.8-75467~Debian~squeeze_amd64.deb
+installation showing dependencies.
 
 # dpkg -i virtualbox-4.1_4.1.8-75467~Debian~squeeze_amd64.deb
 
@@ -102,4 +105,3 @@ Processing triggers for hicolor-icon-theme ...
 Errors were encountered while processing:
  virtualbox-4.1
 #
-
