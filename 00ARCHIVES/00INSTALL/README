@@ -1,0 +1,23 @@
+README
+Created Thu Aug  2 10:25:01 AKDT 2012
+Copyright (C) 2012 by Raymond E. Marcil <marcilr@gmail.com>
+
+
+Filelist
+========
+build-notes.txt
+  VirtualBox build notes
+
+dependencies.txt
+  VirtualBox dependencies
+
+INSTALL-3.2.10
+  VirtualBox 3.2.10 installation from debian virtualbox-ose package
+
+INSTALL-4.0.8
+  Installed of virtualbox-4.0_4.0.8-71778-Debian-squeeze_amd64.deb on UAA ITS Debian Squeeze
+  amd64 boothite workstation
+
+INSTALL-4.1.18
+  Installation of VirtualBox 4.1.18 from virtualbox-4.1_4.1.18-78361~Debian~squeeze_amd64.deb
+  on debian squeeze 6.0.5 malachite workstation
