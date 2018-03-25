@@ -23,6 +23,10 @@ extension-pack.txt
     https://www.virtualbox.org/wiki/Downloads
     http://download.virtualbox.org/virtualbox/4.1.8/Oracle_VM_VirtualBox_Extension_Pack-4.1.8-75467.vbox-extpack
 
+INSTALL-5.2
+  Installation of virtualbox 5.2
+  on Debian stretch 9.4 amd64
+
 INSTALL-3.2.10
   VirtualBox 3.2.10 installation from debian virtualbox-ose package
 
