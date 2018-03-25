@@ -14,11 +14,16 @@ Filelist
 links.txt
   Virtualbox related links
 
-svn_ext_val.txt
-  List of repo hierarchical directories to checkout under virtualbox/
-
 TODO
   Items for virtualbox
+
+vboxmanage/
+  VBoxManage is the command-line interface to VirtualBox.  With it, you can
+  completely control VirtualBox from the command line of your host operating
+  system.  VBoxManage supports all the features that the graphical user
+  interface gives you access to, but it supports a lot more than that.  It
+  exposes really all the features of the virtualization engine, even those that
+  cannot (yet) be accessed from the GUI.
 
 virtualbox.txt
   VirtualBox is a powerful x86 and AMD64/Intel64 virtualization 
