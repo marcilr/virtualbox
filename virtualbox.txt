@@ -48,6 +48,15 @@ $ VBoxHeadless -startvm "VMName"
 debian.org/
 
 
+Wed Apr 25 08:25:51 AKDT 2018
+=============================
+On inspection running VirtualBox v5.2.10 r122088 (Qt5.7.1)
+on GCI covellite Debian stretch 9.4 amd64 workstation.
+
+From https://www.virtualbox.org/wiki/Downloads this is the
+latest stable release.
+
+
 Thu May 26 11:01:33 AKDT 2016
 =============================
 o Updated automatedly to VirtualBox 5.0.20 r106931.
