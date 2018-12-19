@@ -8,37 +8,27 @@ Virtualbox related links
 
 Links
 =====
+Documentation
+https://www.virtualbox.org/wiki/Documentation
+
+Download VirtualBox 5.2
+https://www.virtualbox.org/wiki/Downloads
+
+Easiest method to delete (merge) all snapshots into base?
+Postby appyface » 18. Aug 2010, 03:38
+https://forums.virtualbox.org/viewtopic.php?f=1&t=33833
+
+Forums
+https://forums.virtualbox.org/viewforum.php?f=12&sid=633c655a9cefb9355385f1bb4d23419b
+
 How to automatically start and shut down VirtualBox machines?
 Vagrant looks like a good choice.
 http://unix.stackexchange.com/questions/28611/how-to-automatically-start-and-shut-down-virtualbox-machines
 
-Installing Debian Linux in a Virtual Machine 2014
-2014/09/09
-http://williamjturkel.net/2014/09/09/installing-debian-linux-in-a-virtual-machine-2014/
+How To Backup and Move VirtualBox Machines
+http://www.howtogeek.com/howto/36870/how-to-backup-and-move-virtualbox-machines/\
 
-Installing Debian Linux in a VirtualBox Virtual Machine
-October 6, 2012
-http://www.brianlinkletter.com/installing-debian-linux-in-a-virtualbox-virtual-machine/
-
-VirtualBox 4.1 for Linux
-http://www.virtualbox.org/wiki/Linux_Downloads
-
-VirtualBox Documentation
-https://www.virtualbox.org/wiki/Documentation
-
-VirtualBox downloads
-http://www.virtualbox.org/wiki/Downloads
-
-VirtualBox forums
-https://forums.virtualbox.org/viewforum.php?f=12&sid=633c655a9cefb9355385f1bb4d23419b
-
-VirtualBox HOWTOs and tutorials
-https://www.virtualbox.org/wiki/User_HOWTOS
-
-VirtualBox on Linux Hosts forum
-https://forums.virtualbox.org/viewforum.php?f=7
-
-Howto Convert Vmware Image to Virtualbox Image or Import Vmware Image into Virtualbox
+How to Convert Vmware Image to Virtualbox Image or Import Vmware Image into Virtualbox
 March 5, 2009
 http://www.ubuntugeek.com/howto-convert-vmware-image-to-virtualbox-image.html
 
@@ -49,15 +39,36 @@ http://www.makeuseof.com/tag/installing-windows-7-on-a-virtual-machine/
 How to migrate existing Windows installations to VirtualBox
 https://www.virtualbox.org/wiki/Migrate_Windows
 
+HOWTOs and tutorials
+https://www.virtualbox.org/wiki/User_HOWTOS
+
+Install & docs.
+VirtualBox OSE 3.2.10 is packaged for Squeeze.
+http://wiki.debian.org/VirtualBox
+
+Installing Debian Linux in a Virtual Machine 2014
+2014/09/09
+http://williamjturkel.net/2014/09/09/installing-debian-linux-in-a-virtual-machine-2014/
+
+Installing Debian Linux in a VirtualBox Virtual Machine
+October 6, 2012
+http://www.brianlinkletter.com/installing-debian-linux-in-a-virtualbox-virtual-machine/
+
 Installing Windows 7 on VirtualBox
 By carson | Published: January 12, 2009
 http://www.ioncannon.net/system-administration/82/installing-windows-7-on-virtualbox/
 
-Mounting virtualbox vdi disk: An authentic weblog for achange 
+Linux Hosts forum
+https://forums.virtualbox.org/viewforum.php?f=7
+
+Mounting virtualbox vdi disk: An authentic weblog for achange
 Notes on mounting vdi files.
 http://muralipiyer.blogspot.com/2008/02/mounting-virtualbox-vdi-disk-authentic.html
 
-Oracle VM VirtualBox, formerly Sun xVM VirtualBox and innotek VirtualBox, is a family of 
+Oracle VM VirtualBox
+https://www.virtualbox.org/
+
+Oracle VM VirtualBox, formerly Sun xVM VirtualBox and innotek VirtualBox, is a family of
 x86 virtualization products for enterprise and home use.
 http://freshmeat.net/projects/virtualbox
 http://www.virtualbox.org/
@@ -67,16 +78,26 @@ a mindstream from just another statistic
 How To : Install Windows 7 on VirtualBox
 http://nachiket.wordpress.com/2009/02/03/how-to-install-windows-7-on-virtualbox/
 
-VirtualBox Gust OSes
+VirtualBox
+Plenty of good tricks here.
+https://wiki.archlinux.org/index.php/VirtualBox
+
+VirtualBox
+http://www.ubuntugeek.com/create-and-manage-virtual-machines-using-virtualbox.html
+
+VirtualBox 4.1 for Linux
+http://www.virtualbox.org/wiki/Linux_Downloads
+
+VirtualBox Guest OSes
 Windows 7 (32/64-bit) - Works, with Additions
 http://www.virtualbox.org/wiki/Guest_OSes
 
 VirtualBox User Manual
 http://www.virtualbox.org/manual/UserManual.html
 
-Easiest method to delete (merge) all snapshots into base?
-Postby appyface » 18. Aug 2010, 03:38 
-https://forums.virtualbox.org/viewtopic.php?f=1&t=33833
-
-How To Backup and Move VirtualBox Machines
-http://www.howtogeek.com/howto/36870/how-to-backup-and-move-virtualbox-machines/
+VMware Back-Pedals On vRAM Scheme, Back To Per-Socket Pricing
+Posted by timothy on Tuesday August 28, @12:31PM
+from the old-ways-is-best-ways dept.
+"VMware is back to more straightforwardly charging per physical processor."
+"But I think they mean per socket. (or maybe per physical processor, but not per core)"
+http://it.slashdot.org/story/12/08/28/169218/vmware-back-pedals-on-vram-scheme-back-to-per-socket-pricing
