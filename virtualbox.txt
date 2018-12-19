@@ -1,4 +1,4 @@
-README
+HhQREADME
 Created Wed May 25 11:37:18 AKDT 2011
 by Raymond E. Marcil <marcilr@gmail.com>
 
@@ -739,23 +739,3 @@ http://www.virtualbox.org/
 
 VirtualBox
 https://en.wikipedia.org/wiki/VirtualBox
-
-VirtualBox
-Install & docs.
-VirtualBox OSE 3.2.10 is packaged for Squeeze. 
-http://wiki.debian.org/VirtualBox
-
-VirtualBox
-http://www.ubuntugeek.com/create-and-manage-virtual-machines-using-virtualbox.html
-
-VirtualBox
-Plenty of good tricks here.
-https://wiki.archlinux.org/index.php/VirtualBox
-
-VMware Back-Pedals On vRAM Scheme, Back To Per-Socket Pricing
-Posted by timothy on Tuesday August 28, @12:31PM
-from the old-ways-is-best-ways dept.
-"VMware is back to more straightforwardly charging per physical processor."
-"But I think they mean per socket. (or maybe per physical processor, but not per core)"
-http://it.slashdot.org/story/12/08/28/169218/vmware-back-pedals-on-vram-scheme-back-to-per-socket-pricing
-
