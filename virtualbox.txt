@@ -3,6 +3,10 @@ Created Wed May 25 11:37:18 AKDT 2011
 by Raymond E. Marcil <marcilr@gmail.com>
 
 
+
+VirtualBox
+
+
 VirtualBox is a powerful x86 and AMD64/Intel64 virtualization 
 product for enterprise as well as home use.  Not only is VirtualBox 
 an extremely feature rich, high performance product for enterprise 
@@ -10,8 +14,7 @@ customers, it is also the only professional solution that is freely
 available as Open Source Software under the terms of the GNU General 
 Public License (GPL) version 2. See "About VirtualBox" for an 
 introduction.
-
-virtualbox.org/
+--virtualbox.org/
 
 
 "Oracle VM VirtualBox is an x86 virtualization software package, 
@@ -25,8 +28,7 @@ and run, each with its own virtual environment."
 "According to 2010 surveys by LinuxJournal.com [5] and LifeHacker.com [6], 
 VirtualBox was the most popular virtualization product with over 50% of 
 the vote."
-
-wikipedia.org/
+--wikipedia.org/
 
 
 
@@ -46,6 +48,12 @@ like this:
 $ VBoxHeadless -startvm "VMName"
 
 debian.org/
+
+
+Fri Dec 14 10:09:24 AST 2018
+============================
+Downloaded and installed VirtualBox 5.2.22r126460 (x86):
+  VirtualBox-5.2.22-126460-Win.exe
 
 
 Wed Apr 25 08:25:51 AKDT 2018
@@ -716,7 +724,13 @@ Filelist
 /usr/share/doc/virtualbox-4.1/UserManual.pdf
   The user manual.
   vboxmanage, p. 104
-    createhd, p. 128
+  createhd,   p. 128
+
+VirtualBox-5.2.22-126460-Win.exe (109MB)
+  Latest VirualBox v5.2.22
+  Downloaded and installed Fri Dec 14, 2018
+  https://download.virtualbox.org/virtualbox/5.2.22/VirtualBox-5.2.22-126460-Win.exe
+
 
 Links
 =====
