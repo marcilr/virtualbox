@@ -53,7 +53,12 @@ XFCE
 https://wiki.debian.org/Xfce
 
 
+o Verify Debian version:
+$ cat /etc/debian_version
+6.0.6
+$
 
+As expected...
 
 o In new Debian 9 machine (haven't renamed yet,
 1. Logged in as debian and root and updated default cedentials.
