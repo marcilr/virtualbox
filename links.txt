@@ -95,6 +95,15 @@ http://www.virtualbox.org/wiki/Guest_OSes
 VirtualBox User Manual
 http://www.virtualbox.org/manual/UserManual.html
 
+VirtualBoxes – Free VirtualBox Images
+Ready-to-use virtual machines for open-source operating systems
+Debian images:
+  https://virtualboxes.org/images/debian/
+Debian GNU/Linux 6.0.6 alias squeeze
+  debian_6.0.6.vdi.7z (1.8GB)
+  http://downloads.sourceforge.net/virtualboximage/debian_6.0.6.vdi.7z
+https://virtualboxes.org/images/
+
 VMware Back-Pedals On vRAM Scheme, Back To Per-Socket Pricing
 Posted by timothy on Tuesday August 28, @12:31PM
 from the old-ways-is-best-ways dept.
