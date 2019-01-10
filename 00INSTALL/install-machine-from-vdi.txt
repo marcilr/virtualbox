@@ -23,6 +23,10 @@ to debian_6.0.6.vdi (5.0GB)
 
 Thu Jan 10 10:51:31 AST 2019
 ============================
+o To install:
+  LibreOffice
+  Aterm
+
 o Update from GNOME to XFCE:
 
 1. Uninstall GNOME:
@@ -41,7 +45,6 @@ The above issue could indicate some Xfce dependencies are missing.
 One solution to this is to install "task-xfce-desktop"
   sudo apt-get install task-xfce-deskto
 
-Still need to install LibreOffice
 
 Install Xfce in an already installed system
 https://wiki.debian.org/Xfce#Install_Xfce_in_an_already_installed_system
