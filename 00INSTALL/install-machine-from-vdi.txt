@@ -28,7 +28,7 @@ o To install:
   Aterm
 
 o Next debian installation try based on:
-debian-9.2.1-amd64-xfce-CD-1.iso
+debian-9.2.1-amd64-xfce-CD-1.iso (1163 install items)
 
 Failed with:
   debian.6.0.6.vdi
