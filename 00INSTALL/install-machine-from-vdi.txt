@@ -1,0 +1,61 @@
+install-machine-from-vdi.txt
+Created Thu Jan 10 10:08:59 AST 2019
+by Raymond E. Marcil <ray.marcil@alaska.gov>
+
+
+Install machine from VDI
+
+
+Downloaded debian_6.0.6.vdi.7z (1.7GB) 
+   VirtualBox Image from:
+   VirtualBoxes – Free VirtualBox Images
+   Ready-to-use virtual machines for open-source operating systems
+   https://virtualboxes.org/images/debian/
+   http://downloads.sourceforge.net/virtualboximage/debian_6.0.6.vdi.7z
+
+With 7-zip uncompressed debian_6.0.6.vdi.7z (1.8GB)
+to debian_6.0.6.vdi (5.0GB)
+
+Importing a VDI in VirtualBox
+MISCELLANEOUS | November 5, 2009
+
+If you're used to be a VMware user and try to switch to the Open-Source
+side of the Force by using VirtualBox, you may run into difficulties if
+you try to import an existing  VDI file into VirtualBox.  Actually it's
+quite easy, if you know how.
+
+The main difference between VMware and VirtualBox is that VMware
+captures a whole virtual machine in an image, whereas VirtualBox only
+supports images of a hard disk.  So in VirtualBox's world, you first
+need to create a new virtual machine, before using an existing
+VirtualBox image.
+
+
+1. First copy your VDI file into VirtualBox's virtual hard disks
+   repository.  On Mac OS X it's 
+     $HOME/Library/VirtualBox/HardDisks/.
+
+2. Start VirtualBox and create a new virtual machine.
+
+3. When you're asked for a hard disk image, select Use existing hard
+   disk and click on the small icon on the right.
+
+4. Which will brings you to the Virtual Media Manager.
+   Click on Add and select the VDI file from step 1.
+
+5. After leaving the Virtual Media Manager, you'll be back in your
+   virtual machine wizard. Now you can select your new VDI as existing
+   hard disk and finalize the creation process.
+
+6. Back in the main window, you're now able to start your new virtual machine.
+   It's quite easy, if you know how.
+
+--Importing a VDI in VirtualBox
+  MISCELLANEOUS | November 5, 2009
+  https://blogs.oracle.com/oswald/importing-a-vdi-in-virtualbox
+
+
+Links
+=====
+Importing a VDI in VirtualBox | Oracle Oswald@Work Blog - Oracle Blogs
+https://blogs.oracle.com/oswald/importing-a-vdi-in-virtualbox
