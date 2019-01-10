@@ -39,6 +39,8 @@ from 8GB to 32GB:
   Fail to install software during Debian installation on Virtualbox
   https://stackoverflow.com/questions/43415270/fail-to-install-software-during-debian-installation-on-virtualbox
 
+Tried again with 32GB and got exact same error.
+
 When attempting to install debian-9.6.0-amd64-netinst.iso to new 
 Debian virtual machine under VirtualBox v5.2.22r126460 (Qt5.6.2)
 installation fails with:
