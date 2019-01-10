@@ -6,6 +6,10 @@ by Raymond E. Marcil <ray.marcil@alaska.gov>
 Install machine from VDI
 
 
+Windows OS default storage is:
+  C:\Users\[username]\VirtualBox VMs
+
+
 Downloaded debian_6.0.6.vdi.7z (1.7GB) 
    VirtualBox Image from:
    VirtualBoxes – Free VirtualBox Images
@@ -59,3 +63,12 @@ Links
 =====
 Importing a VDI in VirtualBox | Oracle Oswald@Work Blog - Oracle Blogs
 https://blogs.oracle.com/oswald/importing-a-vdi-in-virtualbox
+
+Where is VirtualBox's virtual hard disks repository?
+Which typically expands out to
+  C:\Users\[username]\VirtualBox VMs
+If you've decided to do a little more orgainization, the Machine Name
+subfolders will be under the Machine Group subfolder. Full implementation
+may look like the following:
+  C:\Users\[username]\VirtualBox VMs\[vm group]\[vm name]
+https://superuser.com/questions/857177/where-is-virtualboxs-virtual-hard-disks-repository
