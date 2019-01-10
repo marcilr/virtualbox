@@ -51,6 +51,12 @@ VirtualBox image.
    Click on Add and select the VDI file from step 1.
 
    Bound debian_6.0.6.vdi to new Debian 9 machine
+   Renamed initial Debian 6.0.6 machine to:
+     Debian-6.0.6-ORIG-20190110
+
+   In windows 10 home directory this created:
+     ~/VirtualBox VMS/Debian-6.0.6-ORIG-20190110/
+
    Yes, need to update from Debian 6.0.6 to 9.
 
 5. After leaving the Virtual Media Manager, you'll be back in your
