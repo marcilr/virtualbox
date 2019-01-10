@@ -27,6 +27,12 @@ o To install:
   LibreOffice
   Aterm
 
+o Next debian installation try based on:
+debian-9.2.1-amd64-xfce-CD-1.iso
+
+Failed with:
+  debian.6.0.6.vdi
+
 o To install missing keys and keyring:
 # aptitude install debian-keyring debian-archive-keyring
 
