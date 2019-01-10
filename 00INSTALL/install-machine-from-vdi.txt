@@ -20,7 +20,70 @@ Downloaded debian_6.0.6.vdi.7z (1.7GB)
 With 7-zip uncompressed debian_6.0.6.vdi.7z (1.8GB)
 to debian_6.0.6.vdi (5.0GB)
 
+
+Thu Jan 10 10:51:31 AST 2019
+============================
+o Update from GNOME to XFCE:
+
+1. Uninstall GNOME:
+  aptitude purge `dpkg --get-selections | grep gnome | cut -f 1`
+  aptitude -f install
+  aptitude purge `dpkg --get-selections | grep deinstall | cut -f 1`
+  aptitude -f install
+
+Install XFCE:
+  apt-get install xfce4
+
+Install useful utilities:
+  apt-get install xfce4-goodies
+
+The above issue could indicate some Xfce dependencies are missing.
+One solution to this is to install "task-xfce-desktop"
+  sudo apt-get install task-xfce-deskto
+
+Still need to install LibreOffice
+
+Install Xfce in an already installed system
+https://wiki.debian.org/Xfce#Install_Xfce_in_an_already_installed_system
+
+XFCE
+https://wiki.debian.org/Xfce
+
+
+
+
+o In new Debian 9 machine (haven't renamed yet,
+1. Logged in as debian and root and updated default cedentials.
+2. Updated /etc/apt/sources.list from 'squeeze' to 'stretch'
+3. Run update and upgrade to stretch:
+# aptitude update
+# aptitude upgrade
+...
+Started at 11:13AM
+...
+
+
+
+
+
+
+2. As root ran update:
+# aptitude update
+# aptitude upgrade
+Didn't appear to do anything.
+
+3. Updated from debian Squeeze 6.0.6 to
+Stretch v???
+
+In /etc/sources.list update 'squeeze' to 'stretch'
+
+3. Ran dist upgrade:
+# aptitude dist-upgrade
+ 
+
+
 Importing a VDI in VirtualBox
+=============================
 MISCELLANEOUS | November 5, 2009
 
 If you're used to be a VMware user and try to switch to the Open-Source
