@@ -27,6 +27,9 @@ o To install:
   LibreOffice
   Aterm
 
+o To install missing keys and keyring:
+# aptitude install debian-keyring debian-archive-keyring
+
 o Update from GNOME to XFCE:
 
 1. Uninstall GNOME:
