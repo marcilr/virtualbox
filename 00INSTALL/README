@@ -20,3 +20,7 @@ extension-pack.txt
 INSTALL
   Installation of virtualbox 5.2
   on Debian stretch 9.4 amd64
+
+install-machine-from-vdi.txt
+  Install machine from VDI
+
