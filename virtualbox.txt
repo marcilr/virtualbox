@@ -1,4 +1,4 @@
-HhQREADME
+README
 Created Wed May 25 11:37:18 AKDT 2011
 by Raymond E. Marcil <marcilr@gmail.com>
 
@@ -29,6 +29,24 @@ and run, each with its own virtual environment."
 VirtualBox was the most popular virtualization product with over 50% of 
 the vote."
 --wikipedia.org/
+
+
+
+Thu Jan 10 08:25:55 AST 2019
+============================
+Per online advice installed the dynamically allocated disk size
+from 8GB to 32GB:
+  Fail to install software during Debian installation on Virtualbox
+  https://stackoverflow.com/questions/43415270/fail-to-install-software-during-debian-installation-on-virtualbox
+
+When attempting to install debian-9.6.0-amd64-netinst.iso to new 
+Debian virtual machine under VirtualBox v5.2.22r126460 (Qt5.6.2).
+
+Installation step failed
+An installation step failed.  You can try to run the failing item again
+from the menu, or skip it and choose something else.  The failing step is:
+Select and install software
+
 
 
 
