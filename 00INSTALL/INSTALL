@@ -3,6 +3,21 @@ Created Sun Mar 25 11:01:31 AKDT 2018
 Copyright (C) 2018 by Raymond E. Marcil <marcilr@gmail.com>
 
 
+
+
+Thu Jan 10 07:46:20 AST 2019
+============================
+On windows 10 installed virtualbox v5.2.22 r126460 (Qt5.6.2)
+VirtualBox-5.2.22-126460-Win.exe without issue.
+
+Created Debian virtual machine and installed 
+debian-9.6.0-amd64-netinst.iso (which installs 1166 files
+when machine is run with Debian netinst installer.
+Takes ~45 min to run netinst installer on machine.
+
+
+Sun Mar 25 11:01:31 AKDT 2018
+=============================
 Installation of virtualbox 5.2
 on Debian stretch 9.4 amd64
 
