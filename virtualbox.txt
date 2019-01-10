@@ -37,6 +37,8 @@ Thu Jan 10 08:25:55 AST 2019
 Trying again with installation of:
   debian-9.2.1-amd64-xfce-CD-1.iso
 
+Goal being to alleviate having to update distro with XFCE.
+
 Per online advice installed the dynamically allocated disk size
 from 8GB to 32GB:
   Fail to install software during Debian installation on Virtualbox
