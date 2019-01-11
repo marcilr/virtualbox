@@ -43,7 +43,8 @@ Trying again with installation of:
   and tried again.  Much faster with 1163 files (didn't check ssh).
 
   ===> Doing an Advanced manual installation.  Harkens back to old 
-       installation days.  Appears to be working.
+       installation days.  Appears to be working.  1166 packages
+       being quickly installed.
 
 Per online advice installed the dynamically allocated disk size
 from 8GB to 32GB:
