@@ -37,7 +37,13 @@ Thu Jan 10 08:25:55 AST 2019
 Trying again with installation of:
   debian-9.2.1-amd64-xfce-CD-1.iso
 
-Goal being to alleviate having to update distro with XFCE.
+  Goal being to alleviate having to update distro with XFCE.
+
+  Installation failed for the 3rd time.  Got back to install list
+  and tried again.  Much faster with 1163 files (didn't check ssh).
+
+  ===> Doing an Advanced manual installation.  Harkens back to old 
+       installation days.  Appears to be working.
 
 Per online advice installed the dynamically allocated disk size
 from 8GB to 32GB:
