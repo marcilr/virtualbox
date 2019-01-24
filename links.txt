@@ -104,6 +104,11 @@ Debian GNU/Linux 6.0.6 alias squeeze
   http://downloads.sourceforge.net/virtualboximage/debian_6.0.6.vdi.7z
 https://virtualboxes.org/images/
 
+VirtualBox v5.2.24
+Latest edition as of Thu Jan. 24, 2019
+VirtualBox-5.2.24-128163-Win.exe
+https://download.virtualbox.org/virtualbox/5.2.24/VirtualBox-5.2.24-128163-Win.exe
+
 VMware Back-Pedals On vRAM Scheme, Back To Per-Socket Pricing
 Posted by timothy on Tuesday August 28, @12:31PM
 from the old-ways-is-best-ways dept.
