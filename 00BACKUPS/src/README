@@ -5,6 +5,12 @@ by Raymond E. Marcil <marcilr@gmail.com>
 
 Filelist
 ========
+backups.txt
+  Backups
+
+links.txt
+  Source related links
+
 poweroff-VM-copy.sh
   poweroff VM and copy folder
   Backup script for Windows OS (BATCH)
