@@ -17,3 +17,10 @@ poweroff-VM-copy.sh
   by antoniofr » 23. Nov 2015, 10:00
   https://forums.virtualbox.org/viewtopic.php?f=6&t=74793
 
+save-VM-state-and-export-to-OVF-and-VMDK.bat
+  Backup script for Windows OS (BATCH)
+  by antoniofr » 23. Nov 2015, 10:00
+  https://forums.virtualbox.org/viewtopic.php?f=6&t=74793
+
+  Download scripts here:
+  http://www.michublog.com/informatica/script-batch-para-crear-copias-de-seguridad-de-maquinas-virtuales-de-virtualbox-desde-windows
