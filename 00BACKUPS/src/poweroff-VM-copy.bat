@@ -1,4 +1,4 @@
-rem poweroff-VM-copy.sh
+rem poweroff-VM-copy.bat
 rem Created Wed Feb  6 10:54:23 AST 2019
 rem by Raymond E. Marcil <marcilr@gmail.com>
 rem
