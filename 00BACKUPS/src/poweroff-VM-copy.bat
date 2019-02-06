@@ -7,6 +7,7 @@ rem
 rem Links
 rem =====
 rem Backup script for Windows OS (BATCH)
+rem by antoniofr » 23. Nov 2015, 10:00
 rem https://forums.virtualbox.org/viewtopic.php?f=6&t=74793
 rem
 rem Download scripts here:
