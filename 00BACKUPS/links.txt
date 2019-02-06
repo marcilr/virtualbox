@@ -1,0 +1,19 @@
+links.txt
+Created Wed Feb  6 10:47:43 AST 2019
+by Raymond E. Marcil <marcilr@gmail.com>
+
+
+Backup related links
+
+
+Links
+=====
+Best way to create backups of VM's?
+Postby omega1 » 12. Mar 2014, 13:28
+https://forums.virtualbox.org/viewtopic.php?f=6&t=60639
+
+Backup script for Windows OS (BATCH)
+Looks good, has:
+Method 1: poweroff VM and copy folder
+Method 2: save VM state and export to OVF and VMDK
+https://forums.virtualbox.org/viewtopic.php?f=6&t=74793
