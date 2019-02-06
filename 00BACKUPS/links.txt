@@ -17,3 +17,10 @@ Looks good, has:
 Method 1: poweroff VM and copy folder
 Method 2: save VM state and export to OVF and VMDK
 https://forums.virtualbox.org/viewtopic.php?f=6&t=74793
+
+Managing backups in virtual environments:
+Key architectural considerations
+https://searchservervirtualization.techtarget.com/tip/Managing-backups-in-virtual-environments-Key-architectural-considerations
+
+Top five mistakes made when backing up VMs and how to prevent them
+https://searchdatabackup.techtarget.com/tip/Top-five-mistakes-made-when-backing-up-VMs-and-how-to-prevent-them
