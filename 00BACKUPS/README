@@ -11,3 +11,6 @@ backups.txt
 links.txt
   Backup related links
 
+src/
+  Source code
+
