@@ -1,0 +1,66 @@
+backups.txt
+Created Wed Feb  6 10:41:55 AST 2019
+by Raymond E. Marcil <marcilr@gmail.com>
+
+
+Backups
+
+
+Best way to create backups of VM's?
+Postby omega1 » 12. Mar 2014, 13:28
+
+Hi all,
+
+I would like some input / suggestions on the best way to
+accomplish this:
+
+I run a number of VM's on my Windows host and would like
+to be able to create copies for the purpose of backing up
+should I lose my data on the host machine (and therefore
+all my VM's).
+
+i would like to create periodic backups (daily/weekly)
+and store them at a remote location should I lose my data
+on the host machine.
+
+- Should I use snapshot, clone or just copy the .vdi file?
+  When I do this, does it have to be shut down?
+- Can I automate this procedure? If yes, how?
+- Any other items I should consider to make this happen?
+
+Thanks in advance for comments, advice, etc...
+-- omega1
+   Posts: 46
+   Joined: 7. Nov 2013, 12:53
+
+
+Re: Best way to create backups of VM's?
+Postby mpack » 12. Mar 2014, 14:49
+
+Snapshots have nothing to do with making backups, so
+you should disregard that idea.  Nor should you copy 
+only the VDI files: disks can't run themselves, you
+need to back up the entire virtual PC.
+
+The best way to make a backup is to shut down (not
+suspend) the VM, then copy the entire VM folder, with
+contents, to secondary storage.
+
+VMs can also be backed up from the inside, using the
+same tools that you might run on a physical PC.
+This can be more complicated to do however.
+--mpack
+  Site Moderator
+ 
+  Posts: 28297
+  Joined: 4. Sep 2008, 17:09
+  Primary OS: MS Windows 10
+  VBox Version: PUEL
+  Guest OSses: Mostly XP
+
+
+Links
+=====
+Best way to create backups of VM's?
+Postby omega1 » 12. Mar 2014, 13:28
+https://forums.virtualbox.org/viewtopic.php?f=6&t=60639
