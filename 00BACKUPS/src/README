@@ -5,3 +5,9 @@ by Raymond E. Marcil <marcilr@gmail.com>
 
 Filelist
 ========
+poweroff-VM-copy.sh
+  poweroff VM and copy folder
+  Backup script for Windows OS (BATCH)
+  by antoniofr » 23. Nov 2015, 10:00
+  https://forums.virtualbox.org/viewtopic.php?f=6&t=74793
+
