@@ -6,6 +6,29 @@ Copyright (C) 2015 by Raymond E. Marcil <marcilr@gmail.com>
 To share a folder to VirtualBox running linux:
 
 
+Thu Feb  7 07:41:34 AKST 2019
+=============================
+Latest notes on configuration of share folder between
+windows 10 and linux.
+
+Have VirtualBox/ folder on windows desktop that is shared
+with debian's /media/share/ directory.
+
+Linux:      Debian 9.7 Stretch amd64
+Windows:    Windows 10 Enterprise v1803, os build 17134.523
+            installed on 12/12/2018
+
+VirtualBox: VirtualBox-5.2.26-128414-Win.exe (109MB)
+  Updated windows 10 from virtualBox v5.2.22 r126460 (Qt5.6.2) to
+  latest VirtualBox 5.2.6 r128414 (Qt5.6.2) on Thu Feb 7, 2019
+  https://download.virtualbox.org/virtualbox/5.2.26/VirtualBox-5.2.26-128414-Win.exe
+
+fstab:
+  # VirtualBox share with Windows 10 Enterprise host
+  VirtualBox   /media/share     vboxsf  uid=1000,gid=1000          0       0
+
+
+
 Wed Feb  6 12:44:45 AST 2019
 ============================
 1. Create the directory to share under debian or whatever the host is runnning
