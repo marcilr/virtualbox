@@ -3,6 +3,15 @@ Created Sun Mar 25 11:01:31 AKDT 2018
 Copyright (C) 2018 by Raymond E. Marcil <marcilr@gmail.com>
 
 
+Installation of VirtualBox
+
+
+Thu Feb  7 07:30:18 AKST 2019
+=============================
+Updated windows 10 from virtualbox v5.2.22 r126460 (Qt5.6.2) to
+latest virtualbox 5.2.6 r128414 (Qt5.6.2) (109MB):
+
+https://download.virtualbox.org/virtualbox/5.2.26/VirtualBox-5.2.26-128414-Win.exe
 
 
 Thu Jan 10 07:46:20 AST 2019
