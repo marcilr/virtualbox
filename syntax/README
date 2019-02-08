@@ -16,6 +16,15 @@ host-key.txt
   host key to any desired key.
   http://www.virtualbox.org/manual/ch01.html#globalsettings
 
+seamless-mode.txt
+  Seamless mode
+  "To enter or leave Seamless mode, simultaneously press the Host key
+  (right Ctrl key) and the L key. Alternatively, in the VirtualBox
+  console, use the Machine menu to check or uncheck Enter Seamless
+  Mode."
+  --Fullscreen or Seamless Mode
+    http://www.dsm.fordham.edu/cis-system/node16.html
+
 share-folder.txt
   How to mount a VirtualBox shared folder?
   http://serverfault.com/questions/674974/how-to-mount-a-virtualbox-shared-folder
