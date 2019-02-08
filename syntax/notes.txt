@@ -1,0 +1,21 @@
+notes.txt
+Created Fri Feb  8 08:14:31 AKST 2019
+Copyright (C) 2019 by Raymond E. Marcil <marcilr@gmail.com>
+
+
+Notes for virtualbox
+
+
+virtualbox info
+
+The virtual machine window will be switched to Scale mode.
+You can go back to windows mode at ant time by pressing Host+C
+
+Note the Host key is currently defined as Right Ctrl
+
+NOe that the main menu bar is hidden in scaled mode.
+You can access it by pressing Host+Home
+
+
+lvmetad e
+rror on debian 9.7 amd64 boot
