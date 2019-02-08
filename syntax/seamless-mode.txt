@@ -1,0 +1,19 @@
+seamless-mode.txt
+Created Fri Feb  8 08:02:27 AKST 2019
+Copyright (C) 2019 by Raymond E. Marcil <marcilr@gmail.com>
+
+
+Seamless mode
+
+
+"To enter or leave Seamless mode, simultaneously press the Host key
+(right Ctrl key) and the L key. Alternatively, in the VirtualBox
+console, use the Machine menu to check or uncheck Enter Seamless
+Mode."
+--fordham.edu/
+
+
+Links
+=====
+Fullscreen or Seamless Mode
+http://www.dsm.fordham.edu/cis-system/node16.html
