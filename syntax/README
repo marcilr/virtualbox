@@ -16,6 +16,9 @@ host-key.txt
   host key to any desired key.
   http://www.virtualbox.org/manual/ch01.html#globalsettings
 
+notes.txt
+  VirtualBox notes
+
 seamless-mode.txt
   Seamless mode
   "To enter or leave Seamless mode, simultaneously press the Host key
