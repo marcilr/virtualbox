@@ -5,6 +5,9 @@ Copyright (C) 2015 by Raymond E. Marcil <marcilr@gmail.com>
 
 Filelist
 ========
+display-size.txt
+  Display size
+
 full-screen-escape.txt
   Full-screen escape - HostKey + F (Right WinKey + F)
 
