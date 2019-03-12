@@ -18,6 +18,14 @@ Method 1: poweroff VM and copy folder
 Method 2: save VM state and export to OVF and VMDK
 https://forums.virtualbox.org/viewtopic.php?f=6&t=74793
 
+Backup VirtualBox machine - the easy way
+http://www.beginninglinux.com/home/virtualbox/backup-virtualbox-machine---the-easy-way
+
+How To Backup and Move VirtualBox Machines
+YATRITRIVEDI  @yatritrivedi 
+DECEMBER 1, 2010, 8:00AM EDT
+https://www.howtogeek.com/howto/36870/how-to-backup-and-move-virtualbox-machines/
+
 Managing backups in virtual environments:
 Key architectural considerations
 https://searchservervirtualization.techtarget.com/tip/Managing-backups-in-virtual-environments-Key-architectural-considerations
