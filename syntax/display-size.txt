@@ -1,0 +1,24 @@
+display-size.txt
+Created Mon Feb 11 07:31:19 AKST 2019
+by Raymond E. Marcil <marcilr@gmail.com>
+
+
+The windows virtual machine screen size is too large 
+under virtualbox v5.2.26 r128414 (Qt5.6.2) under 
+windows 10 enterprise os.
+
+Under View:
+  Full-screen mode              (ctrl-f)
+  Seamless mode                 (ctrl-l)
+  Scaled mode                   (ctrl-c)
+  Adjust window size            (ctrl-a)
+  x Auto-resize guest display   <=== does not work (2/11/2019)
+
+Host key - right ctrl key
+
+
+Links
+=====
+How can I adjust the Windows Virtual Machine screen size?
+https://www.robolinux.org/x8-faq/36.html
+
