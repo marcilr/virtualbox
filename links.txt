@@ -69,9 +69,11 @@ Oracle VM VirtualBox
 https://www.virtualbox.org/
 
 Oracle VM VirtualBox, formerly Sun xVM VirtualBox and innotek VirtualBox, is a family of
-x86 virtualization products for enterprise and home use.
 http://freshmeat.net/projects/virtualbox
 http://www.virtualbox.org/
+
+Shrink virtual hard drive on Ubuntu as Guest and Host OS using zerofree
+http://www.beginninglinux.com/home/virtualbox/shrinking-vdi-with-zerofree-on-ubuntu-as-guest-os
 
 The Daily Nash-on
 a mindstream from just another statistic
