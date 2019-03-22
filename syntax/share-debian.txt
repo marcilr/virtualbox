@@ -127,3 +127,5 @@ Links
 VirtualBox Guest Additions ISO Download?
 https://blogs.oracle.com/joshis/virtualbox-guest-additions-iso-download
 
+VirtualBox/SharedFolders
+https://help.ubuntu.com/community/VirtualBox/SharedFolders
