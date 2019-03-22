@@ -1,0 +1,71 @@
+share-debian.txt
+Created Fri Mar 22 09:51:12 AKDT 2019
+by Raymond E. Marcil <marcilr@gmail.com>
+
+
+Sharing debian's root to windows 10 enterprise.
+
+
+1. Create debain fold on windows 10 enterprise Desktop:
+   C:\Users\remarcil\Desktop\debian
+
+2. Open VirtualBox and configure root share
+   right-click machine 
+   click Settings...
+   click Shared Folders on right
+
+   Under Shared folders verify:
+     Name:         debian
+     Folder Path:  C:\Users\remarcil\Desktop\debian
+     <unchecked>   Read-only
+     checked       Auto-mount
+     Moount point: /
+     checked       Make Permanent
+
+   click OK
+
+3. In machine share root:
+   # mount -t vboxsf debian /
+   /sbin/mount.vboxsf: Could not open mount table for update.: No such file or directory
+   #
+
+4. Install virtualbox guest additions
+   i.   Update debian
+        # aptitude update
+        # aptitude upgrade
+
+   ii. Install packages for building kernel modules:
+        # aptitude install build-essential module-assistant
+
+   iii. Prepare system for building modules using
+        m-a (module-assistant - manage kernel modules packages)
+        # m-a prepare
+
+   iv.  Insert Guest Additions to virtualbox
+        click Devices > Insert Guest Additions CD Image...
+
+        Get error:
+          VirtualBox - Error
+          Unable to insert the virtual optical disk
+          C:\Program Files\Oracle\VirtualBox\vBoxGuestAdditions.iso
+          into the machine Debian 9.8 (Stretch).
+
+        click OK
+
+        Looks like virtualbox wants the vBoxGuestAdditions.iso (82MB)
+        at specific location.  Despite VBox_GAs_6.0.4 on debian
+        desktop.
+
+        Downloaded latest stable iso:
+        $ wget http://download.virtualbox.org/virtualbox/6.0.4/VBoxGuestAdditions_6.0.4.iso
+
+        Movied iso to windows 10 under:
+          C:\Program Files\Oracle\VirtualBox\ 
+
+        With vBoxGuestAdditions.iso downloaded:
+          click Devices > Insert Guest Additions CD Image...
+
+        Still get unable to load optical disk error.
+
+   iv.  To bring up the menu in virtualbox press Host + c,
+        which is right ctrl + c on Debian 9.8 Stretch machine
