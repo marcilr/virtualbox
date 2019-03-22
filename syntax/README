@@ -11,6 +11,10 @@ display-size.txt
 full-screen-escape.txt
   Full-screen escape - HostKey + F (Right WinKey + F)
 
+guest-additions.txt
+  Guest Additions CD image used for creating a shared
+  folder between Debian 9.8 amd64 linux and windows 10 enterprise
+
 host-key.txt 
   The HHK2 (Happy Hacker 2 keyboard) does not have a right ctrl key.
   Hence having the host key set to the right ctrl key does not work.
