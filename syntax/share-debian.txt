@@ -6,6 +6,10 @@ by Raymond E. Marcil <marcilr@gmail.com>
 Sharing debian's root to windows 10 enterprise.
 
 
+NOTE: To bring up the menu in virtualbox press Host + c,
+      which is right ctrl + c on Debian 9.8 Stretch machine
+
+
 1. Create debain fold on windows 10 enterprise Desktop:
    C:\Users\remarcil\Desktop\debian
 
@@ -67,5 +71,43 @@ Sharing debian's root to windows 10 enterprise.
 
         Still get unable to load optical disk error.
 
-   iv.  To bring up the menu in virtualbox press Host + c,
-        which is right ctrl + c on Debian 9.8 Stretch machine
+   iv.  No luck in with prior virtualbox Insert Guest Additions CD Image...
+        Opted for the VBox_GAs_6.04 iso on desktop.
+
+        double-click VBox_GAs_6.04 (assume latest stable virtualbox
+        guest additions v6.04 as of March 22, 2019)
+
+        This mounts /dev/sr0 on /media/cdrom0
+
+   v. On iso run VBoxLinuxAdditions.run:
+      # sh /media/cdrom/VBoxLinuxAdditions.run
+      Verifying archive integrity... All good.
+      Uncompressing VirtualBox 6.0.4 Guest Additions for Linux........
+      VirtualBox Guest Additions installer
+      Removing installed version 6.0.4 of VirtualBox Guest Additions...
+      update-initramfs: Generating /boot/initrd.img-4.9.0-8-amd64
+      Copying additional installer modules ...
+      Installing additional modules ...
+      VirtualBox Guest Additions: Building the VirtualBox Guest Additions kernel 
+      modules.  This may take a while.
+      VirtualBox Guest Additions: To build modules for other installed kernels, run
+      VirtualBox Guest Additions:   /sbin/rcvboxadd quicksetup <version>
+      VirtualBox Guest Additions: Building the modules for kernel 4.9.0-8-amd64.
+      update-initramfs: Generating /boot/initrd.img-4.9.0-8-amd64
+      VirtualBox Guest Additions: Running kernel modules will not be replaced until 
+      the system is restarted
+      VirtualBox Guest Additions: Starting.
+      VirtualBox Guest Additions: Starting.
+      #
+
+5. In machine attempt to share root again:
+   # mount -t vboxsf debian /
+   /sbin/mount.vboxsf: Could not open mount table for update.: No such file or directory
+   # 
+
+
+Links
+=====
+VirtualBox Guest Additions ISO Download?
+https://blogs.oracle.com/joshis/virtualbox-guest-additions-iso-download
+
