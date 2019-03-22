@@ -1,9 +1,11 @@
-shared-folders.txt
+guest-additions.txt
 Created Mon Nov  2 10:34:42 AKST 2015
 Copyright (C) 2015 by Raymond E. Marcil <marcilr@gmail.com>
 
 
-To share a folder to VirtualBox running linux:
+Guest Additions CD image for creating a
+shared folder between Debian 9.8 amd64 and
+windows 10 enterprise using VirtualBox.
 
 
 Thu Feb  7 07:41:34 AKST 2019
