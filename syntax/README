@@ -31,7 +31,10 @@ seamless-mode.txt
   --Fullscreen or Seamless Mode
     http://www.dsm.fordham.edu/cis-system/node16.html
 
-share-folder.txt
+shared-folder.txt
+  Shared folder in Oracle VM VirtualBox Manager
+
+shared-folder-PRIOR.txt
   How to mount a VirtualBox shared folder?
   http://serverfault.com/questions/674974/how-to-mount-a-virtualbox-shared-folder
 
