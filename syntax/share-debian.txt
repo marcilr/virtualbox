@@ -105,6 +105,22 @@ NOTE: To bring up the menu in virtualbox press Host + c,
    /sbin/mount.vboxsf: Could not open mount table for update.: No such file or directory
    # 
 
+6. Devices > Shared Folders > Shared Folders Settings clearly shows:
+
+Name:       debian
+Path:       C:\Users\remarcil\Desktop\debian
+Access:     Full
+Auto Mount: Yes
+At:         /
+
+Name:       shared
+Path:       C:\Users\remarcil\Desktop\shared
+Access:     Full
+Auto Mount: Yes
+At:         /media/shared
+
+The above entries look great but only the latter shared folder
+works.  Restart Debian 9.8 Stretch to no avail.
 
 Links
 =====
