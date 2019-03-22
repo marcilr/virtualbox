@@ -1,0 +1,154 @@
+shared-folder.txt
+Created Mon Nov  2 10:34:42 AKST 2015
+Copyright (C) 2015 by Raymond E. Marcil <marcilr@gmail.com>
+
+
+To share a folder to VirtualBox running linux:
+
+
+Thu Feb  7 07:41:34 AKST 2019
+=============================
+Latest notes on configuration of share folder between
+windows 10 and linux.
+
+The trick to installation of the share folder is the 
+
+In virtualbox
+  click Devices > Insert Guest Additions CD image...
+
+VBox_GAs_5.2.26 (on desktop)
+  right-click > Mount Volume
+
+  Mounts /dev/sr0 on /media/cdrom0 which has:
+    /media/cdrom0/VBoxLinuxAdditions.run 
+
+  This installs makes the vboxsf filetype available in fstab
+  to mount the VirtualBox share to /media/share.
+
+  Think this was installed byvirtualbox's
+    Devices > Insert Guest Additions CD image...
+
+Have VirtualBox/ folder on windows desktop that is shared
+with debian's /media/share/ directory.
+
+Linux:      Debian 9.7 Stretch amd64
+Windows:    Windows 10 Enterprise v1803, os build 17134.523
+            installed on 12/12/2018
+
+VirtualBox: VirtualBox-5.2.26-128414-Win.exe (109MB)
+  Updated windows 10 from virtualBox v5.2.22 r126460 (Qt5.6.2) to
+  latest VirtualBox 5.2.6 r128414 (Qt5.6.2) on Thu Feb 7, 2019
+  https://download.virtualbox.org/virtualbox/5.2.26/VirtualBox-5.2.26-128414-Win.exe
+
+fstab:
+  # VirtualBox share with Windows 10 Enterprise host
+  VirtualBox   /media/share     vboxsf  uid=1000,gid=1000          0       0
+
+
+VirtualBox 5.2.26 r128414 (Qt5.6.2)
+  Devices > Shared Folders > hared Folders Settings...
+
+  click folder with plus in upper right
+
+  create new shared folder with:
+    Folder path:   C:\Users\remarcil\Desktop\VirtualBox
+    Folder name:   VirtualBox
+      Read-only
+      Auto-mount
+    x Make permanent
+  click OK
+  click OK
+
+
+Wed Feb  6 12:44:45 AST 2019
+============================
+1. Create the directory to share under debian or whatever the host is runnning
+VirtualBox.  In this case Windows 10 Enterprise workstation at
+State of Alaska DNR.  Created C:\Users\remarcil\Desktop\VirtualBox
+
+2. Under Virtualbox (running v5.2.22 r126460 (Qt5.6.2))
+click Devices > Shared Folders Settings... > Shared Folders
+
+3. Under Shared Folders
+click folder with plus symbol to create share
+
+4. At Add Share popup enter folder path specified when created on the host
+in step 1 and folder name used to reference the share when mounting in the
+vm
+
+Add Share
+Folder path: C:\Users\remarcil\Desktop\VirtualBox
+Folder name: VirtualBox
+  Read-only
+  Auto-mount
+x Make Permanent
+
+click OK
+
+5. The Shared Folder can now be accessed by mounting it via the vm command
+line.  The 1st argument is the folder name configured in the prior step.
+The 2nd argument is the vm directory to mount the share to.
+
+# sudo mkdir /media/share
+# sudo mount -t vboxsf VirtualBox /media/share
+# chown remarcil:remarcil /media/share
+
+NOTE: For the mount point used /media/share which is symmetric to the
+      directory being mounted on the host.
+
+6. Update fstab to mount /media/share in vm on boot:
+
+# <Device> <Mount Point>      <Type>   <Options>           <Dump> <Pass>
+VirtualBox  /media/share   vboxsf   uid=1000,gid=1000   0      0
+
+Yeh Hah, reboot and check out your new /media/share!
+
+
+Mon Nov  2 10:34:42 AKST 2015
+=============================
+1. Create the directory to share under debian or whatever the host is runnning
+VirtualBox.  On the GCI Network Services, OSS box this was /media/covellite.
+
+2. Under Virtualbox (running v4.3.32 r103443)
+click Devices > Shared Folders Settings... > Shared Folders
+
+3. Under Shared Folders
+click folder with plus symbol to create share
+
+4. At Add Share popup enter folder path specified when created on the host
+in step 1 and folder name used to reference the share when mounting in the
+vm
+
+Add Share
+Folder path: /media/covellite
+Folder name: covellite
+  Read-only
+  Auto-mount
+x Make Permanent
+
+click OK
+
+5. The Shared Folder can now be accessed by mounting it via the vm command
+line.  The 1st argument is the folder name configured in the prior step.
+The 2nd argument is the vm directory to mount the share to.
+
+$ sudo mkdir /media/covellite
+$ sudo mount -t vboxsf covellite /media/covellite
+
+NOTE: For the mount point used /media/covellite which is symmetric to the
+      directory being mounted on the host.
+
+6. Update fstab to mount /media/covellite in vm on boot:
+
+# <Device> <Mount Point>      <Type>   <Options>           <Dump> <Pass>
+covellite  /media/covellite   vboxsf   uid=1000,gid=1000   0      0
+
+Yeh Hah, reboot and check out your new /media/covellite share!
+
+
+
+Links
+=====
+How to mount a VirtualBox shared folder? [closed]
+http://serverfault.com/questions/674974/how-to-mount-a-virtualbox-shared-folder
+
