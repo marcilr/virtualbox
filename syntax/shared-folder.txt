@@ -1,0 +1,87 @@
+shared-folder.txt
+Created Fri Mar 22 08:20:33 AKDT 2019
+by Raymond E. Marcil <marcilr@gmail.com>
+
+
+Shared folder in Oracle VM VirtualBox Manager
+
+
+Create shared folder
+====================
+1. On the host machine, "Debian 9.8 (Stretch) created a folder 
+(/media/shared) to share with windows 10 Enterprise
+
+2. In virtualbox create shared folder:
+   i.      Start and login to machine and create mount point as needed:
+           # mkdir -p /media/shared
+
+   ii.     Shutdown machine:
+           # shutdown -h now
+
+   iii.    right-click machine to view shared folders
+           select Settings...   (ctrl+s)
+
+   iv.     At Settings window
+           click Shared Folders at left
+
+   v.      At Shared Folders
+           right-click under Shared Folders
+           click Add Shared Folder   (Ins)
+
+   vi.     At Add Share pop:
+           Folder Path: C:\Users\remarcil\Desktop\shared
+           Folder Name: Shared
+           <unchecked> Read-only
+           checked     Auto-mount
+           Mount point: /media/shared
+           click OK
+
+   vii.    At Shared Folders verify creation of shared folder:
+           Machine Folders
+           Name:       shared
+           Path:       C:\Users\remarcil\Desktop\shared
+           Access:     Full
+           Auto Mount: Yes
+           At:         /media/shared
+
+   viii.   If the shared folder configuration looks good:
+           click OK
+
+   vii.    If the shared folder configuration is incorrect
+           right-click shared folder
+           select Edit Shared Folder to correct   (Space)
+                    or
+                  Remove Shared Folder   (Del)
+
+    viii.  Save created shared folder
+           click OK
+
+    ix.    Start machine and login.  The /media/shared directory
+           should shared.
+
+
+View shared folders
+===================
+To configure a share folder in the Oracle VM VirtualBox Manager
+1. To view current machine shared folders
+   right-click machine to view shared folders
+   select Settings...   (ctrl+s)
+
+2. At Settings window
+   click Shared Folders at left
+
+3. The Debian 9.8 (Stretch) machine has:
+
+Machine Folders
+---------------
+Name:     VirtualBox
+Path:     C:\Users\remarcil\Desktop\VirtualBox   
+Access:   Full
+Auto:     Yes
+At:       /media/shared
+
+
+Links
+=====
+VirtualBox/SharedFolders
+https://help.ubuntu.com/community/VirtualBox/SharedFolders
