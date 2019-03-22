@@ -1,4 +1,4 @@
-shared-folder.txt
+shared-folders.txt
 Created Mon Nov  2 10:34:42 AKST 2015
 Copyright (C) 2015 by Raymond E. Marcil <marcilr@gmail.com>
 

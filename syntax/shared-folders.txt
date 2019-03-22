@@ -1,4 +1,4 @@
-shared-folder.txt
+shared-folders.txt
 Created Fri Mar 22 08:20:33 AKDT 2019
 by Raymond E. Marcil <marcilr@gmail.com>
 
