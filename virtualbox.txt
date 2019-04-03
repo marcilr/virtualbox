@@ -35,14 +35,18 @@ Wed Apr  3 07:16:12 AKDT 2019
 =============================
 On Debian 9.8 VPN (Stretch) - Oracle VM VirtualBox,
 running virtualbox v6.0.4r128413 (Qt 5.6.2) under
-Windows 10.  Runs well but does hang periodically
-for no appearent reason.  Perhaps need to adjust
-resource available.
+Windows 10.
 
-Looks like the vm only had 1024MB of potential 16384MB
+Machine runs well but does periodically hang
+for no appearent reason.  Perhaps need to adjust
+resources.
+
+The machine only had 1024MB of potential 16384MB
 allocated.  Updating to 4096MB to see if this alleviates
-the periodic hangs.  Need to shutdown vm to do so.
-Seem reasoning.  
+virtual memory issues or such.  Need to shutdown vm to
+do so.  Seem reasoning.  
+
+Rock n' roll
 
 
 Thu Jan 10 08:25:55 AST 2019
