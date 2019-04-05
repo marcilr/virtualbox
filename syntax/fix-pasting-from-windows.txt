@@ -8,11 +8,13 @@ machine under Virtualbox 6.0.
 
 In the Oracle VM VirtualBox Manager:
 
-  right-click Debian 9.8 VPN (Stretch)
-  select Settings... 
-  select General (at top)
+  right-click Debian 9.8 VPN (Stretch) machine to fix
+  select Settings... or ctrl+s (at top)
+  select General (at top left)
   click Advanced tab
-  Shared Clipboard: Disbled  ===> Bidirectional
+    Shared Clipboard: Disabled  ===> Bidirectional
+    Drag'n'Drop:      Disabled (default)
+
   click OK
   minimize Oracle VM VirtualBox Manager
 
