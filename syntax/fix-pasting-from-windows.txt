@@ -1,0 +1,20 @@
+fix-pasting-from-windows.txt
+Created Fri Apr  5 10:41:24 AKDT 2019
+by Raymond E. Marcil <marcilr@gmail.com>
+
+
+Fixed paste from Windows 10 into Debian 9.8 VPN
+machine under Virtualbox 6.0.
+
+In the Oracle VM VirtualBox Manager:
+
+  right-click Debian 9.8 VPN (Stretch)
+  select Settings... 
+  select General (at top)
+  click Advanced tab
+  Shared Clipboard: Disbled  ===> Bidirectional
+  click OK
+  minimize Oracle VM VirtualBox Manager
+
+
+
