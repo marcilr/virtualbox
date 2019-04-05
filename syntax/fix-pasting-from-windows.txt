@@ -6,6 +6,7 @@ by Raymond E. Marcil <marcilr@gmail.com>
 Fix pasting from Windows 10 into Debian 9.8 VPN
 machine under Virtualbox 6.0.
 
+
 In the Oracle VM VirtualBox Manager:
 
   right-click Debian 9.8 VPN (Stretch) machine to fix
