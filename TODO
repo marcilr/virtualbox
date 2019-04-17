@@ -3,8 +3,8 @@ Created Fri May 27 15:26:49 AKDT 2011
 by Raymond E. Marcil <marcilr@gmail.com>
 
 
-+++ Tue Aug 26 13:20:30 AKDT 2014 - Procedure to stop, backup, and restart
-virtual machine?
++++ Tue Aug 26 13:20:30 AKDT 2014 - Procedure to stop, backup,
+and restart virtual machine?
 
 1. Get list of running vms.
   vboxmanage list runningvms
