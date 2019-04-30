@@ -7,6 +7,103 @@ Guest Additions CD image for creating a
 shared folder between Debian 9.8 amd64 and
 windows 10 enterprise using VirtualBox.
 
+Tue Apr 30 07:44:54 AKDT 2019
+=============================
+Mounted and configued latest guest edition,
+VBox_GAs_6.0.6 on desktop
+
+Second attempt at VBox_GAs_6.0.6 install:
+# cd /media/cdrom0
+# sh autorun.sh
+Verifying archive integrity... All good.
+Uncompressing VirtualBox 6.0.6 Guest Additions for Linux........
+VirtualBox Guest Additions installer
+Removing installed version 6.0.6 of VirtualBox Guest Additions...
+Copying additional installer modules ...
+Installing additional modules ...
+VirtualBox Guest Additions: Starting.
+VirtualBox Guest Additions: Building the VirtualBox Guest Additions kernel 
+modules.  This may take a while.
+VirtualBox Guest Additions: To build modules for other installed kernels, run
+VirtualBox Guest Additions:   /sbin/rcvboxadd quicksetup <version>
+VirtualBox Guest Additions: or
+VirtualBox Guest Additions:   /sbin/rcvboxadd quicksetup all
+VirtualBox Guest Additions: Building the modules for kernel 4.9.0-9-amd64.
+update-initramfs: Generating /boot/initrd.img-4.9.0-9-amd64
+Press Return to close this window...
+
+Think that did the trick.
+
+Restart and find out:
+# shutdown -r now
+
+
+
+Install required kernel headers:
+  # aptitude install linux-headers-4.9.0-9-amd64
+
+First attempt at VBox_GAs_6.0.6 install:
+# cd /media/cdrom0
+# sh autorun.sh
+Verifying archive integrity... All good.
+Uncompressing VirtualBox 6.0.6 Guest Additions for Linux........
+VirtualBox Guest Additions installer
+Removing installed version 6.0.4 of VirtualBox Guest Additions...
+update-initramfs: Generating /boot/initrd.img-4.9.0-8-amd64
+Copying additional installer modules ...
+Installing additional modules ...
+VirtualBox Guest Additions: Starting.
+VirtualBox Guest Additions: Building the VirtualBox Guest Additions kernel 
+modules.  This may take a while.
+VirtualBox Guest Additions: To build modules for other installed kernels, run
+VirtualBox Guest Additions:   /sbin/rcvboxadd quicksetup <version>
+VirtualBox Guest Additions: or
+VirtualBox Guest Additions:   /sbin/rcvboxadd quicksetup all
+VirtualBox Guest Additions: Kernel headers not found for target kernel 
+4.9.0-9-amd64. Please install them and execute
+  /sbin/rcvboxadd setup
+modprobe vboxguest failed
+The log file /var/log/vboxadd-setup.log may contain further information.
+Press Return to close this window...
+
+
+Check kernel package:
+# dpkg -l | grep linux
+...
+ii  linux-image-4.9.0-9-amd64   4.9.168-1   amd64   Linux 4.9 for 64-bit PCs
+...
+#
+
+Headers not installed:
+# dpkg -l | grep linux-headers-4.9.0-9-amd64
+#
+
+Hence, install:
+# apt-cache search headers | grep 4.9.0-9-amd64
+linux-headers-4.9.0-9-amd64 - Header files for Linux 4.9.0-9-amd64
+#
+
+# aptitude install linux-headers-4.9.0-9-amd64
+The following NEW packages will be installed:
+  linux-headers-4.9.0-9-amd64 linux-headers-4.9.0-9-common{a} 
+0 packages upgraded, 2 newly installed, 0 to remove and 1 not upgraded.
+Need to get 8,120 kB of archives. After unpacking 49.9 MB will be used.
+Do you want to continue? [Y/n/?] Y
+Get: 1 http://ftp.us.debian.org/debian stretch/main amd64 linux-headers-4.9.0-9-common all 4.9.168-1 [7,671 kB]
+94% [Waiting for headers]
+...
+Preparing to unpack .../linux-headers-4.9.0-9-amd64_4.9.168-1_amd64.deb ...
+Unpacking linux-headers-4.9.0-9-amd64 (4.9.168-1) ...
+Setting up linux-headers-4.9.0-9-common (4.9.168-1) ...
+Setting up linux-headers-4.9.0-9-amd64 (4.9.168-1) ...
+                                         
+# 
+
+Updated for completeness:
+# aptitude update
+# aptitude upgrade
+
+
 
 Thu Feb  7 07:41:34 AKST 2019
 =============================
