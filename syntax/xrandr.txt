@@ -1,0 +1,92 @@
+xrandr.txt
+Created Tue Apr 30 07:12:21 AKDT 2019
+by Raymond E. Marcil <marcilr@gmail.com>
+
+
+xrandr - primitive command line interface to RandR extension
+
+
+Set display resolution using xrandr
+
+
+
+Tue Apr 30 07:12:21 AKDT 2019
+=============================
+VirtualBox has an graphics extension package.
+
+Running Debian 9.9:
+$ cat /etc/debian_version 
+9.9
+$
+
+1. Check for virtualbox package:
+$ apt-cache search virtualbox | grep ^virtualbox
+$
+
+Nope.
+
+2. Add virtualbox.list to /etc/apt/sources.d
+deb http://download.virtualbox.org/virtualbox/debian stretch contrib
+
+3. Add oracle public key:
+$ wget https://www.virtualbox.org/download/oracle_vbox_2016.asc
+# sudo apt-key add oracle_vbox_2016.asc
+OK
+#
+
+4. Install virtualbox-5.2
+$ sudo apt-get update
+$ sudo apt-get upgrade
+
+Complete instructions on VirtualBox Wiki
+https://www.virtualbox.org/wiki/Linux_Downloads
+
+
+--VirtualBox
+  https://wiki.debian.org/VirtualBox#Debian_9.22Stretch.22
+
+o I had done a standard debian update and xrandr
+lost my 1920 by 1080 setting:
+
+$ xrandr
+xrandr: Failed to get size of gamma for output default
+Screen 0: minimum 640 x 480, current 1024 x 768, maximum 1024 x 768
+default connected 1024x768+0+0 0mm x 0mm
+   1024x768      61.00* 
+   800x600       61.00  
+   640x480       60.00
+$
+
+Searched and found I ccould get this back with:
+$ xrandr
+xrandr: Failed to get size of gamma for output default
+Screen 0: minimum 640 x 480, current 1024 x 768, maximum 1024 x 768
+default connected 1024x768+0+0 0mm x 0mm
+   1024x768      61.00* 
+   800x600       61.00  
+   640x480       60.00  
+$
+
+$ cvt 1920 1080
+# 1920x1080 59.96 Hz (CVT 2.07M9) hsync: 67.16 kHz; pclk: 173.00 MHz
+Modeline "1920x1080_60.00"  173.00  1920 2048 2248 2576  1080 1083 1088 1120 -hsync +vsync
+[sudo] password for remarcil: 
+xrandr: Failed to get size of gamma for output default
+#
+
+$ sudo xrandr --newmode "1920x1080_60" 173.00 1920 2048 2248 2576 1080 1083
+1088 1120 -hsync +vsync 
+xrandr: Failed to get size of gamma for output default
+xrandr: cannot find output "VGA-1"
+$
+
+
+Note virtualbox graphics adapter:
+$ lspci -v
+...
+00:02.0 VGA compatible controller: InnoTek Systemberatung GmbH VirtualBox Graphics Adapter (prog-if 00 [VGA controller])
+	Flags: fast devsel, IRQ 10
+	Memory at e0000000 (32-bit, prefetchable) [size=16M]
+	[virtual] Expansion ROM at 000c0000 [disabled] [size=128K]
+...
+
