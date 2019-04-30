@@ -57,7 +57,7 @@ default connected 1024x768+0+0 0mm x 0mm
    640x480       60.00
 $
 
-Searched and found I ccould get this back with:
+Searched and found I could get this back with:
 $ xrandr
 xrandr: Failed to get size of gamma for output default
 Screen 0: minimum 640 x 480, current 1024 x 768, maximum 1024 x 768
@@ -89,4 +89,3 @@ $ lspci -v
 	Memory at e0000000 (32-bit, prefetchable) [size=16M]
 	[virtual] Expansion ROM at 000c0000 [disabled] [size=128K]
 ...
-
