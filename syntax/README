@@ -58,3 +58,8 @@ virtual-display-bind.txt
     > Use Host Screen 1
       Use Host Screen 2
       Use Host Screen 3
+
+xrandr.txt
+  xrandr - primitive command line interface to RandR extension
+  Set display resolution using xrandr
+
