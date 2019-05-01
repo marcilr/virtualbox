@@ -56,6 +56,57 @@ sub   rsa4096 2016-04-22 [E]
 ...
 #
 
+5. Set video mode to 1920x1080
+
+# First we need to get the modeline string for xrandr
+# Luckily, the tool "gtf" will help you calculate it.
+# All you have to do is to pass the resolution & the-
+# refresh-rate as the command parameters:
+gtf 1920 1080 60
+
+  # 1920x1080 @ 60.00 Hz (GTF) hsync: 67.08 kHz; pclk: 172.80 MHz
+  Modeline "1920x1080_60.00"  172.80  1920 2040 2248 2576  1080 1081 1084 1118  -HSync +Vsync
+
+$
+
+# In this case, the horizontal resolution is 1920px the
+# vertical resolution is 1080px & refresh-rate is 60Hz.
+# IMPORTANT: BE SURE THE MONITOR SUPPORTS THE RESOLUTION
+
+# Typically, it outputs a line starting with "Modeline"
+# e.g. "1920x1080_60.00"  172.80  1920 2040 2248 2576  1080 1081 1084 1118  -HSync +Vsync
+# Copy this entire string (except for the starting "Modeline")
+
+==> "1920x1080_60.00"  172.80  1920 2040 2248 2576  \
+1080 1081 1084 1118  -HSync +Vsync
+
+# Now, use "xrandr" to make the system recognize a new
+# display mode. Pass the copied string as the parameter
+# to the --newmode option:
+
+xrandr --newmode "1920x1080_60.00"  172.80  1920 2040 2248 2576  \
+1080 1081 1084 1118  -HSync +Vsync
+
+--------------------------------------
+
+$ sudo lshw -numeric -c video
+  *-display UNCLAIMED       
+       description: VGA compatible controller
+       product: VirtualBox Graphics Adapter [80EE:BEEF]
+       vendor: InnoTek Systemberatung GmbH [80EE]
+       physical id: 2
+       bus info: pci@0000:00:02.0
+       version: 00
+       width: 32 bits
+       clock: 33MHz
+       capabilities: vga_controller
+       configuration: latency=0
+       resources: memory:e0000000-e0ffffff ioport:1000(size=16) memory:40000000-401fffff memory:c0000-dffff
+$
+--How to detect and configure an output with xrandr?
+  https://askubuntu.com/questions/186288/how-to-detect-and-configure-an-output-with-xrandr
+
+
 5. Check video modes with xrandr:
 $ xrandr
 xrandr: Failed to get size of gamma for output default
@@ -99,8 +150,17 @@ $
 
 Looks good.
 
+9. Configure to use 1920x1080
+$ xrandr --output default --mode 1920x1080_60
+
+$ cvt 1920 1080
+# 1920x1080 59.96 Hz (CVT 2.07M9) hsync: \
+67.16 kHz; pclk: 173.00 MHz
+Modeline "1920x1080_60.00"  173.00  \
+1920 2048 2248 2576  1080 1083 1088 1120 -hsync +vsync
 $
 
+$ xrandr --output default --mode 1920x1080 
 
 
 o Lost vm.  Restored to April 1, 2019 vm.
