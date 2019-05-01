@@ -33,6 +33,37 @@ the vote."
 
 Wed May  1 07:49:24 AKDT 2019
 =============================
+o Doubleclick VBox_GAs_6.0.6 on linux desktop
+to mount VirtualBox 6.0.6 Guest Additions for Linux
+cdrom to /media/cdrom0.
+
+
+$ cd /media/cdrom0/
+$ sudo sh ./VBoxLinuxAdditions.run 
+[sudo] password for remarcil: 
+Verifying archive integrity... All good.
+Uncompressing VirtualBox 6.0.6 Guest Additions for Linux........
+VirtualBox Guest Additions installer
+Removing installed version 6.0.6 of VirtualBox Guest Additions...
+update-initramfs: Generating /boot/initrd.img-4.9.0-8-amd64
+update-initramfs: Generating /boot/initrd.img-4.9.0-9-amd64
+Copying additional installer modules ...
+Installing additional modules ...
+VirtualBox Guest Additions: Starting.
+VirtualBox Guest Additions: Building the VirtualBox Guest Additions kernel 
+modules.  This may take a while.
+VirtualBox Guest Additions: To build modules for other installed kernels, run
+VirtualBox Guest Additions:   /sbin/rcvboxadd quicksetup <version>
+VirtualBox Guest Additions: or
+VirtualBox Guest Additions:   /sbin/rcvboxadd quicksetup all
+VirtualBox Guest Additions: Building the modules for kernel 4.9.0-9-amd64.
+update-initramfs: Generating /boot/initrd.img-4.9.0-9-amd64
+VirtualBox Guest Additions: Running kernel modules will not be replaced until 
+the system is restarted
+$
+
+Looks good!
+
 o Added remarcil to vboxusers group that is required
 for virtual box user:
 
