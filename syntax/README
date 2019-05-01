@@ -52,6 +52,11 @@ syntax.txt
 usb-key-access.txt
   usb key access
 
+view-menu.txt
+  To view the virtualbox menu:
+    Host + C is the toggle for scale mode
+    (where Host is Right Control by default)
+
 virtualbox.list
   /etc/apt/sources.list.d/virtualbox.list
   VitualBox apt source configuration
