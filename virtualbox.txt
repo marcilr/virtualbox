@@ -33,12 +33,58 @@ the vote."
 
 Wed May  1 07:49:24 AKDT 2019
 =============================
-Updated Debian 9.8 VPN (Stretch) BACKUP 20190401
+o Restart new Debian 9.8 VPN (Stretch) vm:
+# shutdown -h now
+
+o Updated debian to pull down latest virtualbox guest additions:
+$ sudo aptitude update
+Ign http://dl.google.com/linux/chrome/deb stable InRelease
+Ign http://ftp.us.debian.org/debian stretch InRelease               
+Hit http://dl.google.com/linux/chrome/deb stable Release
+Get: 1 https://download.virtualbox.org/virtualbox/debian stretch InRelease [7,782 B]
+Get: 2 http://ftp.us.debian.org/debian stretch Release [118 kB]       
+Hit https://download.sublimetext.com apt/stable/ InRelease                    
+Get: 3 http://cdn-fastly.deb.debian.org/debian stretch-updates InRelease [91.0 kB]
+Get: 4 https://download.virtualbox.org/virtualbox/debian stretch/contrib amd64 Packages [1,961 B]
+Get: 5 http://cdn-fastly.deb.debian.org/debian-security stretch/updates InRelease [94.3 kB]
+Fetched 313 kB in 1s (196 kB/s)
+
+Current status: 50781 (+4) new.
+$
+
+$ sudo aptitude upgrade
+No packages will be installed, upgraded, or removed.
+0 packages upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+Need to get 0 B of archives. After unpacking 0 B will be used.
+
+$
+
+o Get and add oracle public key for virtual guest additions
+download and install:
+
+$ wget -q https://www.virtualbox.org/download/\
+oracle_vbox_2016.asc -O- | sudo apt-key add -
+OK
+$
+
+o Created new /etc/apt/sources.list.d/virtualbox.list with:
+deb https://download.virtualbox.org/virtualbox/debian stretch contrib
+
+Used:
+    # cp /home/remarcil/git/virtualization/virtualbox/\
+syntax/virtualbox.list /etc/apt/sources.list.d/
+    #
+
+o Updated Debian 9.8 VPN (Stretch) BACKUP 20190401
 to VBOX_GAs_6.0.6 (Guest Addition) on desktop.
 Mount VBOX_GAs_6.0.6 iso and run:
 
 $ sh autorun.sh
 $
+
+o Prior virtual machine failed.  Reverted to April 1, 2019
+vm backup.
+
 
 Wed Apr  3 07:16:12 AKDT 2019
 =============================
