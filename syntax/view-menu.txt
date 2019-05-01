@@ -1,0 +1,11 @@
+view-menu.txt
+Created Wed May  1 10:13:13 AKDT 2019
+by Raymond E. Marcil <marcilr@gmail.com>
+
+
+To view the virtualbox menu:
+  Host + C is the toggle for scale mode
+  (where Host is Right Control by default)
+
+  --Why has VirtualBox's menu disappeared?
+    https://askubuntu.com/questions/59103/why-has-virtualboxs-menu-disappeared
