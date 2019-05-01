@@ -33,6 +33,17 @@ the vote."
 
 Wed May  1 07:49:24 AKDT 2019
 =============================
+o Check virtualbox installlation:
+
+$ dpkg -l | grep virtualbox
+ii  virtualbox-6.0   6.0.6-130049~Debian~stretch   amd64   Oracle VM VirtualBox
+$
+
+Looks like the virtualbox 6.0.6 upgrade took.
+
+Very good.
+
+
 o Update and restart:
 # aptitude update
 # aptitude upgrade
