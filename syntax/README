@@ -52,6 +52,10 @@ syntax.txt
 usb-key-access.txt
   usb key access
 
+virtualbox.list
+  /etc/apt/sources.list.d/virtualbox.list
+  VitualBox apt source configuration
+
 virtual-display-bind.txt
   Bind virtualbox to virtual display
     Right WinKey Fn left arroy (HOME) > Devices > View > Video Screen 1 \
@@ -62,4 +66,3 @@ virtual-display-bind.txt
 xrandr.txt
   xrandr - primitive command line interface to RandR extension
   Set display resolution using xrandr
-
