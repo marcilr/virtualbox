@@ -9,6 +9,79 @@ xrandr - primitive command line interface to RandR extension
 Set display resolution using xrandr
 
 
+Wed May  1 09:08:03 AKDT 2019
+=============================
+VirtualBox has an graphics extension package.
+
+1. Get debian version:
+
+Running Debian 9.9:
+$ cat /etc/debian_version
+9.9
+$
+
+2. Add virtualbox.list to /etc/apt/sources.d
+deb http://download.virtualbox.org/virtualbox/debian stretch contrib
+
+
+3. Check for virtualbox guest edition:
+
+$ apt-cache search virtualbox | grep ^virtualbox
+virtualbox-5.0 - Oracle VM VirtualBox
+virtualbox-5.1 - Oracle VM VirtualBox
+virtualbox-5.2 - Oracle VM VirtualBox
+virtualbox-6.0 - Oracle VM VirtualBox
+$
+
+$ dpkg -l | grep virtualbox
+ii  virtualbox-6.0   6.0.6-130049~Debian~stretch   amd64   Oracle VM VirtualBox
+$ 
+
+Looks good.
+
+4. Add oracle public key:
+$ wget https://www.virtualbox.org/download/oracle_vbox_2016.asc
+# sudo apt-key add oracle_vbox_2016.asc
+OK
+#
+
+Verify with:
+# sudo apt-key list
+...
+pub   rsa4096 2016-04-22 [SC]
+      B9F8 D658 297A F3EF C18D  5CDF A2F6 83C5 2980 AECF
+uid           [ unknown] Oracle Corporation \
+(VirtualBox archive signing key) <info@virtualbox.org>
+sub   rsa4096 2016-04-22 [E]
+...
+#
+
+5. Run cvt to get 1920 by 1080 line
+
+$ cvt 1920 1080
+# 1920x1080 59.96 Hz (CVT 2.07M9) hsync: \
+67.16 kHz; pclk: 173.00 MHz
+Modeline "1920x1080_60.00"  173.00  1920 \
+2048 2248 2576  1080 1083 1088 1120 -hsync +vsync
+$
+
+6. Check with xrandr:
+$ xrandr
+xrandr: Failed to get size of gamma for output default
+Screen 0: minimum 640 x 480, current 1024 x 768, maximum 1024 x 768
+default connected 1024x768+0+0 0mm x 0mm
+   1024x768      61.00* 
+   800x600       61.00  
+   640x480       60.00  
+$
+
+NOTE: Still lacking 1920 1080.
+
+
+
+o Lost vm need to reconfigure 1920 by 1080 for 
+restored April 1, 2019 vm.
+
 
 Tue Apr 30 07:12:21 AKDT 2019
 =============================
