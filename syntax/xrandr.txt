@@ -56,7 +56,19 @@ sub   rsa4096 2016-04-22 [E]
 ...
 #
 
-5. Run cvt to get 1920 by 1080 line
+5. Check video modes with xrandr:
+$ xrandr
+xrandr: Failed to get size of gamma for output default
+Screen 0: minimum 640 x 480, current 1024 x 768, maximum 1024 x 768
+default connected 1024x768+0+0 0mm x 0mm
+   1024x768      61.00*
+   800x600       61.00
+   640x480       60.00
+$
+
+NOTE: Lacks 1920 1080.
+
+6. Run cvt to get 1920 by 1080 set line
 
 $ cvt 1920 1080
 # 1920x1080 59.96 Hz (CVT 2.07M9) hsync: \
@@ -65,7 +77,14 @@ Modeline "1920x1080_60.00"  173.00  1920 \
 2048 2248 2576  1080 1083 1088 1120 -hsync +vsync
 $
 
-6. Check with xrandr:
+7. Add 1920 by 1080 with xrandr:
+$ xrandr --newmode "1920x1080_60" 173.00 \
+1920 2048 2248 2576 1080 1083 1088 1120 -hsync +vsync
+$
+
+NOTE: Running as user, no sudo.
+
+8. Verify 1920 by 1080 mode created:
 $ xrandr
 xrandr: Failed to get size of gamma for output default
 Screen 0: minimum 640 x 480, current 1024 x 768, maximum 1024 x 768
@@ -73,14 +92,20 @@ default connected 1024x768+0+0 0mm x 0mm
    1024x768      61.00* 
    800x600       61.00  
    640x480       60.00  
+  1920x1080_60 (0x27e) 173.000MHz -HSync +VSync
+        h: width  1920 start 2048 end 2248 total 2576 skew    0 clock  67.16KHz
+        v: height 1080 start 1083 end 1088 total 1120           clock  59.96Hz
+$ 
+
+Looks good.
+
 $
 
-NOTE: Still lacking 1920 1080.
 
 
+o Lost vm.  Restored to April 1, 2019 vm.
+Need to reconfigure for 1920 by 1080.
 
-o Lost vm need to reconfigure 1920 by 1080 for 
-restored April 1, 2019 vm.
 
 
 Tue Apr 30 07:12:21 AKDT 2019
