@@ -33,10 +33,15 @@ the vote."
 
 Wed May  1 07:49:24 AKDT 2019
 =============================
+o The key to higher screen resolution in virtualbox
+is installation of the VirtualBox Guest Additions.
+This is critical to success in screen resolution.
+
+Finally got this knocked today.
+
 o Doubleclick VBox_GAs_6.0.6 on linux desktop
 to mount VirtualBox 6.0.6 Guest Additions for Linux
 cdrom to /media/cdrom0.
-
 
 $ cd /media/cdrom0/
 $ sudo sh ./VBoxLinuxAdditions.run 
