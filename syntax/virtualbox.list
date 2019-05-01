@@ -1,0 +1,10 @@
+# virtualbox.list
+# Created Wed May  1 08:11:15 AKDT 2019
+# by Raymond E. Marcil <marcilr@gmail.com>
+#
+# VirtualBox package source
+#
+# Download VirtualBox for Linux Hosts
+# https://www.virtualbox.org/wiki/Linux_Downloads
+#
+deb https://download.virtualbox.org/virtualbox/debian stretch contrib
