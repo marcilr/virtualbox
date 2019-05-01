@@ -33,7 +33,12 @@ the vote."
 
 Wed May  1 07:49:24 AKDT 2019
 =============================
-o Check virtualbox installlation:
+o Added remarcil to vboxusers group that is required
+for virtual box user:
+
+vboxusers:x:118:remarcil
+
+o Check virtualbox installation:
 
 $ dpkg -l | grep virtualbox
 ii  virtualbox-6.0   6.0.6-130049~Debian~stretch   amd64   Oracle VM VirtualBox
