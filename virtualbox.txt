@@ -33,6 +33,32 @@ the vote."
 
 Wed May  1 07:49:24 AKDT 2019
 =============================
+o Update and restart:
+# aptitude update
+# aptitude upgrade
+# shutdown -r now
+
+o Install latest virtualbox package:
+# aptitude install virtualbox-6.0
+  gcc{a} libcurl3{a} libdouble-conversion1{a} libglew2.0{a} libpcre16-3{a} 
+  libqt5core5a{a} libqt5dbus5{a} libqt5gui5{a} libqt5network5{a} libqt5opengl5{a} 
+  libqt5printsupport5{a} libqt5svg5{a} libqt5widgets5{a} libqt5x11extras5{a} 
+  libsdl-ttf2.0-0{a} libsdl1.2debian{a} libxcb-icccm4{a} libxcb-image0{a} 
+  libxcb-keysyms1{a} libxcb-randr0{a} libxcb-render-util0{a} libxcb-xinerama0{a} 
+  libxcb-xkb1{a} libxkbcommon-x11-0{a} linux-headers-4.9.0-9-amd64{a} 
+  linux-headers-4.9.0-9-common{a} linux-headers-amd64{a} mesa-utils{a} 
+  qt5-gtk-platformtheme{a} qttranslations5-l10n{a} virtualbox-6.0 
+0 packages upgraded, 31 newly installed, 0 to remove and 0 not upgraded.
+Need to get 127 MB/127 MB of archives. After unpacking 327 MB will be used.
+Do you want to continue? [Y/n/?] Y
+
+# aptitude install virtualbox
+"virtualbox" is a virtual package provided by:
+  virtualbox-6.0 virtualbox-5.2 virtualbox-5.1 virtualbox-5.0 
+You must choose one to install.
+Unable to apply some actions, aborting
+#
+
 o Restart new Debian 9.8 VPN (Stretch) vm:
 # shutdown -h now
 
@@ -66,6 +92,10 @@ $ wget -q https://www.virtualbox.org/download/\
 oracle_vbox_2016.asc -O- | sudo apt-key add -
 OK
 $
+
+--Download VirtualBox for Linux Hosts
+  https://www.virtualbox.org/wiki/Linux_Downloads
+
 
 o Created new /etc/apt/sources.list.d/virtualbox.list with:
 deb https://download.virtualbox.org/virtualbox/debian stretch contrib
