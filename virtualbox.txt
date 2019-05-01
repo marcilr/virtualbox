@@ -31,6 +31,15 @@ the vote."
 --wikipedia.org/
 
 
+Wed May  1 07:49:24 AKDT 2019
+=============================
+Updated Debian 9.8 VPN (Stretch) BACKUP 20190401
+to VBOX_GAs_6.0.6 (Guest Addition) on desktop.
+Mount VBOX_GAs_6.0.6 iso and run:
+
+$ sh autorun.sh
+$
+
 Wed Apr  3 07:16:12 AKDT 2019
 =============================
 On Debian 9.8 VPN (Stretch) - Oracle VM VirtualBox,
