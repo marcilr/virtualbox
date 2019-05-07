@@ -1,0 +1,30 @@
+dnr.txt
+Created Tue May  7 07:17:14 AKDT 2019
+by Raymond E. Marcil <marcilr@gmail.com>
+
+
+At State of Alaska Department of Natural resources running 
+Oracle VirtualBox 6.0.6 r130049 (Qt5.6.20 under Windows 10.
+Primarily use of running Debian.  Gotta have a nix box for
+dev.
+
+
+Tue May  7 07:17:14 AKDT 2019
+=============================
+Pruning the old VMs.  Thought it best to take some 
+quick notes showing datestamps of whats getting
+pruned.
+
+Apparent I first used virtualbox with Debian 6.0.6
+in  January 2019:
+
+Debian-6.0.6-ORIG-20190110
+Debian 9.7 (Stretch) - ORIG - 20190206
+Debian 9.7 (Stretch)
+Debian 9.8 (Stretch)
+Debian 9.8 (Stetch) BACKUP 20190228
+Debian 9.8 VPN (Stretch)
+Debian 9.8 VPN (Stretch) BACKUP 20190429
+Debian 9.8 VPN (Stretch) BACKUP 20190506
+
+Difference between VPN and non-VPN versions?
