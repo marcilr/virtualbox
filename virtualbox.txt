@@ -31,6 +31,149 @@ the vote."
 --wikipedia.org/
 
 
+
+Tue May  7 07:26:24 AKDT 2019
+=============================
+o Created new Debian 9.9.0 machine from:
+  debian-9.9.0-amd64-xfce-CD-1.iso
+ 
+1. In Oracle VM VIrtualBox Manager:
+Machine > New...
+
+2. At Create Virtual Machine:
+Name and Operating system
+Name:           Debian 9.9.0 20190507
+Machine Folder: C:\Users\remarcil\VirtualBox VMs
+Type:           Linux
+Versin:         Debian (64-bit)
+click Next
+
+3. At Create Virtual Machine:
+Memory
+1024MB ===> 4096MB
+click Next
+
+4. At Create Virtual Machine:
+Hard disk
+The recommended size of the hard disk is 8.00 GB.
+  Do not add a virtual hard disk
+x Create a virtual hard disk now
+  Use existing virtual hard disk file
+click Create
+
+5. At Create Virtual Machine:
+Hard disk file type
+x VDI (Virtual Disk Image)
+  VHD (Virtual Hard Disk)
+  VMDK (Virtual Machine Disk)
+click Next
+
+6. At Create Virtual Machine:
+Storage on physical disk
+
+A dynamically allocated hard disk file will only
+use space on your physical hard disk as it fills
+up (up to a maximum fixed size), although it will
+not shrink again automatically when space on it
+is freed.
+
+A fixed size hard disk file may take longer to
+create on some systems but is often faster to
+use.
+
+x Dynamically allocated
+  Fixed size
+click next
+
+6. At Create Virtual Machine:
+File Location and size
+
+Debian 9.9.0 20190507
+
+8.00GB ===> 250GB
+click Create
+
+This created new Debian 9.9.0 (Stretch) 20190507 vm.
+
+7. Point vm to debian xfce netinst iso:
+debian-9.9.0-amd64-xfce-CD-1.iso
+
+Settings... > Storage
+Controller: IDE > CD ===> debian-9.9.0-amd64-xfce-CD-1.iso
+
+8. Boot machine and install Debian 9.9.0 amd64 xfce:
+right-click > Start > Normal Start
+Did Graphical install
+
+9. At Please enter the hostname for this system:
+hostname: debian (same as prior)
+click Continue
+
+10. At configure network
+Domain name: dnr.state.ak.us   (same as intdev)
+click Continue
+
+11. User account:
+Full name for the new user:
+Raymond Marcil
+click Continue
+
+12. User account: 
+Username for your account:
+remarcil
+
+13. Paritition disks.
+Given vm put all file in one partition:
+x All files in one partition (recommended for new users)
+  Separate /home partition
+  Separate /home, /var, and /tmp partitions
+click Continue
+
+14. At Partition disks observe:
+SCSI3 (0,0,0)(sda) - 268.4GB ATA VBOX HARDDISK
+  >       #1   primary   264.1 GB   f   ext4   /
+          #5   logical     4.3 GB   f   swap   swap
+click Continue
+
+15. At Partition disks watch:
+Parititions formatting...
+Installing the base system...
+
+16. Configure the package manager:
+ftp.us.debian.org   <=== default selected
+
+click Continue
+
+17. Software selection:
+x Debian desktop environment
+  ... GNOME
+x ... Xfce
+  ... KDE
+  ... Cinnamon
+  ... MATE
+  ... LXDE
+x web server
+x print server
+x SSH server
+x standard system utilities
+click Continue
+
+18. At Select and install software
+Watch Retrieving file 760 of 1173 (20min 12s remainingg)...
+
+19. Commented out cdrom apt sources under /etc/apt/sources.list
+
+20. Installed aptitude and updated:
+# apt install aptitude
+# aptitude update
+# aptitude upgrade
+# sync
+# ldconfig
+
+21. Install xfce4:
+# aptitude install xfce4   <=== 175MB of archives
+
+
 Wed May  1 07:49:24 AKDT 2019
 =============================
 o The key to higher screen resolution in virtualbox
