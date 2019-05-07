@@ -173,6 +173,132 @@ Watch Retrieving file 760 of 1173 (20min 12s remainingg)...
 21. Install xfce4:
 # aptitude install xfce4   <=== 175MB of archives
 
+22. Restart:
+# shutdown -r now
+
+Restarted just fine.
+
+23. Configure sudo:
+Enable 'sudo' for user account
+
+i. Become superuser:
+$ su root
+
+ii. Install sudo:
+# aptitude install sudo
+# type sudo
+sudo is /usr/bin/sudo
+#
+
+Looks good.
+
+iii. Add user account to the group sudo:
+# adduser remarcil sudo
+The user `remarcil' is already a member of `sudo'.
+#
+
+Looks like I did this already.
+
+iv. Now, log out and then log in with the same user.
+
+v. Open a terminal and execute:
+$ sudo echo "Hello, world!"
+
+We trust you have received the usual lecture from the local System
+Administrator. It usually boils down to these three things:
+
+    #1) Respect the privacy of others.
+    #2) Think before you type.
+    #3) With great power comes great responsibility.
+
+[sudo] password for remarcil: 
+Hello, world!
+$
+
+If all goes well you'll see on screen Hello, world!
+
+Looks good.
+
+--milq.github.io/
+
+24. Add remarcil to users group:
+$ sudo adduser remarcil users
+Adding user `remarcil' to group `users' ...
+Adding user remarcil to group users
+Done.
+$
+
+25. Updated ~/.bashrc with xrandr:
+#
+# Best size yet for terminal windows with font set to Monospace
+# Regular 11 point.  This looks exceptional on 24" in scaled mode 
+# (right ctrl-c to toggle) under virtualbox 5.2.26 r128414 (Qt5.6.2)
+#
+/usr/bin/xrandr --size 1920x1080
+#/usr/bin/xrandr --size 1680x1050
+#/usr/bin/xrandr --size 1920x1200
+
+26. Install apt-transport-https such the aptitude can
+access https urls:
+
+# aptitude install apt-transport-https
+
+27. Create /etc/apt/sources.list.d/chrome.list
+### THIS FILE IS AUTOMATICALLY CONFIGURED ###
+# You may comment out this entry, but any other modifications may be lost.
+deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main
+
+28. Install google singing key via command line:
+$ wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | \
+sudo apt-key add -
+OK
+$
+
+29. Install Google Chrome:
+i. Download the latest Google Chrome .deb package with wget:
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+
+ii. Install Google chrome:
+dpkg -i google-chrome-stable_current_amd64.deb 
+
+iii. Starting Google Chrome
+Now that Google Chrome is installed on your Ubuntu system you can start
+it either from the command line by typing google-chrome or by clicking
+on the Google Chrome icon (Activities -> Google Chrome
+
+--How to Install Google Chrome Web Browser on Ubuntu 18.04
+  https://linuxize.com/post/how-to-install-google-chrome-web-browser-on-ubuntu-18-04/
+
+
+
+NOTE: Not hitting dl.google.com/linux
+
+30. Get and add oracle public key for virtual guest additions
+download and install:
+
+$ wget -q https://www.virtualbox.org/download/\
+oracle_vbox_2016.asc -O- | sudo apt-key add -
+OK
+$
+
+--Download VirtualBox for Linux Hosts
+  https://www.virtualbox.org/wiki/Linux_Downloads
+
+
+31. Create /etc/apt/sources.list.d/virtualbox.list
+for virtualbox graphics additions:
+
+/etc/apt/sources.list.d/virtualbox.list:
+
+32.  The key to higher screen resolution in virtualbox
+is installation of the VirtualBox Guest Additions.
+This is critical to success in screen resolution.
+
+Finally got this knocked today.
+
+
+
+
 
 Wed May  1 07:49:24 AKDT 2019
 =============================
