@@ -31,6 +31,27 @@ the vote."
 --wikipedia.org/
 
 
+Wed May  8 07:25:50 AKDT 2019
+=============================
+
+o Check for virtualbox driver:
+
+o The Debian 9.8 VPN (Stretch) vm is running 1920x1080:
+$ xrandr
+Screen 0: minimum 320 x 200, current 1920 x 1080, maximum 16384 x 16384
+VGA-1 connected primary 1920x1080+0+0 \
+(normal left inverted right x axis y axis) 0mm x 0mm
+   1920x1080     59.96*+  60.00  
+   2560x1600     59.99    59.97  
+   1920x1440     60.00  
+   ...
+   640x480       59.94  
+remarcil@debian:~/.ssh$ 
+
+
+o New Debian 9.9.0 (Stretch) 20190507 machine is running.
+Need to update the display size from 800x600 to 1920x1080.
+
 
 Tue May  7 07:26:24 AKDT 2019
 =============================
@@ -228,33 +249,151 @@ Adding user remarcil to group users
 Done.
 $
 
-25. Updated ~/.bashrc with xrandr:
+25. Install apt-transport-https such the aptitude can
+access https urls:
+
+# aptitude install apt-transport-https
+
+26. Get virtualbox public keys:
+$ wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | \
+sudo apt-key add -
+OK
+$
+
+$ wget -q https://www.virtualbox.org/download/oracle_vbox.asc -O- | \
+sudo apt-key add -
+OK
+$
+
+--VirtualBox
+  Download VirtualBox for Linux Hosts
+  https://www.virtualbox.org/wiki/Linux_Downloads
+
+
+27. Add virtualbox.list to /etc/apt/sources.d
+deb http://download.virtualbox.org/virtualbox/debian stretch contrib
+
+
+28. Check for virtualbox guest edition:
+
+$ apt-cache search virtualbox | grep ^virtualbox
+virtualbox-5.0 - Oracle VM VirtualBox
+virtualbox-5.1 - Oracle VM VirtualBox
+virtualbox-5.2 - Oracle VM VirtualBox
+virtualbox-6.0 - Oracle VM VirtualBox
+$
+
+29. Install virtualbox-6.0:
+$ sudo aptitude update
+$ sudo aptitude install virtualbox-6.0
+$ sudo shutdown -r now   <=== For completeness
+
+$ dpkg -l | grep virtualbox
+ii  virtualbox-6.0   6.0.6-130049~Debian~stretch   amd64   Oracle VM VirtualBox
+$
+
+Looks good.
+
+The above restart now works great!
+Success.
+
+This actually uses gcc and linux-headers headers
+for compile.  Uncertain exactly whatall it is
+doing.  Very interesting.
+
+--VirtualBox                                     
+  Download VirtualBox for Linux Hosts
+  https://www.virtualbox.org/wiki/Linux_Downloads
+
+
+30. Get and add oracle public key for virtual guest additions
+download and install:
+
+$ wget -q https://www.virtualbox.org/download/\
+oracle_vbox_2016.asc -O- | sudo apt-key add -
+OK
+$
+
+$ wget -q https://www.virtualbox.org/download/\
+oracle_vbox.asc -O- | sudo apt-key add -
+OK
+$
+
+--Download VirtualBox for Linux Hosts
+  https://www.virtualbox.org/wiki/Linux_Downloads
+
+30. Install xfce4-terminal
+$ sudo aptitude install xfce4-terminal
+
+
+31. Restart and insert virtualbox guest editions:
+click Devices > Guest Additions CD image...
+
+This puts VBox_GAs_6.0.6 on Desktop
+
+31.5 Install less:
+$ sudo aptitude install less
+
+32. Double click VBox_GAs_6.0.6 on Desktop to mount
+to /media/cdrom.  In terminal window:
+
+$ cd /media/cdrom
+./VBoxLinuxAdditions.run
+...
+This builds the VirtualBox Guest Additions
+...
+VirtualBox Guest Additions: Running kernel modules will not be replaced
+until the system is restarted.
+$ sudo shutdown -r now
+
+After this xrandr now shows 1920x1200 and 1920x1440.
+Still don't see 1920x1080.
+
+Works and looks alright:
+$ xrandr --size 1920x1440 
+
+31. Use csv to get 1920x1080 settings for xrandr:
+$ cvt 1920 1080
+Modeline "1920x1080_60.00" 173.00 1920 2048 2248 2576 \
+1080 1083 1088 1120 -hsync +vsync
+$
+
+Add 1920x1080 mode:
+
+
+31. After restart in terminal get:
+Size 1920x1080 not found in available modes
+$
+
+This tracks with xrandr test:
+$ /usr/bin/xrandr --size 1920x1080
+Size 1920x1080 not found in available modes
+$
+
+That side xrandr displays more sizes than I have ever 
+seen lacking 1920x1080.
+
+Looks promising though.
+
+
+32. Updated ~/.bashrc with xrandr:
 #
 # Best size yet for terminal windows with font set to Monospace
-# Regular 11 point.  This looks exceptional on 24" in scaled mode 
+# Regular 11 point.  This looks exceptional on 24" in scaled mode
 # (right ctrl-c to toggle) under virtualbox 5.2.26 r128414 (Qt5.6.2)
 #
 /usr/bin/xrandr --size 1920x1080
 #/usr/bin/xrandr --size 1680x1050
 #/usr/bin/xrandr --size 1920x1200
 
-26. Install apt-transport-https such the aptitude can
-access https urls:
 
-# aptitude install apt-transport-https
-
-27. Create /etc/apt/sources.list.d/chrome.list
+33. Create /etc/apt/sources.list.d/chrome.list
 ### THIS FILE IS AUTOMATICALLY CONFIGURED ###
 # You may comment out this entry, but any other modifications may be lost.
 deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main
 
-28. Install google singing key via command line:
-$ wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | \
-sudo apt-key add -
-OK
-$
 
-29. Install Google Chrome:
+34. Install Google Chrome:
 i. Download the latest Google Chrome .deb package with wget:
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 
@@ -269,28 +408,10 @@ on the Google Chrome icon (Activities -> Google Chrome
 --How to Install Google Chrome Web Browser on Ubuntu 18.04
   https://linuxize.com/post/how-to-install-google-chrome-web-browser-on-ubuntu-18-04/
 
-
-
 NOTE: Not hitting dl.google.com/linux
 
-30. Get and add oracle public key for virtual guest additions
-download and install:
 
-$ wget -q https://www.virtualbox.org/download/\
-oracle_vbox_2016.asc -O- | sudo apt-key add -
-OK
-$
-
---Download VirtualBox for Linux Hosts
-  https://www.virtualbox.org/wiki/Linux_Downloads
-
-
-31. Create /etc/apt/sources.list.d/virtualbox.list
-for virtualbox graphics additions:
-
-/etc/apt/sources.list.d/virtualbox.list:
-
-32.  The key to higher screen resolution in virtualbox
+35.  The key to higher screen resolution in virtualbox
 is installation of the VirtualBox Guest Additions.
 This is critical to success in screen resolution.
 
