@@ -33,6 +33,66 @@ the vote."
 
 Wed May  8 07:25:50 AKDT 2019
 =============================
+o Working updated xdisplay from 800x600 to 1920x1080
+
+Get working parameters from Debian 9.8 VPN:
+$ cvt 1920 979
+# 1920x979 59.88 Hz (CVT) hsync: 60.84 kHz; pclk: 155.75 MHz
+Modeline "1920x979_60.00"  155.75  1920 2040 2240 2560  979 982 992 1016 -hsync +vsync
+$
+
+Add 1920x979 mode with xrandr:
+$ xrandr --newmode "1920x979_60.00"  155.75  1920 2040 2240 2560 \
+979 982 992 1016 -hsync +vsync
+$
+
+Verify new 1920x979 mode added:
+$ xrandr
+Screen 0: minimum 1 x 1, current 1920 x 1080, maximum 8192 x 8192
+Virtual1 connected primary 1920x1080+0+0 (normal left inverted \
+right x axis y axis) 0mm x 0mm
+800x600     60.00 +  60.32
+2560x1600   59.99
+1920x1440   60.00
+...
+1920x979_60.00 (0x29e) 155.750MHz -Hsync + VSync
+...
+$
+
+Set 1920x979_60.00 mode with xrandr:
+$ xrandr --addmode Virtual1 1920x979_60.00
+$
+
+No changes from above.
+
+
+o Working updated xdisplay from 800x600 to 1920x1080
+
+i. On desktop load virtualbox guest additions:
+double-click VBox_GAs_6.0.6
+
+This open /media/cdrom with VBoxLinuxAdditions.run
+
+ii. Open terminal window and change to virtualbox guest additions
+and run VBoxLinuxAdditions.run:
+$ cd /media/cdtom$
+$ sudo sh VBoxLinuxAdditions.run
+...
+
+Restart for kernel module:
+$ sudo shutdown -r now
+
+Still getting 800x600 display.
+
+
+
+o Install xfce4-terminal:
+$ sudo aptitude install xfce4-terminal
+
+Appears to be installed already.
+
+To set the default gnome terminal emulator:
+
 
 o Check for virtualbox driver:
 
