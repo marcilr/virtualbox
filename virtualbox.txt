@@ -31,9 +31,61 @@ the vote."
 --wikipedia.org/
 
 
+
+Thu May  9 10:36:55 AKDT 2019
+=============================
+
+o Installation of virtual box guest additions.
+
+1. Mount virtual box guest additions
+   i.  double-click VBox_GAs_6.0.6 iso 
+       on desktop to mount to /media/cdrom0
+       $ cd /media/cdrom0
+
+   ii. Open terminal window and run
+       /media/cdrom0/VBoxLinuxAdditions.run
+
+$ /media/cdrom0/
+# sudo sh VBoxLinuxAdditions.run
+[sudo] password for remarcil: 
+Verifying archive integrity... All good.
+Uncompressing VirtualBox 6.0.6 Guest Additions for Linux........
+VirtualBox Guest Additions installer
+Removing installed version 6.0.6 of VirtualBox Guest Additions...
+update-initramfs: Generating /boot/initrd.img-4.9.0-9-amd64
+Copying additional installer modules ...
+Installing additional modules ...
+VirtualBox Guest Additions: Starting.
+VirtualBox Guest Additions: Building the VirtualBox Guest Additions kernel 
+modules.  This may take a while.
+VirtualBox Guest Additions: To build modules for other installed kernels, run
+VirtualBox Guest Additions:   /sbin/rcvboxadd quicksetup <version>
+VirtualBox Guest Additions: or
+VirtualBox Guest Additions:   /sbin/rcvboxadd quicksetup all
+VirtualBox Guest Additions: Building the modules for kernel 4.9.0-9-amd64.
+update-initramfs: Generating /boot/initrd.img-4.9.0-9-amd64
+Killed
+update-initramfs failed with error code 137.
+VirtualBox Guest Additions: Running kernel modules will not be replaced until 
+the system is restarted
+$ sudo shutdown -r now
+
+NOTE: xrandr lacks 1920x1080.  However, notice that Debian 9.8 VPN
+is running 120x975 which looks great under virtualbox 6.0 r130039 (Qt5.6.2) 
+under windows 10.
+
+o Still working on Debian 9.9.0 (Stetch) 20190507 
+display size.  Need to update from 800x600 to
+1920x1080.
+
+Think the key to this is installation of the
+virtualbox guest additions.
+
+
 Wed May  8 07:25:50 AKDT 2019
 =============================
 o Working updated xdisplay from 800x600 to 1920x1080
+on Debian 9.9.0 (Stetch) 20190507 machine.
 
 Get working parameters from Debian 9.8 VPN:
 $ cvt 1920 979
