@@ -35,6 +35,22 @@ the vote."
 Thu May  9 10:36:55 AKDT 2019
 =============================
 
+o In Debian virtualbox settings:
+Base memory:         8192MB
+Video memory:        16MB ===> 128MB
+Graphics controller: VMSVGA ===> VBoxVGA
+
+With the above settings the entire display is   <===
+now populated at 1920x1080.  Very nice!
+
+o Installed virtual box guest additions again
+for Debian 9.9.0 just for grins and restarted machine.
+
+This time used (i.e. not just restart):
+
+$ sudo shutdown -h now
+
+
 o Installation of virtual box guest additions.
 
 1. Mount virtual box guest additions
