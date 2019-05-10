@@ -34,7 +34,6 @@ the vote."
 
 Thu May  9 10:36:55 AKDT 2019
 =============================
-
 o In Debian virtualbox settings:
 Base memory:         8192MB
 Video memory:        16MB ===> 128MB
@@ -46,8 +45,29 @@ now populated at 1920x1080.  Very nice!
 o Installed virtual box guest additions again
 for Debian 9.9.0 just for grins and restarted machine.
 
-This time used (i.e. not just restart):
+1. double-click VBox_GAs_6.0.6 disk on desktop
+2. $ cd /media/cdrom0
+3. $ sudo bash ./VBoxLinuxAdditions.run
+Verifying archive integrity... All good.
+Uncompressing VirtualBox 6.0.6 Guest Additions for Linux........
+VirtualBox Guest Additions installer
+Copying additional installer modules ...
+Installing additional modules ...
+update-initramfs: Generating /boot/initrd.img-4.9.0-9-amd64
+VirtualBox Guest Additions: Starting.
+VirtualBox Guest Additions: Building the VirtualBox Guest Additions kernel 
+modules.  This may take a while.
+VirtualBox Guest Additions: To build modules for other installed kernels, run
+VirtualBox Guest Additions:   /sbin/rcvboxadd quicksetup <version>
+VirtualBox Guest Additions: or
+VirtualBox Guest Additions:   /sbin/rcvboxadd quicksetup all
+VirtualBox Guest Additions: Building the modules for kernel 4.9.0-9-amd64.
+update-initramfs: Generating /boot/initrd.img-4.9.0-9-amd64
+VirtualBox Guest Additions: Running kernel modules will not be replaced until 
+the system is restarted
+$
 
+This time used (i.e. not just restart):
 $ sudo shutdown -h now
 
 
