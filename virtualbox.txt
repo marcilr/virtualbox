@@ -31,6 +31,32 @@ the vote."
 --wikipedia.org/
 
 
+Fri May 10 09:16:15 AKDT 2019
+=============================
+o Updated root crontab with:
+
+# 
+# m h  dom mon dow   command
+#
+# ┌───────────── minute (0 - 59)
+# │ ┌───────────── hour (0 - 23)
+# │ │ ┌───────────── day of the month (1 - 31)
+# │ │ │ ┌───────────── month (1 - 12)
+# │ │ │ │ ┌───────────── day of the week (0 - 6) (Sunday to Saturday;
+# │ │ │ │ │                                   7 is also Sunday on some systems)
+# │ │ │ │ │
+# │ │ │ │ │
+# * * * * * command to execute
+#
+# --cron
+#   From Wikipedia, the free encyclopedia
+#   https://en.wikipedia.org/wiki/Cron
+#
+# Run updatedb every night at 2:15AM
+15 2 * * * /usr/bin/updatedb --prunepaths='/tmp /run /usr/tmp /var'
+
+Very nice.
+
 
 Thu May  9 10:36:55 AKDT 2019
 =============================
