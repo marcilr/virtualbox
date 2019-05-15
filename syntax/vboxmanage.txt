@@ -1,0 +1,42 @@
+vboxmanage.txt
+Created Wed May 15 10:57:54 AKDT 2019
+Copyright (C) 2019 by Raymond E. Marcil <marcilr@gmail.com>
+
+
+VBoxManage
+
+
+Wed May 15 10:57:54 AKDT 2019
+=============================
+On Debian 9.9.0 (Stretch) 20190507 vm:
+
+$ VBoxManage controlvm runningvms
+WARNING: The vboxdrv kernel module is not loaded. Either there is no module
+         available for the current kernel (4.9.0-9-amd64) or it failed to
+         load. Please recompile the kernel module and install it by
+
+           sudo /sbin/vboxconfig
+
+         You will not be able to start VMs until this problem is fixed.
+Oracle VM VirtualBox Command Line Management Interface Version 6.0.8
+(C) 2005-2019 Oracle Corporation
+All rights reserved.
+
+Usage:
+
+VBoxManage controlvm        <uuid|vmname>
+...
+$
+
+
+$ sudo /sbin/vboxconfig
+[sudo] password for remarcil: 
+Created symlink /etc/systemd/system/multi-user.target.wants/vboxdrv.service → /lib/systemd/system/vboxdrv.service.
+Created symlink /etc/systemd/system/multi-user.target.wants/vboxballoonctrl-service.service → /lib/systemd/system/vboxballoonctrl-service.service.
+Created symlink /etc/systemd/system/multi-user.target.wants/vboxautostart-service.service → /lib/systemd/system/vboxautostart-service.service.
+Created symlink /etc/systemd/system/multi-user.target.wants/vboxweb-service.service → /lib/systemd/system/vboxweb-service.service.
+vboxdrv.sh: Stopping VirtualBox services.
+vboxdrv.sh: Starting VirtualBox services.
+vboxdrv.sh: Building VirtualBox kernel modules.
+...
+
