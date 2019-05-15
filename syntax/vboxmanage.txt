@@ -38,5 +38,26 @@ Created symlink /etc/systemd/system/multi-user.target.wants/vboxweb-service.serv
 vboxdrv.sh: Stopping VirtualBox services.
 vboxdrv.sh: Starting VirtualBox services.
 vboxdrv.sh: Building VirtualBox kernel modules.
-...
+vboxdrv.sh: failed: modprobe vboxdrv failed. Please use 'dmesg' to find out why.
 
+There were problems setting up VirtualBox.  To re-start the set-up process, run
+  /sbin/vboxconfig
+as root.  If your system is using EFI Secure Boot you may need to sign the
+kernel modules (vboxdrv, vboxnetflt, vboxnetadp, vboxpci) before you can load
+them. Please see your Linux system's documentation for more information.
+$
+
+$ sudo dmesg
+...
+[  251.507965] fuse init (API version 7.26)
+[  305.525216] vboxdrv: disagrees about version of symbol cpu_tlbstate
+[  305.525219] vboxdrv: Unknown symbol cpu_tlbstate (err -22)
+[13874.591315] vboxdrv: disagrees about version of symbol cpu_tlbstate
+[13874.591317] vboxdrv: Unknown symbol cpu_tlbstate (err -22)
+$
+
+$ apt-cache search vboxdrv
+$ 
+
+
+Uncertain exactly how vboxdrv in installed.
