@@ -31,6 +31,19 @@ the vote."
 --wikipedia.org/
 
 
+Wed May 15 07:11:25 AKDT 2019
+=============================
+o Updated virtualbox to latest:
+
+VirtualBox-6.0.8-130520-Wine.exe 
+
+  from:
+
+VirtualBox-6.0.6-130049-Win.exe
+
+No issues.  Smooth upgrade.
+
+
 Fri May 10 09:16:15 AKDT 2019
 =============================
 o Updated root crontab with:
