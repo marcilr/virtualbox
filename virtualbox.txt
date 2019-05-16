@@ -214,8 +214,21 @@ the system is restarted
 #
 
 6. Reboot and verify the virtualbox 6.0.6 to 6.0.8 updated message
-has neen alleviated.
+has been alleviated.
 
+7. No updated needed message on boot.
+   Help > About VirtualBox... displays:
+
+   ORACLE VM
+   VirtualBox 6.0
+   VirtualBox Graphical User Interface
+   Version 6.0.8 r130520 (Qt5.6.2)
+   Copyright © 2019 Oracle Corporation and/or its affiliates.
+   All rights reserved.
+
+Upgrade from VirtualBox v6.0.6 to v6.0.8 successful.
+
+Very nice.
 
 --How to Install VirtualBox Guest Additions in Ubuntu
   https://www.tecmint.com/install-virtualbox-guest-additions-in-ubuntu/
