@@ -31,14 +31,202 @@ the vote."
 --wikipedia.org/
 
 
+
+Thu May 16 06:53:18 AKDT 2019
+=============================
+On login to Debian 9.9.0 (Stretch) 20190507 this morning
+observed notification that I am running guest additions
+6.0.6 and should be running 6.0.8.  Thought I had done
+this upgrade yesterday.  Will have another go at it...
+
+On Desktop double VBox_GAs_6.0.8 this mounts virtualbox
+guest additions 6.08 iso to /media/cdrom0.
+
+Install guest additions 6.08:
+1. Update os packages:
+# aptitude update
+# aptitude upgrade
+
+Didn't install anything.
+
+2. Install headers and such:
+# apt install build-essential dkms linux-headers-$(uname -r)
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+linux-headers-4.9.0-9-amd64 is already the newest version (4.9.168-1+deb9u2).
+linux-headers-4.9.0-9-amd64 set to manually installed.
+The following additional packages will be installed:
+  dpkg-dev fakeroot g++ g++-6 libalgorithm-diff-perl
+  libalgorithm-diff-xs-perl libalgorithm-merge-perl libdpkg-perl libfakeroot
+  libfile-fcntllock-perl libstdc++-6-dev
+Suggested packages:
+  python3-apport menu debian-keyring g++-multilib g++-6-multilib gcc-6-doc
+  libstdc++6-6-dbg libstdc++-6-doc
+The following NEW packages will be installed:
+  build-essential dkms dpkg-dev fakeroot g++ g++-6 libalgorithm-diff-perl
+  libalgorithm-diff-xs-perl libalgorithm-merge-perl libdpkg-perl libfakeroot
+  libfile-fcntllock-perl libstdc++-6-dev
+0 upgraded, 13 newly installed, 0 to remove and 0 not upgraded.
+Need to get 11.7 MB of archives.
+After this operation, 45.0 MB of additional disk space will be used.
+Do you want to continue? [Y/n] Y
+Get:1 http://ftp.us.debian.org/debian stretch/main amd64 libstdc++-6-dev amd64 6.3.0-18+deb9u1 [1,420 kB]
+Get:2 http://ftp.us.debian.org/debian stretch/main amd64 g++-6 amd64 6.3.0-18+deb9u1 [7,094 kB]
+Get:3 http://ftp.us.debian.org/debian stretch/main amd64 g++ amd64 4:6.3.0-4 [1,546 B]
+Get:4 http://ftp.us.debian.org/debian stretch/main amd64 libdpkg-perl all 1.18.25 [1,287 kB]
+Get:5 http://ftp.us.debian.org/debian stretch/main amd64 dpkg-dev all 1.18.25 [1,595 kB]
+Get:6 http://ftp.us.debian.org/debian stretch/main amd64 build-essential amd64 12.3 [7,346 B]
+Get:7 http://ftp.us.debian.org/debian stretch/main amd64 dkms all 2.3-2 [74.8 kB]    
+Get:8 http://ftp.us.debian.org/debian stretch/main amd64 libfakeroot amd64 1.21-3.1 [45.7 kB]
+Get:9 http://ftp.us.debian.org/debian stretch/main amd64 fakeroot amd64 1.21-3.1 [85.6 kB]
+Get:10 http://ftp.us.debian.org/debian stretch/main amd64 libalgorithm-diff-perl all 1.19.03-1 [48.7 kB]
+Get:11 http://ftp.us.debian.org/debian stretch/main amd64 libalgorithm-diff-xs-perl amd64 0.04-4+b2 [11.6 kB]
+Get:12 http://ftp.us.debian.org/debian stretch/main amd64 libalgorithm-merge-perl all 0.08-3 [12.7 kB]
+Get:13 http://ftp.us.debian.org/debian stretch/main amd64 libfile-fcntllock-perl amd64 0.22-3+b2 [35.3 kB]
+Fetched 11.7 MB in 47s (248 kB/s)                                                    
+Selecting previously unselected package libstdc++-6-dev:amd64.
+(Reading database ... 98285 files and directories currently installed.)
+Preparing to unpack .../00-libstdc++-6-dev_6.3.0-18+deb9u1_amd64.deb ...
+Unpacking libstdc++-6-dev:amd64 (6.3.0-18+deb9u1) ...
+Selecting previously unselected package g++-6.
+Preparing to unpack .../01-g++-6_6.3.0-18+deb9u1_amd64.deb ...
+Unpacking g++-6 (6.3.0-18+deb9u1) ...
+Selecting previously unselected package g++.
+Preparing to unpack .../02-g++_4%3a6.3.0-4_amd64.deb ...
+Unpacking g++ (4:6.3.0-4) ...
+Selecting previously unselected package libdpkg-perl.
+Preparing to unpack .../03-libdpkg-perl_1.18.25_all.deb ...
+Unpacking libdpkg-perl (1.18.25) ...
+Selecting previously unselected package dpkg-dev.
+Preparing to unpack .../04-dpkg-dev_1.18.25_all.deb ...
+Unpacking dpkg-dev (1.18.25) ...
+Selecting previously unselected package build-essential.
+Preparing to unpack .../05-build-essential_12.3_amd64.deb ...
+Unpacking build-essential (12.3) ...
+Selecting previously unselected package dkms.
+Preparing to unpack .../06-dkms_2.3-2_all.deb ...
+Unpacking dkms (2.3-2) ...
+Selecting previously unselected package libfakeroot:amd64.
+Preparing to unpack .../07-libfakeroot_1.21-3.1_amd64.deb ...
+Unpacking libfakeroot:amd64 (1.21-3.1) ...
+Selecting previously unselected package fakeroot.
+Preparing to unpack .../08-fakeroot_1.21-3.1_amd64.deb ...
+Unpacking fakeroot (1.21-3.1) ...
+Selecting previously unselected package libalgorithm-diff-perl.
+Preparing to unpack .../09-libalgorithm-diff-perl_1.19.03-1_all.deb ...
+Unpacking libalgorithm-diff-perl (1.19.03-1) ...
+Selecting previously unselected package libalgorithm-diff-xs-perl.
+Preparing to unpack .../10-libalgorithm-diff-xs-perl_0.04-4+b2_amd64.deb ...
+Unpacking libalgorithm-diff-xs-perl (0.04-4+b2) ...
+Selecting previously unselected package libalgorithm-merge-perl.
+Preparing to unpack .../11-libalgorithm-merge-perl_0.08-3_all.deb ...
+Unpacking libalgorithm-merge-perl (0.08-3) ...
+Selecting previously unselected package libfile-fcntllock-perl.
+Preparing to unpack .../12-libfile-fcntllock-perl_0.22-3+b2_amd64.deb ...
+Unpacking libfile-fcntllock-perl (0.22-3+b2) ...
+Setting up libstdc++-6-dev:amd64 (6.3.0-18+deb9u1) ...
+Setting up libdpkg-perl (1.18.25) ...
+Setting up g++-6 (6.3.0-18+deb9u1) ...
+Setting up libfile-fcntllock-perl (0.22-3+b2) ...
+Setting up dpkg-dev (1.18.25) ...
+Setting up dkms (2.3-2) ...
+Processing triggers for libc-bin (2.24-11+deb9u4) ...
+Setting up libfakeroot:amd64 (1.21-3.1) ...
+Setting up libalgorithm-diff-perl (1.19.03-1) ...
+Processing triggers for man-db (2.7.6.1-2) ...
+Setting up g++ (4:6.3.0-4) ...
+update-alternatives: using /usr/bin/g++ to provide /usr/bin/c++ (c++) in auto mode
+Setting up build-essential (12.3) ...
+Setting up fakeroot (1.21-3.1) ...
+update-alternatives: using /usr/bin/fakeroot-sysv to provide /usr/bin/fakeroot (fakeroot) in auto mode
+Setting up libalgorithm-merge-perl (0.08-3) ...
+Setting up libalgorithm-diff-xs-perl (0.04-4+b2) ...
+Processing triggers for libc-bin (2.24-11+deb9u4) ...
+# 
+
+Looks good.
+
+3. From vm menu bar:
+   click Devices > Insert Guest Additions CD image...
+
+   This mounts the Guest Additions ISO file to vm.
+
+   NOTE: Get error:
+         VirtualBox Error
+         Unable to insert the virtual optical disk
+         C:\Program Files\Oracle\VirtualBox\VBOxGuestAdditions.iso
+         into the machine Debian 9.9.0 (Stretch) 20190507.
+
+         Details
+         Could not mount the media/drive
+         C:\Program Files\Oracle\VirtualBox\VBOxGuestAdditions.iso'
+         (VERR_PDM_MEDIA_LOCKED)
+
+         Result Code:   E_FAIL (0x80004005)
+         Component:     ConsoleWrap
+         Interface:     IConsole {872da645-4a9b-1727-bee2-5585105b9eed}
+         Callee:        IMachine {5047460a-265d-4538-b23e-ddba5fb84976}
+
+4. Given vm menu Devices > Insert Guest Additions CD image...
+   failure opted to just double-click VBox_GAs_6.0.8 iso 
+   on Desktop to mount to /media/cdrom0.
+
+5. From /media/cdrom0 run VBoxLinuxAdditions.run as root.
+# cd /media/cdrom0
+# sh VBoxLinuxAdditions.run
+Verifying archive integrity... All good.
+Uncompressing VirtualBox 6.0.8 Guest Additions for Linux........
+VirtualBox Guest Additions installer
+Removing installed version 6.0.6 of VirtualBox Guest Additions...
+update-initramfs: Generating /boot/initrd.img-4.9.0-9-amd64
+./install.sh: 143: ./install.sh: VBoxControl: not found
+This system appears to have a version of the VirtualBox Guest Additions
+already installed.  If it is part of the operating system and kept up-to-date,
+there is most likely no need to replace it.  If it is not up-to-date, you
+should get a notification when you start the system.  If you wish to replace
+it with this version, please do not continue with this installation now, but
+instead remove the current version first, following the instructions for the
+operating system.
+
+If your system simply has the remains of a version of the Additions you could
+not remove you should probably continue now, and these will be removed during
+installation.
+
+Do you wish to continue? [yes or no]
+yes
+touch: cannot touch '/var/lib/VBoxGuestAdditions/skip-4.9.0-9-amd64': No such file or directory
+Copying additional installer modules ...
+Installing additional modules ...
+VirtualBox Guest Additions: Starting.
+VirtualBox Guest Additions: Building the VirtualBox Guest Additions kernel 
+modules.  This may take a while.
+VirtualBox Guest Additions: To build modules for other installed kernels, run
+VirtualBox Guest Additions:   /sbin/rcvboxadd quicksetup <version>
+VirtualBox Guest Additions: or
+VirtualBox Guest Additions:   /sbin/rcvboxadd quicksetup all
+VirtualBox Guest Additions: Building the modules for kernel 4.9.0-9-amd64.
+update-initramfs: Generating /boot/initrd.img-4.9.0-9-amd64
+Killed
+update-initramfs failed with error code 137.
+VirtualBox Guest Additions: Running kernel modules will not be replaced until 
+the system is restarted
+#
+
+6. Reboot and verify the virtualbox 6.0.6 to 6.0.8 updated message
+has neen alleviated.
+
+
+--How to Install VirtualBox Guest Additions in Ubuntu
+  https://www.tecmint.com/install-virtualbox-guest-additions-in-ubuntu/
+
+
 Wed May 15 07:11:25 AKDT 2019
 =============================
 o Updated virtualbox to latest:
 
 VirtualBox-6.0.8-130520-Wine.exe 
-
   from:
-
 VirtualBox-6.0.6-130049-Win.exe
 
 No issues.  Smooth upgrade.
