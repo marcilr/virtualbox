@@ -1,0 +1,12 @@
+links.txt
+Created Mon Jun 10 15:13:04 AKDT 2019
+Copyright (C) 2019 by Raymond E. Marcil <marcilr@gmail.com>
+
+
+Start/stop related links
+
+
+Links
+=====
+Virtualbox Windows graceful shutdown of guests on host shutdown
+https://superuser.com/questions/959567/virtualbox-windows-graceful-shutdown-of-guests-on-host-shutdown
