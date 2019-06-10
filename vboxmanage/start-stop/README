@@ -1,0 +1,13 @@
+README
+Created Mon Jun 10 15:12:11 AKDT 2019
+Copyright (C) 2019 by Raymond E. Marcil <marcilr@gmail.com>
+
+
+Filelist
+========
+links.txt
+  Start/stop related links
+
+start-stop.txt
+  Start/stop of virtual machines via vboxmanage
+
