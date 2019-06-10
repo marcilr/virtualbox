@@ -1,0 +1,34 @@
+start.txt
+Created Mon Jun 10 15:16:06 AKDT 2019
+Copyright (C) 2019 by Raymond E. Marcil <marcilr@gmail.com>
+
+
+Start virtual machine:
+
+
+To start a virtual machine under Windows 10 use:
+  "C:\Program Files\Oracle\VirtualBox\VBoxManage.exe" startvm <NameOfVMHere>
+  --edited Nov 21 '17 at 21:22
+    answered Nov 30 '10 at 14:25
+    Joel Coehoorn
+    superuser.com/questions/216692
+
+In Windows 10, you can start a Ubuntu VM using:
+  C:\Program Files\Oracle\VirtualBox\VBoxManage.exe startvm Ubuntu
+
+  where Ubuntu is the name of the VirtualBox VM
+
+To shut down the VM use:
+  C:\Program Files\Oracle\VirtualBox\VBoxManage.exe controlvm Ubuntu poweroff
+
+You can also use other commands with controlvm such as pause, resume, reset,
+poweroff, savestate to achieve different actions.
+  --answered Feb 26 '18 at 4:50
+    alpha_989
+    superuser.com/questions/216692
+
+
+Links
+=====
+How to run a VirtualBox VM from command line?
+https://superuser.com/questions/216692/how-to-run-a-virtualbox-vm-from-command-line
