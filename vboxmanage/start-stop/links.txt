@@ -8,5 +8,9 @@ Start/stop related links
 
 Links
 =====
+How to run a VirtualBox VM from command line?
+Solid link with bat start scripts
+https://superuser.com/questions/216692/how-to-run-a-virtualbox-vm-from-command-line
+
 Virtualbox Windows graceful shutdown of guests on host shutdown
 https://superuser.com/questions/959567/virtualbox-windows-graceful-shutdown-of-guests-on-host-shutdown
