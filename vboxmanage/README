@@ -71,6 +71,9 @@ showhdinfo.txt
 showvminfo.txt
   vboxmanage showvminfo <vm> - Display particular vm info
 
+start-stop/
+  Start/stop of virtual machines via vboxmanage
+
 syntax.txt
   Syntax for vboxmanage
 
