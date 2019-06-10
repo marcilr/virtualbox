@@ -1,7 +1,0 @@
-start-stop.txt
-Created Mon Jun 10 15:11:37 AKDT 2019
-Copyright (C) 2019 by Raymond E. Marcil <marcilr@gmail.com>
-
-
-Start/stop of virtual machines via vboxmanage
-
