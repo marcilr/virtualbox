@@ -46,6 +46,12 @@ Definately looks like vboxmanage could be used to generate a
 virtual machine via the command line for use with windows.
 
 
+Windows 10 
+==========
+Under windows 10 vboxmange installed at:
+  C:\Program Files\Oracle\VirtualBox\VBoxManage.exe
+
+
 Links
 =====
 Chapter 8. VBoxManage
