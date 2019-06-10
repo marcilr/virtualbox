@@ -6,6 +6,22 @@ Copyright (C) 2019 by Raymond E. Marcil <marcilr@gmail.com>
 Start/stop of virtual machines via vboxmanage
 
 
+The VBoxManage.exe utility can be used to control control machines
+using:
+
+VBoxManage.exe controlvm <vmName> <command>
+
+Where machine is the virtual machine name and command is startvm,
+pause, resume, reset, poweroff, savestate to achieve different actions.
+  --answered Feb 26 '18 at 4:50
+    alpha_989
+    superuser.com/questions/216692
+
+Ultimately want to configure windows 10 such that at night machine(s)
+automatedly save there current state and make backups.  Then in the
+morning machines will automatedly start up before arrival at work.
+i.e. Alleviate all required manual machine labor.
+
 
 Filelist
 ========
@@ -14,4 +30,10 @@ links.txt
 
 start.txt
   Start virtual machine 
+
+
+Links
+=====
+How to run a VirtualBox VM from command line?
+https://superuser.com/questions/216692/how-to-run-a-virtualbox-vm-from-command-line
 
