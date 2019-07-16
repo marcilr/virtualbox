@@ -1,0 +1,42 @@
+save-state-cli.txt
+Created Tue Jul 16 14:45:33 AKDT 2019
+Copyright (C) 2019 by Raymond E. Marcil <marcilr@gmail.com>
+
+
+Save State from command line interface
+
+
+From the VBoxManage[1] manual:
+
+VBoxManage controlvm <vm> savestate will save the current state
+of the VM to disk and then stop the VM.  (This is equivalent to
+selecting the "Close" item in the "Machine" menu of the GUI or
+pressing the window's close button, and then selecting "Save the
+machine state" in the dialog.)
+
+Then you can start again using VBoxManage startvm "Windows XP"
+(assuming your VM is named "Windows XP" of course).
+
+You should find the VBoxManage.exe somewhere in your VirtualBox
+installation folder. Of course you can add it to your PATH[2] to
+have easier access.
+
+--edited Mar 20 '17 at 10:17
+  Community
+
+  answered Jul 29 '11 at 18:50
+  slhck
+
+
+As usual virtual box has great command line support. Huzzah! 
+  --Trevor Boyd Smith
+    Aug 1 '11 at 14:55
+
+
+Links
+=====
+[1] VBoxManage
+http://www.virtualbox.org/manual/ch08.html
+
+[2] add it to your PATH
+https://superuser.com/questions/284342/how-do-i-set-path-and-other-environment-variables
