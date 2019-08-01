@@ -1,0 +1,8 @@
+#.gitignore
+# Created Thu Aug  1 10:58:39 AKDT 2019
+# by Raymond E. Marcil <marcilr@gmail.com>
+#
+# Files for git to ignore.
+#
+.gitignore
+scripting/
