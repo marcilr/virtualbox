@@ -8,6 +8,9 @@ Filelist
 links.txt
   Operating system related links
 
+loop.sh
+  Generate html file, displayed to common output, with
+  disk usage of all sytems listed in ~/.credentials file
+
 os.txt
   Operating system installation on virtualbox machine
-
