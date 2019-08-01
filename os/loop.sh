@@ -135,9 +135,6 @@ ${CAT} ${CREDENTIALS} | ${GREP} -v "#" | while read LINE; do {
         echo "<td>${USE}</td>"
         echo "<td>${MOUNTON}</td>"
 
-#        for VALUE in $DFLINE; do
-#          echo "<td>${VALUE}</td>"
-#        done
       echo "</tr>"
 
       # Set flag to no longer top
