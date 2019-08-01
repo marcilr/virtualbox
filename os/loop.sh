@@ -117,10 +117,27 @@ ${CAT} ${CREDENTIALS} | ${GREP} -v "#" | while read LINE; do {
           # Shell Programming and Scripting
           # https://www.unix.com/shell-programming-and-scripting/173276-how-loop-through-space-separated-values.html
           #
-        for VALUE in $DFLINE; do
-          echo "<td>${VALUE}</td>"
-#          echo ${DFLINE}<br>"
-        done
+
+        # Break results up to individual variables
+        IFS=' ' read -r -a array <<< "$DFLINE"
+
+        FILESYSTEM=${array[0]}
+        SIZE=${array[1]}
+        USED=${array[2]}
+        AVAIL=${array[3]}
+        USE=${array[4]}
+        MOUNTON=${array[5]}
+
+        echo "<td>${FILESYSTEM}</td>"
+        echo "<td>${SIZE}</td>"
+        echo "<td>${USED}</td>"
+        echo "<td>${AVAIL}</td>"
+        echo "<td>${USE}</td>"
+        echo "<td>${MOUNTON}</td>"
+
+#        for VALUE in $DFLINE; do
+#          echo "<td>${VALUE}</td>"
+#        done
       echo "</tr>"
 
       # Set flag to no longer top
