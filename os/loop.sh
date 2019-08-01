@@ -55,11 +55,17 @@ echo "</head>"
 echo "<body>"
 echo "<h1>System Disk Usage</h1>"
 
+#
+# Create table to organize disk usage output
+#
+echo "<table>"
+echo "<tr>"
+echo "</tr>"
 
 ${CAT} ${CREDENTIALS} | ${GREP} -v "#" | while read LINE; do {
 #  echo ${LINE}
 
-  echo "<p>"
+#  echo "<p>"
   # Get system name in upper case
   SYSTEM=`echo ${LINE} | ${SED} 's/=.*//g'`
 #  echo "SYSTEM: ${SYSTEM}<br>"
@@ -72,25 +78,45 @@ ${CAT} ${CREDENTIALS} | ${GREP} -v "#" | while read LINE; do {
   CREDENTIAL=`echo ${LINE} | ${SED} 's/.*=//g'`
 #  echo "CREDENTIAL: ${CREDENTIAL}<br>"
 
-  echo "</p>"
+#  echo "</p>"
 
   # Test remote ssh command
 #  TIME=`${SSHPASS} -p "${CREDENTIAL}" ${SSH} root@${SYSTEMLOWER} uptime`
 #  echo "TIME: ${TIME}"
 
   # loop of 'df -h' results omitting  /mnt and /home
-  echo "<p>"
+#  echo "<p>"
   ${SSHPASS} -p "${CREDENTIAL}" ${SSH} root@${SYSTEMLOWER} 'df -h' | ${GREP} -v '/mnt\|/home' | while read DFLINE; do
+    echo "<tr>"
     if [[ $DFLINE == *"Filesystem"* ]]; then
-      echo "System ${DFLINE}<br>"
+      echo "<td>System</td>"
+      #echo "System ${DFLINE}<br>"
+
+      #
+      # Wrap each space separated value in td tag.
+      #
+      # How to loop through space separated values?
+      # Shell Programming and Scripting
+      # https://www.unix.com/shell-programming-and-scripting/173276-how-loop-through-space-separated-values.html
+      #
+      for VALUE in $DFLINE; do
+        echo "<td>${VALUE}</td>"
+#        echo "VALUE=${VALUE}"
+      done
     else
-      echo "${SYSTEMLOWER} ${DFLINE}<br>"
+      echo "<td>${SYSTEMLOWER}</td>"
+      for VALUE in $DFLINE; do
+        echo "<td>${VALUE}</td>"
+#        echo ${DFLINE}<br>"
+      done
     fi
+    echo "</tr>"
   done
 #  echo "End inner loop"
-  echo "</p>"
+#  echo "</p>"
 
 } < /dev/null; done
 
+echo "</table>"
 echo "</body>"
 echo "</html>"
