@@ -87,7 +87,7 @@ ${CAT} ${CREDENTIALS} | ${GREP} -v "#" | while read LINE; do {
       echo "${SYSTEMLOWER} ${DFLINE}<br>"
     fi
   done
-  echo "End inner loop"
+#  echo "End inner loop"
   echo "</p>"
 
 } < /dev/null; done
