@@ -26,6 +26,9 @@ manifest
 packages.txt
   VirtualBox related packages
 
+os/
+  Operating system installation on virtualbox machine
+
 pdf/
   Portable Document Format files
 
