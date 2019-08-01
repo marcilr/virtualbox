@@ -1,0 +1,6 @@
+os.txt
+Created Thu Aug  1 10:55:36 AKDT 2019
+Copyright (C) 2019 by Raymond E. Marcil <marcilr@gmail.com>
+
+
+Operating system installation on virtualbox machine
