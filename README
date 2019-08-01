@@ -14,11 +14,23 @@ Filelist
 00INSTALL/
   Installation of VirtualBox
 
+docs/
+  Documentation
+
 links.txt
   Virtualbox related links
 
 manifest
   Manifest for resync application
+
+packages.txt
+  VirtualBox related packages
+
+pdf/
+  Portable Document Format files
+
+scripting/
+  Scripting in VirtualBox
 
 TODO
   Items for virtualbox
