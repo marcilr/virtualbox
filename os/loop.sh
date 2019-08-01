@@ -56,6 +56,14 @@ echo "<body>"
 echo "<h1>System Disk Usage</h1>"
 
 #
+# Flag used to identify top of table for printing
+# of header with: System, Filesystem, Size, Used,
+# Avail, Use%, and Mounted on.  Only need to print
+# this once then change flag to negative number.
+#
+TOP=1
+
+#
 # Create table to organize disk usage output
 #
 echo "<table>"
@@ -86,31 +94,37 @@ ${CAT} ${CREDENTIALS} | ${GREP} -v "#" | while read LINE; do {
 
   # loop of 'df -h' results omitting  /mnt and /home
 #  echo "<p>"
-  ${SSHPASS} -p "${CREDENTIAL}" ${SSH} root@${SYSTEMLOWER} 'df -h' | ${GREP} -v '/mnt\|/home' | while read DFLINE; do
-    echo "<tr>"
-    if [[ $DFLINE == *"Filesystem"* ]]; then
-      echo "<td>System</td>"
-      #echo "System ${DFLINE}<br>"
 
-      #
-      # Wrap each space separated value in td tag.
-      #
-      # How to loop through space separated values?
-      # Shell Programming and Scripting
-      # https://www.unix.com/shell-programming-and-scripting/173276-how-loop-through-space-separated-values.html
-      #
-      for VALUE in $DFLINE; do
-        echo "<td>${VALUE}</td>"
-#        echo "VALUE=${VALUE}"
-      done
-    else
+  # Print table header manual as not parsing correctly below
+  echo "<tr>"
+  echo "<td>System</td>"
+  echo "<td>Filesystem</td>"
+  echo "<td>Size</td>"
+  echo "<td>Used</td>"
+  echo "<td>Avail</td>"
+  echo "<td>Use%</td>"
+  echo "<td>Mount on</td>"
+  echo "</tr>"
+
+  ${SSHPASS} -p "${CREDENTIAL}" ${SSH} root@${SYSTEMLOWER} 'df -h' | ${GREP} -v '/mnt\|/home' | while read DFLINE; do
+
+      echo "<tr>"
       echo "<td>${SYSTEMLOWER}</td>"
-      for VALUE in $DFLINE; do
-        echo "<td>${VALUE}</td>"
-#        echo ${DFLINE}<br>"
-      done
-    fi
-    echo "</tr>"
+          #
+          # Wrap each space separated value in td tag.
+          #
+          # How to loop through space separated values?
+          # Shell Programming and Scripting
+          # https://www.unix.com/shell-programming-and-scripting/173276-how-loop-through-space-separated-values.html
+          #
+        for VALUE in $DFLINE; do
+          echo "<td>${VALUE}</td>"
+#          echo ${DFLINE}<br>"
+        done
+      echo "</tr>"
+
+      # Set flag to no longer top
+      TOP=-1
   done
 #  echo "End inner loop"
 #  echo "</p>"
