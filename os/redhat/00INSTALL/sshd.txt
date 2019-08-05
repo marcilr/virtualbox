@@ -1,0 +1,112 @@
+sshd.txt
+Created Mon Aug  5 14:17:57 AKDT 2019
+Copyright (C) 2019 by Raymond E. Marcil <marcilr@gmail.com>
+
+
+Installed Red Hat 6 to Oracle VM VirtualBox
+at SOA OIT DNR.
+
+hostname:    cfusion2016.dnr.state.ak.us
+credentials: root/the usual + A#8
+
+ip address:  The initial machine only displays 127.0.0.1
+             for ip address.  Not configured for dhcp or nat yet.
+
+
+Network configuration
+=====================
+This page : http://www.virtualbox.org/manual/ch06.html
+
+covers the virtualbox networking quite well.
+
+NAT - Your host will act as a router (firewall) and your guests
+  will be on a private subnet.  Use this if you are not running
+  servers on the guests.
+
+Bridged - Your guests will get a ip address on the same subnet as
+  your host.  Use this if you are running servers on the guest
+  and wish to connect from other computers on the LAN.
+
+Host Only - Sort of a hybrid.  As the name implies, with this
+  option you can connect to the guest servers from the host only.
+  Use this for "private" (host only) servers.  I use this if I
+  am running a test web server.
+
+To make a long story short, assuming you have a router, I would
+use bridged networking. 
+
+--edited Mar 31 '17 at 17:32, Tor Klingberg
+  answered Jan 12 '12 at 22:44, Panther
+  What are the main differences between VirtualBox networking types? [closed]
+  https://askubuntu.com/questions/95022/what-are-the-main-differences-between-virtualbox-networking-types
+
+In a nutshell looks like Bridged is the way to go.
+
+In virtualbox 6.0.10 r132072 (Qt5.6.2)
+
+1. With vm Powered Off in virtual box configure networking:
+
+right-click Red Hat 6 Clone - 2010805
+select Settings...
+click Network on left
+
+With Adapter 1 tab selected:
+  checked Enable Network Adapter (default)
+    Attached to: Bridged Adapter (updated from NAT)
+           Name: Intel(R) Ethernet Connection (2) I219-LM (default)
+  Advanced:
+    Adapter TYpe:     Intel Pro/1000 MT Desktop (82540EM) (default)
+    Promiscuous Mode: Deny (default)
+    MAC Address:      08002727F812 (default)
+    checked Cable Connected (default)
+
+    Port Forwarding (greyed out).
+
+click OK
+
+Looks good.
+
+2. With bridged networking configured start the machine:
+
+right-click Red Hat 6 Clone - 20190805
+select Start > Normal Start
+
+3. Login to booted Red Hat 6 Clone:
+
+Red Hat Enterprise Linux Server release 6.10 (Santiago)
+Kernel 2.6.32-754.e16.x86_64 on an x86_64
+
+cfusion2016 login: root
+Password:          the usual + A#8
+Last login: Mon Aug  5 14:12;36 on tty1
+[root@cfusion2016 ~]#
+
+4. Configured openssh to start and run at boot:
+
+start ssh daemon:
+# service sshd start
+
+stop ssh daemon (here for completeness):
+# service sshd stop
+
+Run sshd daemon automatically at boot time:
+
+# chkconfig sshd on
+
+5. Restart and verify sshd starts up automatically:
+
+# shutdown -r now
+...
+cfusion2016 login: root
+Password:          the usual + A#8
+Last login: Mon Aug  5 14:12;36 on tty1
+#
+
+# ps aux | grep [s]shd
+root    1532  0.0  0.0  66288  1176 ?    Ss   14:41   0:00 /usr/sbin/sshd
+#
+
+sshd is running on restart.
+
+Looks good.
+
