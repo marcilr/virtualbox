@@ -9,6 +9,8 @@ at SOA OIT DNR.
 hostname:    cfusion2016.dnr.state.ak.us
 credentials: root/the usual + A#8
 
+ip address:  The initial machine only displays 127.0.0.1
+             for ip address.  Not configured for dhcp or nat yet.
 
 right-ctrl to escape installer
 
