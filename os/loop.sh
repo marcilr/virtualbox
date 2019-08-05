@@ -16,6 +16,7 @@ CREDENTIALS=/home/remarcil/.credentials.txt
 # Binaries
 # ========
 CAT=/bin/cat
+DATE=/bin/date
 GREP=/bin/grep
 SED=/bin/sed
 SSH=/usr/bin/ssh
@@ -47,6 +48,11 @@ source ${CREDENTIALS}
 # UNIX & Linux
 # https://unix.stackexchange.com/questions/66154/ssh-causes-while-loop-to-stop
 #
+
+# Get date
+THEDATE=`${DATE}`
+
+
 echo "<!DOCTYPE html>"
 echo "<html>"
 echo "<head>"
@@ -54,6 +60,10 @@ echo "<title>System Disk Usage</title>"
 echo "</head>"
 echo "<body>"
 echo "<h1>System Disk Usage</h1>"
+
+echo "<p>"
+echo "${THEDATE}"
+echo "</p>"
 
 #
 # Flag used to identify top of table for printing
