@@ -1,0 +1,314 @@
+INSTALL
+Created Mon Aug  5 11:07:54 AKDT 2019
+Copyright (C) 2019 by Raymond E. Marcil <marcilr@gmail.com>
+
+
+Installed Red Hat 6 to Oracle VM VirtualBox
+at SOA OIT DNR.
+
+hostname:    cfusion2016.dnr.state.ak.us
+credentials: root/the usual + A#8
+
+
+right-ctrl to escape installer
+
+from: rhel-server-6.10-x86_64-dvd.iso
+
+Red Hat 6 [Running] - Oracle VM VirtualBox
+
+1. At initial Red Hat Enterprise Linux 6
+   splash screen
+
+   click Next
+
+2. At What language would you like to use during
+   the installation process?
+
+   select English (English)
+   click Next
+
+3. At Select the appropriate keyboard for the system.
+
+   select U.S. English
+   click Next
+
+4. At What type of devices will your installation involve?
+
+   x Basic Storage Devices
+     Installs or Updates to typical types of storage devics.
+     If your not sure shich options is right for you this is 
+     probably it.
+
+     Specialized Storage Devices
+     Installed or Upgrades to enterprize devices such as 
+     Storage Area Networks (SANs).  This option will allow 
+     you to add FCoE / iSCSI /zFCP and to filter out devices
+     that installater should ignore.
+
+     click Next
+
+5. Get Storage Device Warning
+
+   The storage device below may contain data
+   
+   ATA VBOX HARDDISK
+   307200.0 MB pci-0000:00:01.1-scsi-0:0:0:0
+
+   We could not detect partitions of filesystems on this device.
+
+   This could be because the device is blank, unpartitioned,
+   or virtual.  If not, there may be data on the device that can
+   not be recovered if you use it in this installation.  We can 
+   remove the device from this installation to protect the data.
+
+   Are you sure this device does not contain valuable data?
+
+   x Apply my choice to all devices with undetected partitions
+     or filesystems
+
+   Yes, discard any data | No, keep any data
+
+   click Yes, discard any data 
+
+6. Please name this computer.  The
+   hostname identifies the computer in a network
+
+   localhost.localdomain
+   ===> cfusion2016.dnr.state.ak.us
+
+   click Next
+
+4. Please select the nearest city in your time zone.
+   Selected city: Anchorage, Amercia (Alaska (most areas))
+
+   America/Anchorage
+
+   x System clock uses UTC
+
+   "Hardware Clock in UTC Time: If selected, Oracle VM VirtualBox
+   will report the system time in UTC format to the guest instead
+   of the local (host) time.  This affects how the virtual real-time
+   clock (RTC) operates and may be useful for UNIX-like guest OSes,
+   which typically expect the hardware clock to be set to UTC."
+
+   --Chapter 3. Configuring Virtual Machine
+     https://www.virtualbox.org/manual/ch03.html
+   
+
+   click Next
+
+5. The root acocunt is used fot administering
+   the sytem.  Enter a password for the root user.
+
+   Root password: the usual + A#8       <===============
+   Confirm:       the usual + A#8
+
+   click Next
+
+6. Which type of installation would you like:
+
+   Use All Space
+   Removes all partitions on selected device(s).  This includes
+   partitions created by other operating systems.
+
+   Tip: This option will remove data from the selected device(s).
+        Make sure you have backups.
+
+x  Replace Existing Linux System(s)
+   Repalces on only Linux partitions (created from a previous Linux
+   installation).  This does not remove other partitions you may
+   have on your storage device(s) (such as VFAT or FAT32).
+
+   Tip: This option will remove data from the selected device(s).
+        Make sure you have backups.
+
+   Shrink Current System
+   Shrinks existing partitions to create free space for the default
+   layout.
+
+   Use Free Space
+   Retains your current data and partitions and uses only the 
+   unpartitioned space on the selected device(s), assuming you
+   have enough free space available.
+
+   Create Custom Layout
+   Manually create your own custom layout on the selected device(s)
+   using out partitioning tool.
+
+   <unchecked> Encrypt system
+   <unchecked> Review and modify paritioning layout
+
+   click Next
+
+7. Below are the storage devices you've selected to be part of this 
+installation.  Please indicate using the arrows below which devices
+you'd like to use as data drives (these will not be formatting, 
+only mounted) and which devices you'd like to use as system drives
+(these may be formatted).  Please also indicate which system drive
+will have the bootloader installed.
+
+Data Storage Devices (to be mounted only)
+Model               Capacity   Vendor   Identifier
+ATA VBOX HARDDISK   307200MB            pci-0000:00:01.1-scsi-0:0:0:0
+ATA VBOX HARDDISK     8192MB            pci-0000:00:0d.0-scsi-0:0:0:0
+
+
+Install Target Devices
+Boot Loader   Model               Capacity   Identifier
+*             ATA VBOX HARDDISK   307200MB   pci-0000:00:01.1-scsi-0:0:0:0
+              ATA VBOX HARDDISK     8192MB   pci-0000:00:0d.0-scsi-0:0:0:0
+
+click Next
+
+
+Tip:  All Linux filesystems on install target devies will be
+      reformatted and wiped of any data.  Make sure you have 
+      backups.
+
+
+8. The default installation of Red Hat Enterprise Linux is basic
+   server install.  You can optionally select a different set of
+   softare now.
+
+   x Basic Server
+     Database Server
+     Web Server
+     Identity Management Server
+     Virtualization Host
+     Desktop
+     Server Development Workstation
+     Minimal
+
+   Please select any additional repositories that you want to use 
+   for software installation.
+
+     High Availability
+     Load Balanceer
+   x Red Hat Enterperise Linux
+     Resilient Storage
+     Scalable Filesystem Support
+     
+     Add additionaal software repositories | Modify repository
+
+     You can further customize the software selection now -
+     or after install via the software managament application
+
+     x Customize later    <unchecked> Customize now
+  
+     click Add additional software repositories
+       <no additional items desired here>
+
+     Back a Basic Server installation
+
+     click Next
+
+9. Watch red Hat instalation
+  red Hat Enterprise Linux 6
+  
+  Ran Dependency check
+  Installation Starting...
+  Packages completed 321 or 672
+  ...
+  Congratulations, your Red Hat Enterprise Linux installation is complete.
+
+  Please reboot to use the installed system.  Note that updates may be
+  available to ensure the proper functioning of you system and installation
+  of these updates is recommented after the reboot.
+
+  click Reboot
+
+
+10. Watch Red Hat Enterprise Liux Server 6.10reboot.
+The login:
+
+Red Hat Enterprise Server release 6.10 (Santiago)
+Kernel 2.6.32-754.el16 on an x86_64
+
+cfusion2016 login: root
+Password:          the usal + A#8
+[root@cfusion2016 ~]#
+
+[root@cfusion2016 ~]# cat /etc/redhat-release
+Red Hat Enterprise Server release 6.10 (Santiago)
+[root@cfusion2016 ~]#
+
+Initial installation of Red Hat looks good.
+
+11. Shutdown and make backup of machine in VirtualBox:
+
+[root@cfusion2016 ~]# shutdown --h now
+...
+shutdown and closed window without issue
+
+12. In VirtualBox clone backup Red Hat 6 machine
+  right-click Powered Off Red Hat 6 
+  select Clone... (ctrl-O)
+  
+13. At Clone Virtual Machine
+  New machine name and path:
+
+  Name: Red Hat 6 Clone - 20190805
+  Path: C:\Users\remarcil\VirtualBox VMs         <=== default
+  MAC Address Policy: Include only NAT network   <=== default
+                      adapter MAC aadresses
+  Additional Options: <unchecked> Keep Disk Names
+                      <unchecked> Keep Hardware UUIDs
+
+  Expert Mode   Next   Cancel
+
+  click Next
+
+14. At Clone type select 'Full clone'
+  Please choose the type of clone you wish to create.
+
+  If you choose Full clone, an exact (including all virtual hard disk
+  files) of the original virtual machine will be created.
+
+  If  you choose Linked clone, a new machine will be created, but the 
+  virtual hard disk files will be tied to the virtual hard disk files
+  of original machine and you will not be able to move the new machine
+  to a different computer without moving the original as well.
+
+  If you create a Linked clone a new snapshot will be created in the 
+  original virtual machine as part of the clsoing process.
+
+  x Full clone
+  Linked clone
+
+  Mon Aug  5 14:00:16 AKDT 2019
+  click Clone
+  Mon Aug  5 14:01:07 AKDT 2019
+
+  Wow, quick clone at 51 seconds
+
+15. In virtualbox power-up then shutdown the Red Hat 6 Clone
+    to verify startup and operation.
+
+  right-click Red Hat 6 Clone - 20190805
+  select Start > Normal Start
+
+  Watch Red Hat boot
+  ...
+  Red Hat Enterprise Linux Server release 6.10 (Santiago)
+  Kernel 2.6.32-754.el6.x86_64 on an x86_64
+
+  cfusion2016 login: root
+  Password:          the usual + A#8
+  [root@cfusion2016 ~]#
+
+  [root@cfusion2016 ~]# shutdown -h now
+  ...
+
+Red Hat 6 Clone looks good
+
+
+
+
+
+Links
+=====
+Beginner Geek: How to Create and Use Virtual Machines
+CHRIS HOFFMAN  @chrisbhoffman 
+JULY 14, 2017, 12:43AM EDT
+Good vitualbox procedure
+https://www.howtogeek.com/196060/beginner-geek-how-to-create-and-use-virtual-machines/
