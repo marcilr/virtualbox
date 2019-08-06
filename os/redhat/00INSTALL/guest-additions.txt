@@ -1,0 +1,212 @@
+guest-additions.txt
+Created Tue Aug  6 13:09:43 AKDT 2019
+Copyright (C) 2019 by Raymond E. Marcil <marcilr@gmail.com>
+
+
+Install virtualbox guest additions, to Red Had 6.10 under
+VirtualBox 6.0 r132072 (Qt5.6.2), such that a folder can
+be shared with the vm.
+
+VirtualBox Guest Additions on Fedora 30/29, CentOS/RHEL 7.6/6.10/5.11
+Updated on May 16, 2019 by JR 320 comments
+
+1. Change root user
+$ su
+#
+
+2. Make sure that you are running latest kernel;
+## CentOS/RHEL 7/6/5 ##
+# yum update kernel*      <=== Did not do this
+
+3. Mount VirtualBox Guest Additions
+In virtualbox window:
+
+select Devices > Insert Guest Additions CD image...
+
+In Red Hat 6 terminal window:
+# mkdir /media/VirtualBoxGuestAdditions
+# mount -r /dev/cdrom /media/VirtualBoxGuestAdditions
+
+worked!
+
+4. Configure networking:
+   i. Configure nameservers
+
+   Update /etc/resolve.conf (same as debian vm):
+     domain dnr.state.ak.us
+     search dnr.state.ak.us
+     nameserver 10.210.0.3
+     nameserver 10.200.3.4
+
+
+   ii. Configure eth0 interface for dhcp:
+   
+    Verify networking enabled:
+      # cat /etc/sysconfig/network
+      NETWORKING=yes
+      HOSTNAME=cfusion2016.dnr.state.ak.us
+      #
+
+      # cat /etc/sysconfig/network-scripts/ifcfg-eth0
+      DEVICE=eth0      <=== required
+      HWADDR=08:00:27:27:F8:12
+      TYPE=ethernet
+      UUID=08ac9417-e4c2-465d-9cf6-7c75f45dd406
+      ONBOOT=no        <=== required, updated to "yes"
+      NM_CONTROLLED=yes
+      BOOTPROTO=dhcp   <=== required
+      #
+
+      --23.3. CONFIGURING A DHCP CLIENT
+        Red Hat Customer Portal
+        https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/5/html/deployment_guide/s1-dhcp-configuring-client
+
+  ii. Reboot and verify ip address configured:
+      # shutdown -r now
+
+      Login again...
+      
+
+      # ip addr ls
+      ...
+      2: eth0:...
+      inet 10.0.2.15/24 brd 10.0.2.255 scope global eth0
+      ...
+      #
+
+      Ip address configuration looks good.
+
+  iii. Verify network connectivity and name lookup:
+    # ping google.com
+    PING google.com (172.217.14.206) 56(84) bytes of data.
+    64 bytes from sea30s01-in-f14.1e100.net (172.217.14.206): icmp_seq=1 ttl=49 time=35.8 ms
+    64 bytes from sea30s01-in-f14.1e100.net (172.217.14.206): icmp_seq=2 ttl=49 time=36.2 ms
+    64 bytes from sea30s01-in-f14.1e100.net (172.217.14.206): icmp_seq=3 ttl=49 time=35.6 ms
+    ^C
+    --- google.com ping statistics ---
+    3 packets transmitted, 3 received, 0% packet loss, time 2221ms
+    rtt min/avg/max/mdev = 35.694/36.931/36.248/0.319 ms
+    #
+
+    Connectivity and name lookup work fine.
+      
+
+4. Install the packages:
+
+i. CentOS/Red Hat (RHEL) 7/6/5, EPEL (Extra Packages for Enterprise Linux)
+repo is needed:
+
+Check if EPEL installed already:
+# rpm -qa | grep epel
+#
+
+Not currently installed.
+
+Hence, install epel:
+
+Test connectivity to dl.fedoraproject.org:
+$ ping dl.fedoraproject.org
+PING dl.fedoraproject.org (209.132.181.25) 56(84) bytes of data.
+64 bytes from dl03.fedoraproject.org (209.132.181.25): icmp_seq=1 ttl=42 time=79.5 ms
+64 bytes from dl03.fedoraproject.org (209.132.181.25): icmp_seq=2 ttl=42 time=79.5 ms
+64 bytes from dl03.fedoraproject.org (209.132.181.25): icmp_seq=3 ttl=42 time=79.6 ms
+^C
+--- dl.fedoraproject.org ping statistics ---
+3 packets transmitted, 3 received, 0% packet loss, time 2968ms
+rtt min/avg/max/mdev = 79.519/79.585/79.699/0.244 ms
+$ 
+
+Looks good
+
+Install EPEL (Extra Packages for Enterprise Linux) package:
+
+## CentOS 6 and Red Hat (RHEL) 6 ##
+# rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-6.noarch.rpm
+curl: (6) Couldn't resolve host 'dl.fedoraproject.org'
+error: skipping https://dl.fedoraproject.org/pub/epel/epel-release-latest-6.noarch.rpm - tranfer failed
+#
+
+Configured networkin now able to install:
+# rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-6.noarch.rpm
+Retrieving: /var/tmp/rpm-tmp.8FrRTC: Header V3 RSA/SHA256 Signature, key ID 0608b895: NOKEY
+Preparing...                   ########################################### [100%]
+   1:epel-release              ########################################### [100%]
+#
+
+# yum list | grep ^epel
+epel-release.noarch      6-8    installed
+epel-rpm-macros.noarch   6-21   epel
+#
+
+List installed package:
+# rpm -qa | grep epel
+epel-release-6-8.noarch
+#
+
+epel insallation looks good
+
+ii. Configure yum repository package source
+    in /etc/yum.conf
+
+    Checking intdev that is running:
+    $  cat /etc/redhat-release 
+    Red Hat Enterprise Linux Server release 6.10 (Santiago)
+    $
+
+    $ cat /etc/yum.conf
+
+ii. Install kernel developement pachages:
+
+## CentOS/RHEL 7/6/5 ##
+# yum install gcc 
+# kernel-devel kernel-headers dkms make bzip2 perl
+
+Broke up above install since dkms required gcc as build dependency.
+
+Note finding gcc, need to configure red hat yum repository.
+
+5. Mount virtual box guest addions virtual cd:
+# mkdir /media/VirtualBoxGuestAdditions
+# mount -r /dev/cdrom /media/VirtualBoxGuestAdditions
+
+worked!
+
+6. Add KERN_DIR environment variable
+
+# cat /etc/etc/redhat-release
+Red Hat Enterprise Linux Server release 6.10 (Santiago)
+#
+
+# /usr/src/kernels/`uname -r`
+-bash: /usr/src/kernels/2,6,32-754.el6.x86_64: No such file or directory
+#
+
+Missing kernel source.
+
+Still need to configure a red har 6.10 source on Red Hat 6 vm.   <===
+
+
+
+
+--Install VirtualBox Guest Additions on Fedora, CentOS and Red Hat (RHEL)
+  www.if-not-true-then-false.com/2010/install-virtualbox-\
+  guest-additions-on-fedora-centos-red-hat-rhel/
+
+
+
+
+Links
+=====
+23.3. CONFIGURING A DHCP CLIENT
+https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/5/html/deployment_guide/s1-dhcp-configuring-client
+
+28.4. CHANGING DOMAIN DNS CONFIGURATION
+https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/identity_management_guide/domain-dns
+
+How to use Extra Packages for Enterprise Linux (EPEL)?
+SOLUTION VERIFIED - Updated November 12 2015 at 5:14 PM - English
+https://access.redhat.com/solutions/3358
+
+VirtualBox Guest Additions on Fedora 30/29, CentOS/RHEL 7.6/6.10/5.11
+Updated on May 16, 2019 by JR 320 comments
+https://www.if-not-true-then-false.com/2010/install-virtualbox-guest-additions-on-fedora-centos-red-hat-rhel/
