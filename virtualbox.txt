@@ -31,10 +31,21 @@ the vote."
 --wikipedia.org/
 
 
+Thu May 16 15:47:36 AKDT 2019
+=============================
+o From SOA OIT DNR yellow notepad:
+
+  Vitualbox VMs deleted:
+  Debian-6.0.6-ORIG-20190110
+  Debian-9.7 (Stretch) - ORIG - 20190206
+  Debian 9.7 (Stretch)
 
 Thu May 16 06:53:18 AKDT 2019
 =============================
-On login to Debian 9.9.0 (Stretch) 20190507 this morning
+o From SOA OIT DNR yellow notepad:
+
+
+o On login to Debian 9.9.0 (Stretch) 20190507 this morning
 observed notification that I am running guest additions
 6.0.6 and should be running 6.0.8.  Thought I had done
 this upgrade yesterday.  Will have another go at it...
