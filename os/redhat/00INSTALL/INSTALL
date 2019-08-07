@@ -12,6 +12,38 @@ credentials: root/the usual + A#8
 ip address:  The initial machine only displays 127.0.0.1
              for ip address.  Not configured for dhcp or nat yet.
 
+
+Tue Aug  6 12:28:30 AKDT 2019
+=============================
+Created Red Hat 6 - 20190805 vm under virtualbox yesterday.
+Now need to install guest additions and get sharing working.
+
+o To install Guest Additons for file share:
+  1. Start lastest Red Hat 6 - 20190806 vm
+     right-click Red Hat 6 - 20190806 > Start > Normal Start
+
+  2. On vm window from menu
+     select Devices > Insert Guest Additions CD Image...
+
+  3. Login to vm as root
+     # mount
+
+     No mounts  under /media/
+
+
+
+o Remove "Clone" from name:
+    "Red Hat 6 Clone - 20190805"
+  To:
+    "Red Hat 6 - 20190806"
+
+NOTE: Had to reclone machine.  Found no way to just rename machine.
+      Not an issue since no changes since first clone yet.
+
+
+
+Mon Aug  5 11:07:54 AKDT 2019
+=============================
 right-ctrl to escape installer
 
 from: rhel-server-6.10-x86_64-dvd.iso
