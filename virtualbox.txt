@@ -30,6 +30,34 @@ VirtualBox was the most popular virtualization product with over 50% of
 the vote."
 --wikipedia.org/
 
+Tue 12 May 2020 06:11:58 PM AKDT
+================================
+Migrate Shena's 18G virtualbox Windows 10 vm
+from her dying dell to malachite:
+
+On malachite:
+$ cd /usr/local
+# mkdir 'VirtualBox VMs'
+# chown root:users 'VirtualBox VMs'
+
+On Shena's dying dell:
+$ cd ~
+$ cd 'VirtualBox VMs'
+$ du -h Windows10V
+217K	Windows10V/Logs
+1.0K	Windows10V/Snapshots
+18G	Windows10V
+$
+$ time tar cvjpf Windows10V-20200512.tar.bz2 Windows10V/
+Windows10V/
+Windows10V/Windows10V.vbox-prev
+Windows10V/Windows10V.vbox
+Windows10V/Windows10V.vdi
+...
+
+$ md5sum Windows10V-20200512.tar.bz2 > Windows10V-20200512.tar.bz2.md5
+
+
 
 Thu May 16 15:47:36 AKDT 2019
 =============================
