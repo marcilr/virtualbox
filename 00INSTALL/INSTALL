@@ -6,6 +6,27 @@ Copyright (C) 2018 by Raymond E. Marcil <marcilr@gmail.com>
 Installation of VirtualBox
 
 
+Tue 12 May 2020 04:36:16 PM AKDT
+================================
+Installed virtualbox 6.1 on malchite for running of
+Shena's windows vm.
+
+Malachite is running:
+  $ cat /etc/debian_version 
+  10.3   <=== Buster
+
+Just downloaded buster version:
+  virtualbox-6.1_6.1.6-137129~Debian~buster_amd64.deb
+  Debian 10 version
+  https://www.virtualbox.org/wiki/Linux_Downloads
+  https://download.virtualbox.org/virtualbox/6.1.6/virtualbox-6.1_6.1.6-137129~Debian~buster_amd64.deb
+
+Linux Distributions
+https://www.virtualbox.org/wiki/Linux_Downloads
+
+VirtualBox 6.1 downloads
+https://www.virtualbox.org/wiki/Downloads
+
 Thu Feb  7 07:30:18 AKST 2019
 =============================
 Updated windows 10 from virtualbox v5.2.22 r126460 (Qt5.6.2) to
