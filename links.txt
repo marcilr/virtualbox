@@ -61,8 +61,16 @@ http://www.makeuseof.com/tag/installing-windows-7-on-a-virtual-machine/
 How to migrate existing Windows installations to VirtualBox
 https://www.virtualbox.org/wiki/Migrate_Windows
 
+How to Share Your Computer’s Files With a Virtual Machine
+CHRIS HOFFMAN  @chrisbhoffman
+JULY 21, 2017, 12:53AM EDT
+https://www.howtogeek.com/189974/how-to-share-your-computers-files-with-a-virtual-machine/#:~:text=Use%20Virtual%20Machines-,VirtualBox,in%20the%20guest%20virtual%20machine.
+
 HOWTOs and tutorials
 https://www.virtualbox.org/wiki/User_HOWTOS
+
+Increase Virtualbox Disk Size For Dynamically Allocated Disks
+https://www.linuxbabe.com/virtualbox/how-to-increase-virtualbox-disk-size-for-dynamically-allocated-disks
 
 Install & docs.
 VirtualBox OSE 3.2.10 is packaged for Squeeze.
@@ -120,6 +128,9 @@ http://www.ubuntugeek.com/create-and-manage-virtual-machines-using-virtualbox.ht
 
 VirtualBox 4.1 for Linux
 http://www.virtualbox.org/wiki/Linux_Downloads
+
+VirtualBox Guest Additions
+https://www.virtualbox.org/manual/ch04.html
 
 VirtualBox Guest OSes
 Windows 7 (32/64-bit) - Works, with Additions
